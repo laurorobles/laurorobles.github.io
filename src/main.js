@@ -1,4 +1,6 @@
 import './style.css';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -389,9 +391,16 @@ document.addEventListener('DOMContentLoaded', () => {
             panTo(targetX, targetY);
         }
 
+        if (winId === 'win-radar' && window.leafletMap) {
+            setTimeout(() => {
+                window.leafletMap.invalidateSize();
+            }, 150);
+        }
+
         syncOpenAllButtons();
         updateCables();
     }
+    window.openWindow = openWindow;
 
     function toggleMaximizeWindow(win) {
         const isMaximized = win.dataset.maximized === 'true';
@@ -441,6 +450,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 fsBtn.innerText = '[❐]';
                 fsBtn.title = 'Restaurar ventana';
             }
+        }
+        if (win.id === 'win-radar' && window.leafletMap) {
+            setTimeout(() => {
+                window.leafletMap.invalidateSize();
+            }, 150);
         }
         updateCables();
     }
@@ -2300,6 +2314,26 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lao/tracks&color=%2300ffff&auto_play=false&hide_related=true",
             links: {
                 web: "https://www.berghain.berlin/de/event/2127/"
+            }
+        },
+        "press-world-map-hub": {
+            id: "press-world-map-hub",
+            title: "Radar Mundial de Giras: 62 Ciudades en 5 Continentes",
+            subtitle: "Cartografía de Presentaciones, Residencias y Festivales (2010–2026)",
+            type: "CARTOGRAFÍA GLOBAL DE GIRAS",
+            year: "2010–2026",
+            cover: "/images/covers/catedral.jpg",
+            desc: "Registro geográfico y telemetría de presentaciones en vivo de Lauro Robles (Lao). Mapeo de más de 62 metrópolis en América del Norte, Sudamérica, Europa Occidental y del Este, y Asia Oriental.",
+            details: [
+                "Nodos Principales: CDMX (Ground Zero), Tokio, Berlín, Barcelona, Nueva York, Montreal, Londres, Shanghái, Bogotá, Buenos Aires",
+                "Templos de Clubbing: Berghain (Säule), Sónar (SónarDome/RBMA), MUTEK Montreal, MoMA PS1 Warm Up NYC, CTM Festival, Circus Tokyo, ALL Beijing, OIL Shenzhen, FINAL Taipei",
+                "Formatos: Live Sets Modulares, DJ Sets Híbridos, Conferencias y Talleres de Producción",
+                "Motor Cartográfico: Leaflet.js con coordenadas geodésicas de alta definición y proyección CartoDB Dark Matter"
+            ],
+            streamType: "soundcloud",
+            streamPayload: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lao/tracks&color=%2300ffff&auto_play=false&hide_related=true",
+            links: {
+                web: "https://laurorobles.github.io"
             }
         },
         "video-the-lot-radio": {
@@ -4305,59 +4339,63 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
         }
     ];
 
-    function projectToMap(lat, lon, width = 1000, height = 500) {
-        const x = ((lon + 180) / 360) * width;
-        const y = ((90 - lat) / 180) * height;
-        return { x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10 };
-    }
+    /* =========================================================
+       WORLD TOUR CYBER RADAR MAP & LEAFLET ENGINE (62 CITIES)
+       ========================================================= */
+    let leafletMap = null;
+    let leafletMarkers = [];
+    let leafletPolylines = [];
+    let activeSelectCity = null;
 
     function initWorldRadar(filterRegion = 'all') {
-        const svgArcs = document.getElementById('radar-flight-arcs');
-        const svgNodes = document.getElementById('radar-city-nodes');
+        const mapEl = document.getElementById('leaflet-radar-map');
         const hudCity = document.getElementById('radar-hud-city');
         const hudCoords = document.getElementById('radar-hud-coords');
         const hudDetails = document.getElementById('radar-hud-details');
         const chipsContainer = document.getElementById('radar-city-chips');
 
-        if (!svgArcs || !svgNodes) return;
+        if (!mapEl) return;
 
-        svgArcs.innerHTML = '';
-        svgNodes.innerHTML = '';
-        if (chipsContainer) chipsContainer.innerHTML = '';
+        // Initialize Leaflet Map once
+        if (!leafletMap) {
+            leafletMap = L.map('leaflet-radar-map', {
+                center: [20, 0],
+                zoom: 2,
+                minZoom: 1.5,
+                maxZoom: 11,
+                zoomControl: true,
+                attributionControl: true
+            });
+
+            // CartoDB Dark Matter tiles (Crisp, High-DPI, Dark cyberpunk aesthetics)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://openstreetmap.org">OSM</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(leafletMap);
+
+            window.leafletMap = leafletMap;
+        }
+
+        // Clear existing markers & polylines
+        leafletMarkers.forEach(m => leafletMap.removeLayer(m));
+        leafletMarkers = [];
+        leafletPolylines.forEach(p => leafletMap.removeLayer(p));
+        leafletPolylines = [];
 
         const cdmxCity = WORLD_TOUR_CITIES.find(c => c.isHQ) || WORLD_TOUR_CITIES[0];
-        const cdmxPos = projectToMap(cdmxCity.lat, cdmxCity.lon);
 
         const visibleCities = WORLD_TOUR_CITIES.filter(city => {
             if (filterRegion === 'all') return true;
             return city.region === filterRegion || city.isHQ;
         });
 
-        const selectCity = (city) => {
+        const selectCity = (city, fly = false) => {
             if (hudCity) hudCity.textContent = `// ${city.name.toUpperCase()}, ${city.country.toUpperCase()} [${city.years}]`;
             if (hudCoords) hudCoords.textContent = `[ LAT ${city.lat.toFixed(2)}°, LON ${city.lon.toFixed(2)}° ]`;
-            if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> ${city.venue}<br><span class="opacity-80">${city.dossier}</span>`;
+            if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> <span class="text-[var(--accent)] font-bold">${city.venue}</span><br><span class="opacity-90">${city.dossier}</span>`;
 
-            // Highlight this city's arc
-            document.querySelectorAll('.radar-flight-arc').forEach(arc => {
-                arc.setAttribute('opacity', '0.12');
-                arc.setAttribute('stroke-width', '1');
-            });
-            const activeArc = document.getElementById(`arc-${city.id}`);
-            if (activeArc) {
-                activeArc.setAttribute('opacity', '1');
-                activeArc.setAttribute('stroke-width', '2.5');
-            }
-
-            // Highlight city blip label
-            document.querySelectorAll('.radar-city-label').forEach(lbl => {
-                if (lbl.getAttribute('data-city-id') === city.id) {
-                    lbl.setAttribute('opacity', '1');
-                    lbl.setAttribute('fill', 'var(--accent)');
-                }
-            });
-
-            // Highlight chip if any
+            // Highlight city chip
             document.querySelectorAll('.radar-city-chip').forEach(ch => {
                 if (ch.getAttribute('data-city-id') === city.id) {
                     ch.classList.add('active-city-chip');
@@ -4366,94 +4404,95 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
                     ch.classList.remove('active-city-chip');
                 }
             });
-        };
 
-        const deselectCity = (city) => {
-            const isHub = city.isHQ || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires'].includes(city.id);
-            const lbl = document.querySelector(`.radar-city-label[data-city-id="${city.id}"]`);
-            if (lbl) {
-                if (filterRegion === 'all' && !isHub) {
-                    lbl.setAttribute('opacity', '0');
+            // Highlight polyline
+            leafletPolylines.forEach(pl => {
+                if (pl._cityId === city.id) {
+                    pl.setStyle({ color: 'var(--accent)', weight: 3, opacity: 1 });
+                    pl.bringToFront();
+                } else {
+                    pl.setStyle({ color: 'var(--main)', weight: 1.2, opacity: 0.25 });
                 }
-                lbl.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
+            });
+
+            if (fly && leafletMap) {
+                leafletMap.flyTo([city.lat, city.lon], Math.max(leafletMap.getZoom(), 4.5), { duration: 1.2 });
             }
         };
+
+        activeSelectCity = selectCity;
 
         visibleCities.forEach(city => {
-            const pos = projectToMap(city.lat, city.lon);
-
-            // Flight trajectory arc from CDMX (Ground Zero)
+            // Geodesic Flight Trajectory from CDMX (Ground Zero)
             if (!city.isHQ) {
-                const midX = (cdmxPos.x + pos.x) / 2;
-                const midY = Math.min(cdmxPos.y, pos.y) - 35;
-                const pathD = `M ${cdmxPos.x} ${cdmxPos.y} Q ${midX} ${midY} ${pos.x} ${pos.y}`;
-
-                const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                pathEl.setAttribute('d', pathD);
-                pathEl.setAttribute('class', 'radar-flight-arc');
-                pathEl.setAttribute('id', `arc-${city.id}`);
-                pathEl.setAttribute('opacity', filterRegion === 'all' ? '0.22' : '0.65');
-                svgArcs.appendChild(pathEl);
+                const polyline = L.polyline([[cdmxCity.lat, cdmxCity.lon], [city.lat, city.lon]], {
+                    color: 'var(--main)',
+                    weight: 1.2,
+                    opacity: filterRegion === 'all' ? 0.22 : 0.65,
+                    dashArray: '3, 6'
+                }).addTo(leafletMap);
+                polyline._cityId = city.id;
+                polyline.on('click', () => selectCity(city, true));
+                polyline.on('mouseover', () => selectCity(city, false));
+                leafletPolylines.push(polyline);
             }
 
-            // City node group
-            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            g.setAttribute('class', 'radar-city-blip');
-            g.setAttribute('data-city-id', city.id);
-            g.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+            // Custom Cyber DivIcon
+            const isHq = !!city.isHQ;
+            const isHub = isHq || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires', 'montreal', 'shanghai'].includes(city.id);
+            const showLabel = filterRegion !== 'all' || isHub;
 
-            // Outer pulsing ring
-            const pulseCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            pulseCircle.setAttribute('class', 'radar-city-pulse');
-            pulseCircle.setAttribute('cx', 0);
-            pulseCircle.setAttribute('cy', 0);
-            pulseCircle.setAttribute('r', city.isHQ ? 7 : 3.5);
-            pulseCircle.setAttribute('fill', 'none');
-            pulseCircle.setAttribute('stroke', city.isHQ ? 'var(--main)' : 'var(--accent)');
-            pulseCircle.setAttribute('stroke-width', city.isHQ ? 2 : 1);
-            g.appendChild(pulseCircle);
+            const iconHtml = `
+                <div class="cyber-marker-wrap" data-city-id="${city.id}">
+                    <div class="cyber-marker-core ${isHq ? 'is-hq' : ''}"></div>
+                    <div class="cyber-marker-ring"></div>
+                    <div class="cyber-marker-label" style="${showLabel ? 'display:block;' : 'display:none;'}">${city.name.toUpperCase()}</div>
+                </div>
+            `;
 
-            // Center beacon
-            const coreCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            coreCircle.setAttribute('class', 'blip-core');
-            coreCircle.setAttribute('cx', 0);
-            coreCircle.setAttribute('cy', 0);
-            coreCircle.setAttribute('r', city.isHQ ? 5 : 2.5);
-            coreCircle.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--accent)');
-            g.appendChild(coreCircle);
+            const customIcon = L.divIcon({
+                className: 'cyber-map-marker',
+                html: iconHtml,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
 
-            // City Label
-            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-            text.setAttribute('x', 6);
-            text.setAttribute('y', 2.5);
-            text.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
-            text.setAttribute('font-size', city.isHQ ? '9.5px' : '7px');
-            text.setAttribute('font-family', 'Iosevka, monospace');
-            text.setAttribute('font-weight', city.isHQ ? 'bold' : 'normal');
-            const isHub = city.isHQ || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires'].includes(city.id);
-            text.setAttribute('opacity', (filterRegion !== 'all' || isHub) ? '0.9' : '0');
-            text.setAttribute('class', 'radar-city-label');
-            text.setAttribute('data-city-id', city.id);
-            text.textContent = city.name.toUpperCase();
-            g.appendChild(text);
+            const marker = L.marker([city.lat, city.lon], { icon: customIcon, title: `${city.name} - ${city.venue}` });
+            marker._cityId = city.id;
+            marker.addTo(leafletMap);
 
-            g.addEventListener('mouseenter', () => selectCity(city));
-            g.addEventListener('mouseleave', () => deselectCity(city));
-            g.addEventListener('click', () => selectCity(city));
+            marker.on('click', () => selectCity(city, true));
+            marker.on('mouseover', () => selectCity(city, false));
+            leafletMarkers.push(marker);
+        });
 
-            svgNodes.appendChild(g);
-
-            // Populate city chip
-            if (chipsContainer) {
+        // Populate Interactive 62-City Chips
+        if (chipsContainer) {
+            chipsContainer.innerHTML = '';
+            visibleCities.forEach(city => {
                 const chip = document.createElement('button');
                 chip.setAttribute('type', 'button');
                 chip.setAttribute('data-city-id', city.id);
-                chip.className = `radar-city-chip text-[7.5px] px-1.5 py-0.5 border border-[var(--circuit)] bg-[rgba(255,255,255,0.03)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors cursor-pointer text-left ${city.isHQ ? 'border-[var(--main)] text-[var(--main)] font-bold' : ''}`;
+                chip.className = `radar-city-chip text-[9.5px] px-2 py-0.5 border border-[var(--circuit)] bg-[rgba(255,255,255,0.03)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors cursor-pointer text-left ${city.isHQ ? 'border-[var(--main)] text-[var(--main)] font-bold' : ''}`;
                 chip.textContent = `${city.name} (${city.country})`;
-                chip.addEventListener('click', () => selectCity(city));
+                chip.addEventListener('click', () => selectCity(city, true));
                 chipsContainer.appendChild(chip);
+            });
+        }
+
+        // Adjust map view depending on region
+        if (filterRegion !== 'all' && leafletMarkers.length > 0) {
+            const group = L.featureGroup(leafletMarkers);
+            if (group.getBounds().isValid()) {
+                leafletMap.fitBounds(group.getBounds().pad(0.2));
             }
-        });
+        } else if (leafletMap) {
+            leafletMap.setView([20, 0], 2);
+        }
+
+        setTimeout(() => {
+            if (leafletMap) leafletMap.invalidateSize();
+        }, 150);
     }
 
     // Setup filter buttons
@@ -4481,14 +4520,35 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
                 c.country.toLowerCase().includes(q) ||
                 c.venue.toLowerCase().includes(q)
             );
-            if (matched) {
-                const cityNode = document.querySelector(`.radar-city-blip[data-city-id="${matched.id}"]`);
-                if (cityNode) {
-                    cityNode.dispatchEvent(new Event('click'));
-                }
+            if (matched && activeSelectCity) {
+                activeSelectCity(matched, true);
             }
         });
     }
+
+    /* =========================================================
+       PRESS CATEGORY FILTERS (HEMEROTECA INTERACTIVE SYSTEM)
+       ========================================================= */
+    document.querySelectorAll('.press-cat-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.press-cat-btn').forEach(b => {
+                b.classList.remove('active-press-cat');
+                b.classList.remove('border-[var(--accent)]');
+            });
+            e.currentTarget.classList.add('active-press-cat');
+            e.currentTarget.classList.add('border-[var(--accent)]');
+
+            const selectedCat = e.currentTarget.getAttribute('data-press-cat') || 'all';
+            document.querySelectorAll('#press-cards-list .press-card').forEach(card => {
+                const categories = (card.getAttribute('data-categories') || '').split(' ');
+                if (selectedCat === 'all' || categories.includes(selectedCat)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
 
     // Initial render of World Radar Map on startup
     initWorldRadar();

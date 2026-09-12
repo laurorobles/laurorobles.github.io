@@ -38,49 +38,50 @@
    OS THEME ENGINE (DAY & NIGHT MODES)
    ========================================================= */
 :root, [data-theme="extasis"], [data-theme="night"] {
-  --bg: #070012; --main: #00FFFF; --accent: #FF00FF;
-  --circuit: rgba(0, 255, 255, 0.018);
-  --card-bg: rgba(12, 2, 25, 0.96); --text-base: #E2E8F0;
-  --header-bg: rgba(0, 0, 0, 0.88);
+  --bg: #0b0c14; --main: #00FFFF; --accent: #FF00FF;
+  --circuit: rgba(0, 255, 255, 0.04);
+  --card-bg: rgba(16, 18, 30, 0.96); --text-base: #E2E8F0;
+  --header-bg: rgba(14, 15, 26, 0.92);
   --btn-hover: rgba(0, 255, 255, 0.15);
 }
 
 [data-theme="day"] {
   --bg: #F7F6F2; --main: #121826; --accent: #E6007A;
-  --circuit: rgba(18, 24, 38, 0.05);
+  --circuit: rgba(18, 24, 38, 0.06);
   --card-bg: rgba(255, 255, 255, 0.98); --text-base: #1E293B;
   --header-bg: rgba(247, 246, 242, 0.96);
   --btn-hover: rgba(230, 0, 122, 0.12);
 }
 
 [data-theme="matrix"] {
-  --bg: #000800; --main: #00FF41; --accent: #008F11;
-  --circuit: rgba(0, 255, 65, 0.02);
-  --card-bg: rgba(0, 12, 0, 0.96); --text-base: #E2E8F0;
-  --header-bg: rgba(0, 8, 0, 0.88);
+  --bg: #060e0a; --main: #00FF41; --accent: #008F11;
+  --circuit: rgba(0, 255, 65, 0.04);
+  --card-bg: rgba(10, 20, 14, 0.96); --text-base: #E2E8F0;
+  --header-bg: rgba(8, 16, 12, 0.92);
   --btn-hover: rgba(0, 255, 65, 0.15);
 }
 
 [data-theme="topy"] {
-  --bg: #050505; --main: #FFFFFF; --accent: #FF0033;
-  --circuit: rgba(255, 255, 255, 0.015);
-  --card-bg: rgba(12, 12, 12, 0.97); --text-base: #D4D4D4;
-  --header-bg: rgba(5, 5, 5, 0.92);
+  --bg: #111115; --main: #FFFFFF; --accent: #FF0033;
+  --circuit: rgba(255, 255, 255, 0.035);
+  --card-bg: rgba(22, 22, 26, 0.97); --text-base: #D4D4D4;
+  --header-bg: rgba(18, 18, 22, 0.92);
   --btn-hover: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="blood"] {
-  --bg: #080000; --main: #FF003C; --accent: #FFAA00;
-  --circuit: rgba(255, 0, 60, 0.02);
-  --card-bg: rgba(18, 0, 0, 0.96); --text-base: #FFD5D5;
-  --header-bg: rgba(8, 0, 0, 0.88);
+  --bg: #14080a; --main: #FF003C; --accent: #FFAA00;
+  --circuit: rgba(255, 0, 60, 0.04);
+  --card-bg: rgba(26, 12, 14, 0.96); --text-base: #FFD5D5;
+  --header-bg: rgba(20, 10, 12, 0.92);
   --btn-hover: rgba(255, 0, 60, 0.15);
 }
 
 body {
   margin: 0; background-color: var(--bg); color: var(--main);
   font-family: 'Iosevka', monospace; overflow: hidden; user-select: none;
-  font-size: 0.76rem; /* Enhanced legibility */
+  font-size: 0.84rem; /* Scaled up for optimal reading comfort */
+  line-height: 1.6;
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
@@ -150,9 +151,9 @@ body {
 
 .dock-item {
   background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-base); font-family: 'Iosevka', monospace; font-size: 10px;
-  font-weight: bold; padding: 3px 6px; cursor: pointer; white-space: nowrap;
-  transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 3.5px;
+  color: var(--text-base); font-family: 'Iosevka', monospace; font-size: 11.5px;
+  font-weight: bold; padding: 4px 7px; cursor: pointer; white-space: nowrap;
+  transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 4px;
 }
 [data-theme="day"] .dock-item { border-color: rgba(0, 0, 0, 0.15); }
 .dock-item:hover {
@@ -254,18 +255,18 @@ body {
 }
 
 .win-header {
-  padding: 6px 10px; background: var(--main); color: var(--bg);
+  padding: 7px 12px; background: var(--main); color: var(--bg);
   font-weight: bold; cursor: grab; display: flex; justify-content: space-between;
-  align-items: center; font-size: 0.74rem; flex-shrink: 0; letter-spacing: 0.5px;
+  align-items: center; font-size: 0.84rem; flex-shrink: 0; letter-spacing: 0.6px;
 }
 .win-header:active { cursor: grabbing; }
-.win-actions { display: flex; align-items: center; gap: 7px; }
-.win-btn { cursor: pointer; transition: opacity 0.15s; font-size: 0.80rem; font-weight: bold; }
+.win-actions { display: flex; align-items: center; gap: 8px; }
+.win-btn { cursor: pointer; transition: opacity 0.15s; font-size: 0.86rem; font-weight: bold; }
 .win-btn:hover { opacity: 0.65; }
 
 .win-body {
-  padding: 12px 14px; color: var(--text-base); flex: 1; overflow-y: auto; display: flex; flex-direction: column;
-  font-size: 11px; line-height: 1.55;
+  padding: 14px 16px; color: var(--text-base); flex: 1; overflow-y: auto; display: flex; flex-direction: column;
+  font-size: 12.5px; line-height: 1.6;
 }
 .win-body::-webkit-scrollbar { width: 4px; }
 .win-body::-webkit-scrollbar-thumb { background: var(--main); }
@@ -643,20 +644,71 @@ body {
 }
 
 /* =========================================================
-   PRESS ARCHIVE & INTERVIEWS
+   PRESS ARCHIVE & INTERVIEWS (DETAILED DOSSIER)
    ========================================================= */
+.press-cat-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--circuit);
+  color: var(--text-base);
+  font-size: 11px;
+  padding: 3.5px 8px;
+  cursor: pointer;
+  font-family: 'Iosevka', monospace;
+  font-weight: bold;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.press-cat-btn:hover, .press-cat-btn.active-press-cat {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.3);
+}
+
 .press-card {
-  border: 1px solid var(--circuit); padding: 9px 12px;
-  background: rgba(0, 0, 0, 0.25); transition: all 0.15s ease;
-  display: flex; flex-direction: column; gap: 4px;
+  border: 1px solid var(--circuit);
+  padding: 12px 14px;
+  background: rgba(18, 20, 32, 0.7);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.55;
 }
 [data-theme="day"] .press-card { background: rgba(0, 0, 0, 0.02); }
 .press-card:hover {
-  border-color: var(--accent); transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  background: rgba(24, 26, 42, 0.85);
+}
+.press-quote {
+  border-left: 2.5px solid var(--accent);
+  padding: 3px 0 3px 10px;
+  margin: 4px 0;
+  font-style: italic;
+  color: var(--main);
+  background: rgba(0, 255, 255, 0.03);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.press-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+.press-topic-badge {
+  font-size: 10px;
+  padding: 1.5px 6.5px;
+  border: 1px solid var(--circuit);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-base);
+  letter-spacing: 0.3px;
 }
 .press-video-wrap {
-  width: 100%; aspect-ratio: 16/9; background: #000;
+  width: 100%; aspect-ratio: 16/9; background: #0b0c14;
   border: 1px solid var(--circuit); overflow: hidden; margin-bottom: 10px;
 }
 
@@ -933,4 +985,119 @@ body {
   border-color: var(--accent) !important;
   font-weight: bold;
 }
+
+/* =========================================================
+   LEAFLET DARK CYBER WORLD MAP
+   ========================================================= */
+#leaflet-radar-map {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #0b0c14;
+  position: relative;
+  z-index: 1;
+}
+
+.leaflet-container {
+  background: #0b0c14 !important;
+  font-family: 'Iosevka', monospace !important;
+}
+
+.leaflet-bar a {
+  background-color: rgba(16, 18, 30, 0.92) !important;
+  color: var(--main) !important;
+  border-color: var(--circuit) !important;
+  transition: all 0.2s ease !important;
+}
+.leaflet-bar a:hover {
+  background-color: var(--accent) !important;
+  color: var(--bg) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(11, 12, 20, 0.85) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 8.5px !important;
+  border-top: 1px solid var(--circuit);
+}
+.leaflet-control-attribution a {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+
+/* Custom Cyber Markers */
+.cyber-map-marker {
+  background: transparent;
+  border: none;
+}
+.cyber-marker-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transform: translate(-12px, -12px);
+  cursor: pointer;
+}
+.cyber-marker-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+.cyber-marker-core.is-hq {
+  width: 12px;
+  height: 12px;
+  background: var(--main);
+  box-shadow: 0 0 16px var(--main);
+}
+.cyber-marker-ring {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: cyberRadarRing 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.cyber-marker-core.is-hq + .cyber-marker-ring {
+  width: 24px;
+  height: 24px;
+  border-color: var(--main);
+}
+@keyframes cyberRadarRing {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+.cyber-marker-label {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(11, 12, 20, 0.9);
+  border: 1px solid var(--circuit);
+  color: var(--text-base);
+  font-size: 9.5px;
+  font-family: 'Iosevka', monospace;
+  white-space: nowrap;
+  padding: 1.5px 5px;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+.cyber-marker-wrap:hover .cyber-marker-core {
+  transform: scale(1.4);
+  background: #ffffff;
+  box-shadow: 0 0 16px #ffffff;
+}
+.cyber-marker-wrap:hover .cyber-marker-label {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(16, 18, 30, 0.98);
+}
+
 

@@ -628,97 +628,42 @@
               <div class="win-body text-[10px] leading-relaxed flex flex-col h-[calc(100%-26px)] p-2 space-y-2 overflow-hidden">
                   
                   <!-- RADAR TOP BAR: REGION CONTROLS & INSTANT SEARCH -->
-                  <div class="flex justify-between items-center flex-wrap gap-1.5 pb-1 border-b border-[var(--circuit)] shrink-0">
-                      <div class="flex items-center gap-1 flex-wrap" id="radar-region-filters">
-                          <button type="button" class="radar-filter-btn active-radar-btn px-1.5 py-0.5 border border-[var(--accent)] text-[8px] font-bold cursor-pointer" data-region="all">TODOS (62)</button>
-                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="mexico">🇲🇽 MÉXICO (9)</button>
-                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="north_america">🇺🇸🇨🇦 USA/CAN (16)</button>
-                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="south_america">🌎 SUDAMÉRICA (7)</button>
-                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="europe">🇪🇺 EUROPA (21)</button>
-                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="asia">🌏 ASIA/INDIA (9)</button>
+                  <div class="flex justify-between items-center flex-wrap gap-2 pb-1.5 border-b border-[var(--circuit)] shrink-0">
+                      <div class="flex items-center gap-1.5 flex-wrap" id="radar-region-filters">
+                          <button type="button" class="radar-filter-btn active-radar-btn px-2 py-1 border border-[var(--accent)] text-[10.5px] font-bold cursor-pointer" data-region="all">TODOS (62)</button>
+                          <button type="button" class="radar-filter-btn px-2 py-1 border border-[var(--circuit)] text-[10.5px] cursor-pointer" data-region="mexico">🇲🇽 MÉXICO (9)</button>
+                          <button type="button" class="radar-filter-btn px-2 py-1 border border-[var(--circuit)] text-[10.5px] cursor-pointer" data-region="north_america">🇺🇸🇨🇦 USA/CAN (16)</button>
+                          <button type="button" class="radar-filter-btn px-2 py-1 border border-[var(--circuit)] text-[10.5px] cursor-pointer" data-region="south_america">🌎 SUDAMÉRICA (7)</button>
+                          <button type="button" class="radar-filter-btn px-2 py-1 border border-[var(--circuit)] text-[10.5px] cursor-pointer" data-region="europe">🇪🇺 EUROPA (21)</button>
+                          <button type="button" class="radar-filter-btn px-2 py-1 border border-[var(--circuit)] text-[10.5px] cursor-pointer" data-region="asia">🌏 ASIA/INDIA (9)</button>
                       </div>
                       <div class="flex items-center gap-1">
-                          <input type="text" id="radar-search-input" placeholder="🔍 Buscar ciudad..." class="bg-[rgba(0,0,0,0.6)] border border-[var(--circuit)] text-[var(--accent)] text-[8.5px] px-2 py-0.5 rounded-none font-mono focus:border-[var(--accent)] outline-none w-44">
+                          <input type="text" id="radar-search-input" placeholder="🔍 Buscar ciudad..." class="bg-[rgba(16,18,30,0.8)] border border-[var(--circuit)] text-[var(--accent)] text-[11px] px-2.5 py-1 rounded-none font-mono focus:border-[var(--accent)] outline-none w-52">
                       </div>
                   </div>
 
-                  <!-- INTERACTIVE VECTOR RADAR MAP CONTAINER -->
-                  <div class="world-radar-container relative w-full flex-1 min-h-[250px] bg-[rgba(5,2,15,0.95)] border border-[var(--circuit)] overflow-hidden">
-                      <!-- SCANLINE / RADAR SWEEP LINE -->
-                      <div class="radar-sweep"></div>
-                      
-                      <!-- SVG VECTOR MAP WITH FLIGHT ARCS & NODES -->
-                      <svg id="world-radar-svg" viewBox="0 0 1000 500" class="w-full h-full">
-                          <defs>
-                              <!-- RADAR BLIP GLOW FILTER -->
-                              <filter id="radar-glow" x="-50%" y="-50%" width="200%" height="200%">
-                                  <feGaussianBlur stdDeviation="3" result="blur" />
-                                  <feMerge>
-                                      <feMergeNode in="blur" />
-                                      <feMergeNode in="SourceGraphic" />
-                                  </feMerge>
-                              </filter>
-                              <linearGradient id="flight-arc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.9" />
-                                  <stop offset="100%" stop-color="var(--main)" stop-opacity="0.95" />
-                              </linearGradient>
-                          </defs>
-
-                          <!-- GRID LINES (LAT / LON) -->
-                          <g class="radar-grid opacity-25" stroke="var(--circuit)" stroke-width="0.5" stroke-dasharray="2,3">
-                              <line x1="0" y1="125" x2="1000" y2="125" />
-                              <line x1="0" y1="250" x2="1000" y2="250" />
-                              <line x1="0" y1="375" x2="1000" y2="375" />
-                              <line x1="200" y1="0" x2="200" y2="500" />
-                              <line x1="400" y1="0" x2="400" y2="500" />
-                              <line x1="600" y1="0" x2="600" y2="500" />
-                              <line x1="800" y1="0" x2="800" y2="500" />
-                          </g>
-
-                          <!-- CONTINENTAL SILHOUETTES (CYBER VECTOR OUTLINE) -->
-                          <g class="radar-landmass" fill="rgba(0, 255, 255, 0.02)" stroke="var(--circuit)" stroke-width="1.2" opacity="0.45">
-                              <!-- North America -->
-                              <path d="M 120 70 L 220 60 L 270 90 L 290 140 L 250 180 L 230 220 L 210 270 L 220 310 L 190 280 L 160 260 L 130 190 L 100 130 Z" />
-                              <!-- South America -->
-                              <path d="M 270 310 L 320 340 L 350 390 L 320 470 L 290 480 L 270 410 L 260 340 Z" />
-                              <!-- Europe -->
-                              <path d="M 460 100 L 530 90 L 560 130 L 510 180 L 460 170 L 450 130 Z" />
-                              <!-- Africa -->
-                              <path d="M 460 200 L 540 200 L 570 280 L 540 370 L 490 380 L 460 270 Z" />
-                              <!-- Asia -->
-                              <path d="M 570 90 L 780 80 L 860 140 L 830 240 L 780 270 L 710 280 L 680 210 L 580 180 Z" />
-                              <!-- Japan & Archipelago -->
-                              <path d="M 870 170 L 890 210 L 875 235 Z" />
-                              <!-- Australia -->
-                              <path d="M 770 340 L 860 330 L 870 410 L 790 420 Z" />
-                          </g>
-
-                          <!-- GEODESIC FLIGHT VECTOR ARCS FROM CDMX -->
-                          <g id="radar-flight-arcs" stroke="url(#flight-arc-grad)" stroke-width="1.2" fill="none" opacity="0.65" stroke-dasharray="4,3">
-                          </g>
-
-                          <!-- CITY RADAR NODES / BEACONS -->
-                          <g id="radar-city-nodes">
-                          </g>
-                      </svg>
+                  <!-- INTERACTIVE LEAFLET DARK CYBER WORLD MAP -->
+                  <div class="world-radar-container relative w-full flex-1 min-h-[300px] border border-[var(--circuit)] overflow-hidden">
+                      <div class="radar-sweep pointer-events-none z-10"></div>
+                      <div id="leaflet-radar-map" class="w-full h-full min-h-[300px]"></div>
                   </div>
 
                   <!-- RADAR TELEMETRY HUD READOUT -->
-                  <div class="radar-hud-readout border border-[var(--circuit)] bg-[rgba(0,0,0,0.7)] p-2 shrink-0 text-[9px] font-mono leading-tight">
-                      <div class="flex justify-between items-center text-[var(--accent)] font-bold mb-1 pb-0.5 border-b border-[var(--circuit)]">
+                  <div class="radar-hud-readout border border-[var(--circuit)] bg-[rgba(16,18,30,0.92)] p-2.5 shrink-0 text-[11.5px] font-mono leading-relaxed shadow-lg">
+                      <div class="flex justify-between items-center text-[var(--accent)] font-bold mb-1 pb-1 border-b border-[var(--circuit)]">
                           <span id="radar-hud-city">// SELECCIONE UN NODO EN EL MAPA O DE LA LISTA INFERIOR</span>
                           <span id="radar-hud-coords" class="text-[var(--main)]">[ LAT / LON ]</span>
                       </div>
-                      <div id="radar-hud-details" class="opacity-85 text-[8.5px]">
+                      <div id="radar-hud-details" class="opacity-90 text-[11px]">
                           Pase el cursor sobre cualquier nodo o haga click para ver los foros, clubes y festivales donde Lauro Robles se ha presentado en todo el mundo.
                       </div>
                   </div>
 
                   <!-- INTERACTIVE 62-CITY CHIPS TRAY -->
-                  <div class="radar-cities-tray border border-[var(--circuit)] bg-[rgba(0,0,0,0.4)] p-1.5 shrink-0 max-h-[90px] overflow-y-auto">
-                      <div class="text-[7.5px] font-bold text-[var(--main)] mb-1 uppercase tracking-widest flex justify-between">
-                          <span>// METRÓPOLIS EN RUTA (CLICK PARA SELECCIONAR CIUDAD):</span>
-                          <span class="opacity-70 text-[7px]">62 CIUDADES / 5 CONTINENTES</span>
+                  <div class="radar-cities-tray border border-[var(--circuit)] bg-[rgba(12,14,24,0.7)] p-2 shrink-0 max-h-[100px] overflow-y-auto">
+                      <div class="text-[9.5px] font-bold text-[var(--main)] mb-1 uppercase tracking-widest flex justify-between">
+                          <span>// METRÓPOLIS EN RUTA (CLICK PARA VOLAR A LA CIUDAD):</span>
+                          <span class="opacity-75 text-[9px]">62 CIUDADES / 5 CONTINENTES</span>
                       </div>
                       <div id="radar-city-chips" class="flex flex-wrap gap-1">
                       </div>
@@ -2120,207 +2065,396 @@ osc.stop(ctx.currentTime + 0.3);
           </div>
 
           <!-- 14. PRESS & INTERVIEWS ARCHIVE -->
-          <div class="drag-window" style="top: 1580px; left: 1470px; width: 460px; height: 430px;" id="win-press">
+          <div class="drag-window" style="top: 1580px; left: 1470px; width: 620px; height: 530px;" id="win-press">
               <div class="win-header">
-                  <span>[14] PRESS_INTERVIEWS_ARCHIVE.doc</span>
+                  <span>[14] HEMEROTECA_PRENSA_Y_CRITICA.doc</span>
                   <div class="win-actions">
                       <span class="win-btn fs-btn" title="Fullscreen">[ ]</span>
                       <span class="win-btn close-btn" title="Cerrar">✕</span>
                   </div>
               </div>
-              <div class="win-body text-[10px] leading-relaxed">
-                  <div class="flex justify-between items-center mb-1.5 pb-1 border-b border-[var(--circuit)] text-[9px] opacity-75">
-                      <span>ENTREVISTAS EN PROFUNDIDAD, VIDEOS & COBERTURA GLOBAL</span>
-                      <span>CLICK PARA LEER / VER</span>
+              <div class="win-body text-[12px] leading-relaxed flex flex-col h-[calc(100%-26px)] p-2.5 overflow-hidden">
+                  
+                  <!-- CURATORIAL EXECUTIVE SUMMARY -->
+                  <div class="press-executive-summary mb-2.5 p-2.5 bg-[var(--header-bg)] border border-[var(--circuit)] text-[12px] leading-relaxed shrink-0">
+                      <div class="flex justify-between items-center mb-1 text-[9.5px] uppercase tracking-wider text-[var(--accent)] font-bold">
+                          <span>// SÍNTESIS CRÍTICA & IMPACTO EDITORIAL (2012–2026)</span>
+                          <span class="text-[var(--main)] font-mono">16+ DOSSIERS GLOBALES</span>
+                      </div>
+                      <p class="mb-1 text-[var(--main)] font-semibold text-[12.5px]">
+                          Dos décadas desafiando la hegemonía de la música electrónica anglosajona desde la Ciudad de México.
+                      </p>
+                      <p class="opacity-90 text-[11.5px]">
+                          A través de perfiles y ensayos en <span class="text-[var(--accent)] font-bold">Crack Magazine</span>, <span class="text-[var(--accent)] font-bold">Resident Advisor</span>, <span class="text-[var(--accent)] font-bold">El País</span>, <span class="text-[var(--accent)] font-bold">Complex</span>, <span class="text-[var(--accent)] font-bold">PAPER</span> y <span class="text-[var(--accent)] font-bold">DIS Magazine</span>, la obra de <strong>Lauro Robles (Lao)</strong> se documenta como eje de la descolonización del clubbing contemporáneo: desde la reivindicación radical del tribal guarachero y la fundación de <strong>NAAFI</strong> hasta la dirección y A&R de <strong>Éxtasis Records</strong>.
+                      </p>
                   </div>
 
-                  <!-- DURO LABEL STUDIO VIDEO INTERVIEW EMBED -->
-                  <div class="mb-2">
-                      <div class="flex justify-between items-center mb-0.5">
-                          <span class="font-bold text-[var(--accent)] text-[10px]">DURO Label (2026) — Studio Interview & Session (CDMX // Reciente)</span>
-                          <span class="inspector-badge text-[7.5px]">VIDEO OFICIAL</span>
-                      </div>
-                      <div class="press-video-wrap">
-                          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/g2qJ3r_4nJ4" title="DURO Label Studio Interview - Lao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" decoding="async"></iframe>
-                      </div>
+                  <!-- CATEGORY FILTER BAR -->
+                  <div class="press-filter-bar flex gap-1.5 mb-2 pb-1.5 border-b border-[var(--circuit)] overflow-x-auto text-[11px] shrink-0">
+                      <button type="button" class="press-cat-btn active-press-cat px-2 py-1 border border-[var(--circuit)] text-[11px] font-bold cursor-pointer" data-press-cat="all">[ TODAS (17) ]</button>
+                      <button type="button" class="press-cat-btn px-2 py-1 border border-[var(--circuit)] text-[11px] font-bold cursor-pointer text-[var(--main)]" data-press-cat="map">[ 🌐 MAPA & GIRAS (6) ]</button>
+                      <button type="button" class="press-cat-btn px-2 py-1 border border-[var(--circuit)] text-[11px] font-bold cursor-pointer" data-press-cat="interviews">[ 🎙 ENTREVISTAS (6) ]</button>
+                      <button type="button" class="press-cat-btn px-2 py-1 border border-[var(--circuit)] text-[11px] font-bold cursor-pointer" data-press-cat="essays">[ 📰 ENSAYOS & CRÍTICA (5) ]</button>
+                      <button type="button" class="press-cat-btn px-2 py-1 border border-[var(--circuit)] text-[11px] font-bold cursor-pointer" data-press-cat="sessions">[ 📻 RADIOS & SESIONES (4) ]</button>
                   </div>
 
-                  <!-- PRESS ARTICLES LIST -->
-                  <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
-                      <!-- 1. DURO -->
-                      <div class="press-card clickable-item" data-item-id="press-duro-2022">
-                          <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">VIDEO ENTREVISTA & SESIÓN</span>
-                              <span class="text-[8px] font-bold text-[var(--accent)]">Agosto 2026 (Reciente • Hace unas semanas) • CDMX</span>
+                  <!-- SCROLLABLE PRESS CARDS LIST -->
+                  <div class="space-y-2.5 overflow-y-auto pr-1.5 flex-1" id="press-cards-list">
+
+                      <!-- DURO LABEL STUDIO VIDEO INTERVIEW EMBED (Visible in All & Interviews) -->
+                      <div class="press-card mb-2" data-categories="all interviews">
+                          <div class="flex justify-between items-center mb-1">
+                              <span class="font-bold text-[var(--accent)] text-[11px]">DURO Label (2026) — Studio Interview & Session (CDMX // Reciente)</span>
+                              <span class="inspector-badge text-[8.5px]">VIDEO OFICIAL</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">DURO Label: En el Estudio con Lauro Robles (2026)</strong>
-                          <p class="opacity-80 text-[9px]">Charla en profundidad sobre el método de producción, deconstrucción rítmica en Ableton, síntesis FM y la evolución del club underground en México.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ VER DOSSIER & VIDEO ↗ ]</div>
+                          <div class="press-video-wrap">
+                              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/g2qJ3r_4nJ4" title="DURO Label Studio Interview - Lao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" decoding="async"></iframe>
+                          </div>
+                      </div>
+
+                      <!-- 0. WORLD TOUR CARTOGRAPHY HUB (MAP CATEGORY HERO) -->
+                      <div class="press-card clickable-item" data-categories="all map" data-item-id="press-world-map-hub">
+                          <div class="flex justify-between items-start">
+                              <span class="inspector-badge text-[8px] bg-[var(--accent)] text-[var(--bg)] font-bold">CARTOGRAFÍA GLOBAL DE GIRAS</span>
+                              <span class="text-[9px] font-bold text-[var(--accent)]">62 CIUDADES • 5 CONTINENTES</span>
+                          </div>
+                          <strong class="text-[var(--accent)] block text-[13px]">Radar Mundial: 15+ Años de Giras Transcontinentales</strong>
+                          <div class="press-quote">
+                              "La música de club periférica ya no pide permiso en los centros metropolitanos globales: establece su propio centro gravitacional."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Mapeo satelital y telemetría de presentaciones en Berghain (Berlín), Sónar (Barcelona), Red Bull Music Academy (Tokio), MUTEK Montreal, MoMA PS1 Warm Up (NYC), CTM Festival, Boiler Room (CDMX/Londres), ALL (Shanghái) y Circus (Tokio).</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Giras Internacionales]</span>
+                              <span class="press-topic-badge">[Berghain]</span>
+                              <span class="press-topic-badge">[Sónar]</span>
+                              <span class="press-topic-badge">[Asia Tour]</span>
+                              <span class="press-topic-badge">[Cartografía Geodésica]</span>
+                          </div>
+                          <div class="flex justify-between items-center pt-1 border-t border-[var(--circuit)] text-[10px]">
+                              <button type="button" class="font-bold text-[var(--main)] border border-[var(--main)] px-2 py-0.5 hover:bg-[var(--main)] hover:text-[var(--bg)] transition-colors cursor-pointer" onclick="if(window.openWindow) window.openWindow('win-radar'); event.stopPropagation();">[ 🌐 ABRIR RADAR MUNDIAL ]</button>
+                              <span class="text-[var(--accent)] font-bold">[ VER DETALLES GEODÉSICOS ↗ ]</span>
+                          </div>
+                      </div>
+
+                      <!-- 1. DURO Card -->
+                      <div class="press-card clickable-item" data-categories="all interviews" data-item-id="press-duro-2022">
+                          <div class="flex justify-between items-start">
+                              <span class="inspector-badge text-[8px]">VIDEO ENTREVISTA & SESIÓN</span>
+                              <span class="text-[9px] font-bold text-[var(--accent)]">Agosto 2026 (Reciente • CDMX)</span>
+                          </div>
+                          <strong class="text-[var(--accent)] block text-[13px]">DURO Label: En el Estudio con Lauro Robles (2026)</strong>
+                          <div class="press-quote">
+                              "En el club latinoamericano la polirritmia no es adorno técnico; es la arquitectura misma de cómo se mueven los cuerpos."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Charla en profundidad sobre el método de producción, deconstrucción rítmica en Ableton Live, síntesis FM y la evolución del club underground en México y América Latina.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Ableton Live]</span>
+                              <span class="press-topic-badge">[Deconstrucción Rítmica]</span>
+                              <span class="press-topic-badge">[Síntesis FM]</span>
+                              <span class="press-topic-badge">[Extasis Records]</span>
+                              <span class="press-topic-badge">[Club CDMX]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ VER DOSSIER & DETALLES ↗ ]</div>
                       </div>
 
                       <!-- 2. Crack Magazine -->
-                      <div class="press-card clickable-item" data-item-id="press-crack-mag">
+                      <div class="press-card clickable-item" data-categories="all interviews map" data-item-id="press-crack-mag">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">LONG READ PROFILE</span>
-                              <span class="text-[8px] opacity-75">Crack Mag (UK)</span>
+                              <span class="inspector-badge text-[8px]">LONG READ PROFILE</span>
+                              <span class="text-[9px] opacity-75">Crack Mag (UK)</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Crack Magazine: Subverting the Electronic Underground</strong>
-                          <p class="opacity-80 text-[9px]">Perfil extenso sobre Lauro Robles y la génesis estética de NAAFI: cómo un colectivo independiente de la Ciudad de México transformó las pistas globales.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER ARTÍCULO COMPLETO ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Crack Magazine: Subverting the Electronic Underground</strong>
+                          <div class="press-quote">
+                              "How a DIY collective from Mexico City hijacked global dancefloors and rewritten the rules of club culture."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Perfil extenso sobre Lauro Robles y la génesis estética de NAAFI: cómo un colectivo independiente de la Ciudad de México transformó las pistas de baile y festivales de todo el planeta.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[NAAFI Co-fundador]</span>
+                              <span class="press-topic-badge">[Latin Club]</span>
+                              <span class="press-topic-badge">[Subversión Sonora]</span>
+                              <span class="press-topic-badge">[UK Press]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER ARTÍCULO COMPLETO ↗ ]</div>
                       </div>
 
                       <!-- 3. XLR8R Podcast 626 -->
-                      <div class="press-card clickable-item" data-item-id="press-xlr8r-626">
+                      <div class="press-card clickable-item" data-categories="all sessions" data-item-id="press-xlr8r-626">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">PODCAST & FEATURE</span>
-                              <span class="text-[8px] opacity-75">XLR8R 626</span>
+                              <span class="inspector-badge text-[8px]">PODCAST & FEATURE</span>
+                              <span class="text-[9px] opacity-75">XLR8R 626</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">XLR8R Podcast 626: Sonic Cartography & Studio Methodology</strong>
-                          <p class="opacity-80 text-[9px]">Entrevista y sesión retrospectiva que mapea dos décadas de producción, diseño sonoro modular y activismo de clubbing independiente.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ ESCUCHAR & LEER ENTREVISTA ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">XLR8R Podcast 626: Sonic Cartography & Studio Methodology</strong>
+                          <div class="press-quote">
+                              "Two decades of sonic resistance: from early modular experiments to pioneering Latin bass mutations."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Entrevista y sesión retrospectiva que mapea dos décadas de producción, diseño sonoro modular y activismo de clubbing independiente en recintos subterráneos.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Podcast 626]</span>
+                              <span class="press-topic-badge">[Diseño Sonoro]</span>
+                              <span class="press-topic-badge">[Modular]</span>
+                              <span class="press-topic-badge">[Metodología]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ ESCUCHAR & LEER ENTREVISTA ↗ ]</div>
                       </div>
 
                       <!-- 4. Vice / THUMP -->
-                      <div class="press-card clickable-item" data-item-id="press-vice-thump">
+                      <div class="press-card clickable-item" data-categories="all interviews" data-item-id="press-vice-thump">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">CRÓNICA / ENTREVISTA</span>
-                              <span class="text-[8px] opacity-75">Vice / THUMP</span>
+                              <span class="inspector-badge text-[8px]">CRÓNICA FUNDACIONAL</span>
+                              <span class="text-[9px] opacity-75">Vice / THUMP</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">THUMP: "La futurología de Lao"</strong>
-                          <p class="opacity-80 text-[9px]">Ensayo y entrevista seminal sobre la aceleración del tribal guarachero, la resistencia cultural y el nacimiento de las fiestas periféricas en México.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER ARTÍCULO ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">THUMP: "La futurología de Lao"</strong>
+                          <div class="press-quote">
+                              "No estamos imitando el techno europeo ni el trap gringo; estamos construyendo la banda sonora de la aceleración urbana mexicana."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Ensayo y entrevista seminal sobre la aceleración del tribal guarachero, la resistencia cultural y el nacimiento de las fiestas periféricas que redefinieron la noche en México.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Tribal Guarachero]</span>
+                              <span class="press-topic-badge">[Futurología]</span>
+                              <span class="press-topic-badge">[Resistencia Cultural]</span>
+                              <span class="press-topic-badge">[THUMP]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER ARTÍCULO ↗ ]</div>
                       </div>
 
                       <!-- 5. Resident Advisor -->
-                      <div class="press-card clickable-item" data-item-id="press-resident-advisor">
+                      <div class="press-card clickable-item" data-categories="all essays" data-item-id="press-resident-advisor">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">LABEL OF THE MONTH</span>
-                              <span class="text-[8px] opacity-75">Resident Advisor</span>
+                              <span class="inspector-badge text-[8px]">LABEL OF THE MONTH</span>
+                              <span class="text-[9px] opacity-75">Resident Advisor</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">Resident Advisor: NAAFI & the Mexican Bass Revolution</strong>
-                          <p class="opacity-80 text-[9px]">Reportaje central sobre el colectivo NAAFI, con enfoque en Lauro Robles como co-fundador, productor y arquitecto sonoro del sonido de club.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ LEER EN RESIDENT ADVISOR ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">Resident Advisor: NAAFI & the Mexican Bass Revolution</strong>
+                          <div class="press-quote">
+                              "Lauro Robles operates as the musical anchor of NAAFI, dissecting rhythms with surgical precision."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Reportaje central sobre el colectivo NAAFI, con enfoque en Lauro Robles como co-fundador, productor y arquitecto sonoro del sonido de club latino a nivel global.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Resident Advisor]</span>
+                              <span class="press-topic-badge">[Mexican Bass]</span>
+                              <span class="press-topic-badge">[Club Culture]</span>
+                              <span class="press-topic-badge">[Arquitectura Sonora]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ LEER EN RESIDENT ADVISOR ↗ ]</div>
                       </div>
 
                       <!-- 6. Remezcla -->
-                      <div class="press-card clickable-item" data-item-id="press-remezcla">
+                      <div class="press-card clickable-item" data-categories="all essays" data-item-id="press-remezcla">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">RETROSPECTIVA DECENAL</span>
-                              <span class="text-[8px] opacity-75">Remezcla</span>
+                              <span class="inspector-badge text-[8px]">RETROSPECTIVA DECENAL</span>
+                              <span class="text-[9px] opacity-75">Remezcla</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Remezcla: 10 Years of NAAFI — How Lao Shaped Latin Bass</strong>
-                          <p class="opacity-80 text-[9px]">Crónica conmemorativa de 10 años explorando cómo el trabajo pionero de Lao redefinió el canon de la música electrónica latinoamericana contemporánea.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER EN REMEZCLA ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Remezcla: 10 Years of NAAFI — How Lao Shaped Latin Bass</strong>
+                          <div class="press-quote">
+                              "Lao didn't just participate in the Latin electronic boom—he drafted its blueprint and codified its rhythms."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Crónica conmemorativa de 10 años explorando cómo el trabajo pionero de Lao redefinió el canon de la música electrónica latinoamericana contemporánea.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[10 Años NAAFI]</span>
+                              <span class="press-topic-badge">[Latin Bass]</span>
+                              <span class="press-topic-badge">[Pioneros]</span>
+                              <span class="press-topic-badge">[Remezcla NYC]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER EN REMEZCLA ↗ ]</div>
                       </div>
 
                       <!-- 7. El País -->
-                      <div class="press-card clickable-item" data-item-id="press-el-pais">
+                      <div class="press-card clickable-item" data-categories="all essays" data-item-id="press-el-pais">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">PRENSA INTERNACIONAL</span>
-                              <span class="text-[8px] opacity-75">El País (España / México)</span>
+                              <span class="inspector-badge text-[8px]">PRENSA INTERNACIONAL</span>
+                              <span class="text-[9px] opacity-75">El País (España / México)</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">El País: El sonido mexicano que desafió las pistas globales</strong>
-                          <p class="opacity-80 text-[9px]">Cobertura periodística del impacto internacional del clubbing mexicano, la presentación en Sónar Barcelona y la ruptura con los cánones anglosajones.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ LEER EN EL PAÍS ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">El País: El sonido mexicano que desafió las pistas globales</strong>
+                          <div class="press-quote">
+                              "El éxodo sónico de la Ciudad de México conquista Europa sin pedir concesiones estéticas."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Cobertura periodística del impacto internacional del clubbing mexicano, la presentación en Sónar Barcelona y la ruptura con los cánones hegemónicos europeos.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[El País]</span>
+                              <span class="press-topic-badge">[Sónar Barcelona]</span>
+                              <span class="press-topic-badge">[Descolonización]</span>
+                              <span class="press-topic-badge">[Crítica]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ LEER EN EL PAÍS ↗ ]</div>
                       </div>
 
                       <!-- 8. Indie Rocks! (2015) -->
-                      <div class="press-card clickable-item" data-item-id="press-indie-rocks">
+                      <div class="press-card clickable-item" data-categories="all interviews map" data-item-id="press-indie-rocks">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">ENTREVISTA POST-SÓNAR</span>
-                              <span class="text-[8px] opacity-75">Indie Rocks! (2015)</span>
+                              <span class="inspector-badge text-[8px]">ENTREVISTA POST-SÓNAR</span>
+                              <span class="text-[9px] opacity-75">Indie Rocks! (2015)</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Indie Rocks!: Lao y la consagración en Sónar Barcelona</strong>
-                          <p class="opacity-80 text-[9px]">Entrevista tras la histórica presentación solo de 'Catedral EP' en el SónarDome (Red Bull Music Academy), abriendo brecha para la electrónica mexicana en Europa.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER ENTREVISTA ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Indie Rocks!: Lao y la consagración en Sónar Barcelona</strong>
+                          <div class="press-quote">
+                              "Llegar al SónarDome con 'Catedral EP' fue demostrar que la música de baile mexicana tiene peso intelectual y visceral."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Entrevista tras la histórica presentación en solitario de 'Catedral EP' en el SónarDome (Red Bull Music Academy), abriendo brecha definitiva para la electrónica mexicana en Europa.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Sónar Barcelona]</span>
+                              <span class="press-topic-badge">[Catedral EP]</span>
+                              <span class="press-topic-badge">[RBMA]</span>
+                              <span class="press-topic-badge">[Gira Europea]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER ENTREVISTA ↗ ]</div>
                       </div>
 
                       <!-- 9. NTS Radio x Sonos -->
-                      <div class="press-card clickable-item" data-item-id="press-nts-sonos">
+                      <div class="press-card clickable-item" data-categories="all sessions" data-item-id="press-nts-sonos">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">BROADCAST & CONVERSACIÓN</span>
-                              <span class="text-[8px] opacity-75">NTS Radio / Sonos</span>
+                              <span class="inspector-badge text-[8px]">BROADCAST & CONVERSACIÓN</span>
+                              <span class="text-[9px] opacity-75">NTS Radio / Sonos</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">NTS Radio x Sonos: Explorations in Latin Bass</strong>
-                          <p class="opacity-80 text-[9px]">Charla curatorial y sesión sonora analizando las mutaciones polirrítmicas entre el Caribe, el Río de la Plata y las pistas clandestinas de la CDMX.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ ESCUCHAR EN NTS ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">NTS Radio x Sonos: Explorations in Latin Bass</strong>
+                          <div class="press-quote">
+                              "Mapping the rhizomatic polyrhythms between the Caribbean, the River Plate, and clandestine DF venues."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Charla curatorial y sesión sonora analizando las mutaciones polirrítmicas entre el Caribe, el Río de la Plata y las pistas clandestinas de la CDMX.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[NTS Radio]</span>
+                              <span class="press-topic-badge">[Sonos]</span>
+                              <span class="press-topic-badge">[Polirritmia]</span>
+                              <span class="press-topic-badge">[Cartografía Sonora]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ ESCUCHAR EN NTS ↗ ]</div>
                       </div>
 
                       <!-- 10. Complex Magazine -->
-                      <div class="press-card clickable-item" data-item-id="press-complex">
+                      <div class="press-card clickable-item" data-categories="all interviews" data-item-id="press-complex">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">LONG READ / ENTREVISTA</span>
-                              <span class="text-[8px] opacity-75">Complex Magazine (USA)</span>
+                              <span class="inspector-badge text-[8px]">LONG READ / ENTREVISTA</span>
+                              <span class="text-[9px] opacity-75">Complex Magazine (USA)</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Complex: Lao on NAAFI, Mexico City's Underground & Global Bass</strong>
-                          <p class="opacity-80 text-[9px]">Extensa entrevista por Cedar Pasori donde Lao desmenuza la génesis de NAAFI, la descentralización de la electrónica anglosajona y el auge del clubbing clandestino.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER EN COMPLEX ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Complex: Lao on NAAFI, Mexico City's Underground & Global Bass</strong>
+                          <div class="press-quote">
+                              "We are not exotic party music for foreigners. We are making serious, uncompromising electronic club music."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Extensa entrevista por Cedar Pasori donde Lao desmenuza la génesis de NAAFI, la descentralización de la electrónica anglosajona y el auge del clubbing clandestino.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Complex]</span>
+                              <span class="press-topic-badge">[Cedar Pasori]</span>
+                              <span class="press-topic-badge">[Global Bass]</span>
+                              <span class="press-topic-badge">[Club Underground]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER EN COMPLEX ↗ ]</div>
                       </div>
 
                       <!-- 11. PAPER Magazine -->
-                      <div class="press-card clickable-item" data-item-id="press-paper">
+                      <div class="press-card clickable-item" data-categories="all interviews" data-item-id="press-paper">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">PERFIL INTERNACIONAL</span>
-                              <span class="text-[8px] opacity-75">PAPER Magazine (NYC)</span>
+                              <span class="inspector-badge text-[8px]">PERFIL INTERNACIONAL</span>
+                              <span class="text-[9px] opacity-75">PAPER Magazine (NYC)</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">PAPER Magazine: How Lao & NAAFI Redefined Global Club Culture</strong>
-                          <p class="opacity-80 text-[9px]">Reportaje sobre cómo la estética visceral de Lao y el movimiento de club latino quebraron la hegemonía europea en los festivales de vanguardia.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ LEER EN PAPER MAG ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">PAPER Magazine: How Lao & NAAFI Redefined Global Club Culture</strong>
+                          <div class="press-quote">
+                              "A sonic movement that dismantled the Anglo-European monopoly on electronic vanguard music."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Reportaje sobre cómo la estética visceral de Lao y el movimiento de club latino quebraron la hegemonía europea en los festivales de vanguardia.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[PAPER Mag]</span>
+                              <span class="press-topic-badge">[Vanguardia]</span>
+                              <span class="press-topic-badge">[Club Culture]</span>
+                              <span class="press-topic-badge">[NYC]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ LEER EN PAPER MAG ↗ ]</div>
                       </div>
 
                       <!-- 12. AVYSS Magazine (Japan) -->
-                      <div class="press-card clickable-item" data-item-id="press-avyss-japan">
+                      <div class="press-card clickable-item" data-categories="all interviews map" data-item-id="press-avyss-japan">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">TOKYO TOUR FEATURE</span>
-                              <span class="text-[8px] opacity-75">AVYSS Magazine (Japón)</span>
+                              <span class="inspector-badge text-[8px]">TOKYO TOUR FEATURE</span>
+                              <span class="text-[9px] opacity-75">AVYSS Magazine (Japón)</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">AVYSS Magazine: Lao & Nick Hook — Tokyo Tour & Circus Tokyo</strong>
-                          <p class="opacity-80 text-[9px]">Crónica del desembarco en Japón: intercambio transpacífico entre los clubes de Shibuya, el clubbing de Tokio y la cadencia de la Ciudad de México.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER EN AVYSS ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">AVYSS Magazine: Lao & Nick Hook — Tokyo Tour & Circus Tokyo</strong>
+                          <div class="press-quote">
+                              "Shibuya club nights vibrating under the weight of Latin polyrhythms and sub-bass frequencies."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Crónica del desembarco en Japón: intercambio transpacífico entre los clubes de Shibuya, el clubbing de Tokio y la cadencia de la Ciudad de México.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Circus Tokyo]</span>
+                              <span class="press-topic-badge">[Japón Tour]</span>
+                              <span class="press-topic-badge">[Nick Hook]</span>
+                              <span class="press-topic-badge">[AVYSS]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER EN AVYSS ↗ ]</div>
                       </div>
 
                       <!-- 13. DIS Magazine -->
-                      <div class="press-card clickable-item" data-item-id="press-dis-mag">
+                      <div class="press-card clickable-item" data-categories="all essays" data-item-id="press-dis-mag">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">CRÍTICA CULTURAL</span>
-                              <span class="text-[8px] opacity-75">DIS Magazine (NYC)</span>
+                              <span class="inspector-badge text-[8px]">CRÍTICA CULTURAL</span>
+                              <span class="text-[9px] opacity-75">DIS Magazine (NYC)</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">DIS Magazine: "NAAFI Gave Tribal the Compilation It Deserved"</strong>
-                          <p class="opacity-80 text-[9px]">Ensayo teórico fundamental sobre la compilación de Tribal Guarachero y la reivindicación de ritmos periféricos acelerados hacia el circuito de arte contemporáneo.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ LEER EN DIS MAGAZINE ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">DIS Magazine: "NAAFI Gave Tribal the Compilation It Deserved"</strong>
+                          <div class="press-quote">
+                              "Elevating peripheral hyper-accelerated rhythms into the global contemporary art and sound design discourse."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Ensayo teórico fundamental sobre la compilación de Tribal Guarachero y la reivindicación de ritmos periféricos acelerados hacia el circuito de arte contemporáneo.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[DIS Mag]</span>
+                              <span class="press-topic-badge">[Tribal Guarachero]</span>
+                              <span class="press-topic-badge">[Teoría de Club]</span>
+                              <span class="press-topic-badge">[Crítica Cultural]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ LEER EN DIS MAGAZINE ↗ ]</div>
                       </div>
 
                       <!-- 14. Beatburguer (Spain) -->
-                      <div class="press-card clickable-item" data-item-id="press-beatburguer">
+                      <div class="press-card clickable-item" data-categories="all essays" data-item-id="press-beatburguer">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">ANÁLISIS DE PISTAS</span>
-                              <span class="text-[8px] opacity-75">Beatburguer (España)</span>
+                              <span class="inspector-badge text-[8px]">ANÁLISIS DE PISTAS</span>
+                              <span class="text-[9px] opacity-75">Beatburguer (España)</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Beatburguer: TRILL Squad acerca la esencia de NAAFI en 8 tracks</strong>
-                          <p class="opacity-80 text-[9px]">Análisis curatorial de los 8 cortes esenciales de NAAFI con especial énfasis en las producciones y remezclas clave de Lauro Robles.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ LEER EN BEATBURGUER ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Beatburguer: TRILL Squad acerca la esencia de NAAFI en 8 tracks</strong>
+                          <div class="press-quote">
+                              "El catálogo de NAAFI desmenuzado a través de las arquitecturas rítmicas diseñadas por Lao."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Análisis curatorial de los 8 cortes esenciales de NAAFI con especial énfasis en las producciones y remezclas clave de Lauro Robles.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Beatburguer]</span>
+                              <span class="press-topic-badge">[TRILL]</span>
+                              <span class="press-topic-badge">[Análisis Musical]</span>
+                              <span class="press-topic-badge">[Club Edits]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ LEER EN BEATBURGUER ↗ ]</div>
                       </div>
 
                       <!-- 15. The Lot Radio NYC -->
-                      <div class="press-card clickable-item" data-item-id="press-the-lot-radio">
+                      <div class="press-card clickable-item" data-categories="all sessions map" data-item-id="press-the-lot-radio">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">LIVE BROADCAST (NYC)</span>
-                              <span class="text-[8px] opacity-75">The Lot Radio (Brooklyn)</span>
+                              <span class="inspector-badge text-[8px]">LIVE BROADCAST (NYC)</span>
+                              <span class="text-[9px] opacity-75">The Lot Radio (Brooklyn)</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10.5px]">The Lot Radio: Rendezvous with Lao Naafi (Brooklyn, NYC - 2023)</strong>
-                          <p class="opacity-80 text-[9px]">Sesión de 60 minutos transmitida en directo desde Greenpoint, Brooklyn: deconstrucción polirrítmica, dembow cinético y edits de club inéditos.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ VER VIDEO & SESIÓN ↗ ]</div>
+                          <strong class="text-[var(--accent)] block text-[13px]">The Lot Radio: Rendezvous with Lao Naafi (Brooklyn, NYC - 2023)</strong>
+                          <div class="press-quote">
+                              "60 minutes of kinetic dembow deconstruction, unreleased dubplates, and raw industrial Latin club."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Sesión de 60 minutos transmitida en directo desde Greenpoint, Brooklyn: deconstrucción polirrítmica, dembow cinético y edits de club inéditos.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[The Lot Radio]</span>
+                              <span class="press-topic-badge">[Brooklyn]</span>
+                              <span class="press-topic-badge">[NYC]</span>
+                              <span class="press-topic-badge">[Dembow Deconstruido]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--main)] font-bold pt-1">[ VER VIDEO & SESIÓN ↗ ]</div>
                       </div>
 
                       <!-- 16. Berghain Säule VIII -->
-                      <div class="press-card clickable-item" data-item-id="press-berghain-saule">
+                      <div class="press-card clickable-item" data-categories="all sessions map" data-item-id="press-berghain-saule">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px]">LIVE ARCHIVE (BERLÍN)</span>
-                              <span class="text-[8px] opacity-75">Berghain / Säule VIII</span>
+                              <span class="inspector-badge text-[8px]">LIVE ARCHIVE (BERLÍN)</span>
+                              <span class="text-[9px] opacity-75">Berghain / Säule VIII</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10.5px]">Berghain: Säule VIII — Lao, Mexican Jihad, Dinamarca (2017)</strong>
-                          <p class="opacity-80 text-[9px]">Registro histórico de la noche en la sala experimental Säule del mítico templo berlinés, fusionando bass experimental latinoamericano y clubbing europeo.</p>
-                          <div class="flex justify-end text-[8.5px] text-[var(--accent)] font-bold">[ VER ARCHIVO DE BERGHAIN ↗ ]</div>
+                          <strong class="text-[var(--main)] block text-[13px]">Berghain: Säule VIII — Lao, Mexican Jihad, Dinamarca (2017)</strong>
+                          <div class="press-quote">
+                              "The historic night at Berghain's Säule room fusing Latin American club pressure and European techno sanctuary."
+                          </div>
+                          <p class="opacity-85 text-[11.5px]">Registro histórico de la noche en la sala experimental Säule del mítico templo berlinés, fusionando bass experimental latinoamericano y clubbing europeo.</p>
+                          <div class="press-topics-list">
+                              <span class="press-topic-badge">[Berghain]</span>
+                              <span class="press-topic-badge">[Säule]</span>
+                              <span class="press-topic-badge">[Berlín]</span>
+                              <span class="press-topic-badge">[Historia del Clubbing]</span>
+                          </div>
+                          <div class="flex justify-end text-[10.5px] text-[var(--accent)] font-bold pt-1">[ VER ARCHIVO DE BERGHAIN ↗ ]</div>
                       </div>
                   </div>
               </div>
