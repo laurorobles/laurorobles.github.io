@@ -221,9 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
         centerOrigin(false);
         printTerminal('[KERNEL] LAO_OS v8.9 initialized. Motherboard standing by.');
 
-        // Auto-open primary windows: Bio, Music, and compact corner Terminal
+        // Auto-open primary windows: Bio, Music, World Tour Radar, and compact corner Terminal
         openWindow('win-bio', false);
         openWindow('win-music', false);
+        openWindow('win-radar', false);
         openWindow('win-terminal', false);
 
         // Auto-run help command in terminal
@@ -3296,8 +3297,9 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'help':
                 printTerminal(`
                 <b>[ SISTEMA & NAVEGACIÓN ]</b><br>
+                - <b>map</b> / <b>radar</b>: Abrir el radar interactivo de giras mundiales (62 ciudades)<br>
                 - <b>open all</b> / <b>open closeall</b>: Abrir o cerrar todas las ventanas<br>
-                - <b>cd [bio|music|mixes|art|plugins|pedagogy|services|videos|oracle|terminal|labyrinth|contact|sigil|press]</b><br>
+                - <b>cd [bio|music|radar|mixes|art|plugins|pedagogy|services|videos|oracle|terminal|labyrinth|contact|sigil|press]</b><br>
                 - <b>theme [day|extasis|matrix|topy|blood]</b>: Paleta de color<br>
                 - <b>lang</b>: Alternar inglés / español<br>
                 - <b>drone [pandemonium|lemurian|warp|off]</b>: Síntesis de drone CCRU<br>
@@ -3419,20 +3421,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case 'lang':
-                currentLang = currentLang === 'es' ? 'en' : 'es';
-                updateLanguage();
+                const newLang = currentLang === 'es' ? 'en' : 'es';
+                applyLanguage(newLang);
+                printTerminal(`Language switched to: ${newLang.toUpperCase()}`);
                 break;
 
             case 'open':
                 if (args[1] === 'all') {
-                    toggleAllWindows();
+                    document.querySelectorAll('.drag-window').forEach(w => w.style.display = 'flex');
+                    document.querySelectorAll('.dock-item[data-target]').forEach(b => b.classList.add('dock-active'));
+                    syncOpenAllButtons();
+                    updateCables();
+                    printTerminal('[SYS] All windows opened.');
                 } else if (args[1] === 'closeall') {
                     document.querySelectorAll('.drag-window').forEach(w => w.style.display = 'none');
-                    document.querySelectorAll('.dock-item[data-target]').forEach(d => d.classList.remove('dock-active'));
+                    document.querySelectorAll('.dock-item[data-target]').forEach(b => b.classList.remove('dock-active'));
                     syncOpenAllButtons();
                     updateCables();
                     printTerminal('[SYS] All windows closed.');
                 }
+                break;
+
+            case 'map':
+            case 'mapa':
+            case 'radar':
+            case 'tour':
+            case 'giras':
+            case 'ciudades':
+                openWindow('win-radar', true);
+                initWorldRadar();
+                printTerminal('[NAV] Mounted and navigated to WORLD TOUR RADAR [62 CITIES].');
                 break;
 
             case 'drone':
@@ -3452,14 +3470,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             case 'cd':
                 const windowMap = {
-                    'bio': 'win-bio', 'music': 'win-music', 'mixes': 'win-mixes',
-                    'art': 'win-art', 'plugins': 'win-plugins', 'pedagogy': 'win-pedagogy',
-                    'services': 'win-services', 'videos': 'win-videos', 'oracle': 'win-oracle',
-                    'terminal': 'win-terminal', 'labyrinth': 'win-labyrinth', 'contact': 'win-contact',
-                    'sigil': 'win-sigil', 'press': 'win-press'
+                    'bio': 'win-bio', 'music': 'win-music', 'radar': 'win-radar',
+                    'map': 'win-radar', 'mapa': 'win-radar', 'tour': 'win-radar',
+                    'mixes': 'win-mixes', 'art': 'win-art', 'plugins': 'win-plugins',
+                    'pedagogy': 'win-pedagogy', 'services': 'win-services', 'videos': 'win-videos',
+                    'oracle': 'win-oracle', 'terminal': 'win-terminal', 'labyrinth': 'win-labyrinth',
+                    'contact': 'win-contact', 'sigil': 'win-sigil', 'press': 'win-press'
                 };
                 if (windowMap[args[1]]) {
                     openWindow(windowMap[args[1]], true);
+                    if (windowMap[args[1]] === 'win-radar') initWorldRadar();
                     printTerminal(`Mounted and navigated to node: ${args[1].toUpperCase()}`);
                 } else {
                     printTerminal(`Error: Nodo '${args[1]}' no encontrado. Escribe 'help'.`);
@@ -3579,33 +3599,16 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
     });
 
     /* =========================================================
-       12. BIO VIEW TAB SWITCHER & WORLD TOUR RADAR ENGINE
+       12. WORLD TOUR RADAR EVENT BUS & QUICK LAUNCHERS
        ========================================================= */
-    const btnTabBioList = document.getElementById('btn-tab-bio-list');
-    const btnTabBioMap = document.getElementById('btn-tab-bio-map');
-    const bioViewList = document.getElementById('bio-view-list');
-    const bioViewMap = document.getElementById('bio-view-map');
-
-    if (btnTabBioList && btnTabBioMap && bioViewList && bioViewMap) {
-        btnTabBioList.addEventListener('click', () => {
-            btnTabBioList.classList.add('tab-active');
-            btnTabBioList.classList.remove('opacity-70');
-            btnTabBioMap.classList.remove('tab-active');
-            btnTabBioMap.classList.add('opacity-70');
-            bioViewList.classList.remove('hidden');
-            bioViewMap.classList.add('hidden');
-        });
-
-        btnTabBioMap.addEventListener('click', () => {
-            btnTabBioMap.classList.add('tab-active');
-            btnTabBioMap.classList.remove('opacity-70');
-            btnTabBioList.classList.remove('tab-active');
-            btnTabBioList.classList.add('opacity-70');
-            bioViewMap.classList.remove('hidden');
-            bioViewList.classList.add('hidden');
+    document.querySelectorAll('.btn-open-world-radar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openWindow('win-radar', true);
             initWorldRadar();
         });
-    }
+    });
 
     const WORLD_TOUR_CITIES = [
         // --- 🇲🇽 MÉXICO (NÚCLEO & NACIONAL) ---
@@ -4314,19 +4317,67 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
         const hudCity = document.getElementById('radar-hud-city');
         const hudCoords = document.getElementById('radar-hud-coords');
         const hudDetails = document.getElementById('radar-hud-details');
+        const chipsContainer = document.getElementById('radar-city-chips');
 
         if (!svgArcs || !svgNodes) return;
 
         svgArcs.innerHTML = '';
         svgNodes.innerHTML = '';
+        if (chipsContainer) chipsContainer.innerHTML = '';
 
-        const cdmxCity = WORLD_TOUR_CITIES.find(c => c.isHQ);
+        const cdmxCity = WORLD_TOUR_CITIES.find(c => c.isHQ) || WORLD_TOUR_CITIES[0];
         const cdmxPos = projectToMap(cdmxCity.lat, cdmxCity.lon);
 
         const visibleCities = WORLD_TOUR_CITIES.filter(city => {
             if (filterRegion === 'all') return true;
             return city.region === filterRegion || city.isHQ;
         });
+
+        const selectCity = (city) => {
+            if (hudCity) hudCity.textContent = `// ${city.name.toUpperCase()}, ${city.country.toUpperCase()} [${city.years}]`;
+            if (hudCoords) hudCoords.textContent = `[ LAT ${city.lat.toFixed(2)}°, LON ${city.lon.toFixed(2)}° ]`;
+            if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> ${city.venue}<br><span class="opacity-80">${city.dossier}</span>`;
+
+            // Highlight this city's arc
+            document.querySelectorAll('.radar-flight-arc').forEach(arc => {
+                arc.setAttribute('opacity', '0.12');
+                arc.setAttribute('stroke-width', '1');
+            });
+            const activeArc = document.getElementById(`arc-${city.id}`);
+            if (activeArc) {
+                activeArc.setAttribute('opacity', '1');
+                activeArc.setAttribute('stroke-width', '2.5');
+            }
+
+            // Highlight city blip label
+            document.querySelectorAll('.radar-city-label').forEach(lbl => {
+                if (lbl.getAttribute('data-city-id') === city.id) {
+                    lbl.setAttribute('opacity', '1');
+                    lbl.setAttribute('fill', 'var(--accent)');
+                }
+            });
+
+            // Highlight chip if any
+            document.querySelectorAll('.radar-city-chip').forEach(ch => {
+                if (ch.getAttribute('data-city-id') === city.id) {
+                    ch.classList.add('active-city-chip');
+                    ch.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                } else {
+                    ch.classList.remove('active-city-chip');
+                }
+            });
+        };
+
+        const deselectCity = (city) => {
+            const isHub = city.isHQ || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires'].includes(city.id);
+            const lbl = document.querySelector(`.radar-city-label[data-city-id="${city.id}"]`);
+            if (lbl) {
+                if (filterRegion === 'all' && !isHub) {
+                    lbl.setAttribute('opacity', '0');
+                }
+                lbl.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
+            }
+        };
 
         visibleCities.forEach(city => {
             const pos = projectToMap(city.lat, city.lon);
@@ -4356,7 +4407,7 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             pulseCircle.setAttribute('class', 'radar-city-pulse');
             pulseCircle.setAttribute('cx', 0);
             pulseCircle.setAttribute('cy', 0);
-            pulseCircle.setAttribute('r', city.isHQ ? 6 : 3);
+            pulseCircle.setAttribute('r', city.isHQ ? 7 : 3.5);
             pulseCircle.setAttribute('fill', 'none');
             pulseCircle.setAttribute('stroke', city.isHQ ? 'var(--main)' : 'var(--accent)');
             pulseCircle.setAttribute('stroke-width', city.isHQ ? 2 : 1);
@@ -4367,7 +4418,7 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             coreCircle.setAttribute('class', 'blip-core');
             coreCircle.setAttribute('cx', 0);
             coreCircle.setAttribute('cy', 0);
-            coreCircle.setAttribute('r', city.isHQ ? 4.5 : 2.2);
+            coreCircle.setAttribute('r', city.isHQ ? 5 : 2.5);
             coreCircle.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--accent)');
             g.appendChild(coreCircle);
 
@@ -4376,53 +4427,36 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             text.setAttribute('x', 6);
             text.setAttribute('y', 2.5);
             text.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
-            text.setAttribute('font-size', city.isHQ ? '9px' : '6.5px');
+            text.setAttribute('font-size', city.isHQ ? '9.5px' : '7px');
             text.setAttribute('font-family', 'Iosevka, monospace');
             text.setAttribute('font-weight', city.isHQ ? 'bold' : 'normal');
-            // In 'all' view, only show major hubs or on hover to maintain clarity
             const isHub = city.isHQ || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires'].includes(city.id);
-            text.setAttribute('opacity', (filterRegion !== 'all' || isHub) ? '0.85' : '0');
+            text.setAttribute('opacity', (filterRegion !== 'all' || isHub) ? '0.9' : '0');
             text.setAttribute('class', 'radar-city-label');
+            text.setAttribute('data-city-id', city.id);
             text.textContent = city.name.toUpperCase();
             g.appendChild(text);
 
-            const selectCity = () => {
-                if (hudCity) hudCity.textContent = `// ${city.name.toUpperCase()}, ${city.country.toUpperCase()} [${city.years}]`;
-                if (hudCoords) hudCoords.textContent = `[ LAT ${city.lat.toFixed(2)}°, LON ${city.lon.toFixed(2)}° ]`;
-                if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> ${city.venue}<br><span class="opacity-75">${city.dossier}</span>`;
-
-                // Highlight this city's arc
-                document.querySelectorAll('.radar-flight-arc').forEach(arc => {
-                    arc.setAttribute('opacity', '0.15');
-                    arc.setAttribute('stroke-width', '1');
-                });
-                const activeArc = document.getElementById(`arc-${city.id}`);
-                if (activeArc) {
-                    activeArc.setAttribute('opacity', '1');
-                    activeArc.setAttribute('stroke-width', '2.5');
-                }
-
-                // Make this city label visible
-                text.setAttribute('opacity', '1');
-                text.setAttribute('fill', 'var(--accent)');
-            };
-
-            const deselectCity = () => {
-                if (filterRegion === 'all' && !isHub) {
-                    text.setAttribute('opacity', '0');
-                }
-                text.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
-            };
-
-            g.addEventListener('mouseenter', selectCity);
-            g.addEventListener('mouseleave', deselectCity);
-            g.addEventListener('click', selectCity);
+            g.addEventListener('mouseenter', () => selectCity(city));
+            g.addEventListener('mouseleave', () => deselectCity(city));
+            g.addEventListener('click', () => selectCity(city));
 
             svgNodes.appendChild(g);
+
+            // Populate city chip
+            if (chipsContainer) {
+                const chip = document.createElement('button');
+                chip.setAttribute('type', 'button');
+                chip.setAttribute('data-city-id', city.id);
+                chip.className = `radar-city-chip text-[7.5px] px-1.5 py-0.5 border border-[var(--circuit)] bg-[rgba(255,255,255,0.03)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors cursor-pointer text-left ${city.isHQ ? 'border-[var(--main)] text-[var(--main)] font-bold' : ''}`;
+                chip.textContent = `${city.name} (${city.country})`;
+                chip.addEventListener('click', () => selectCity(city));
+                chipsContainer.appendChild(chip);
+            }
         });
     }
 
-    // Setup filter buttons once
+    // Setup filter buttons
     document.querySelectorAll('.radar-filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.radar-filter-btn').forEach(b => {
@@ -4430,9 +4464,33 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
                 b.classList.remove('border-[var(--accent)]');
             });
             e.currentTarget.classList.add('active-radar-btn');
+            e.currentTarget.classList.add('border-[var(--accent)]');
             const region = e.currentTarget.getAttribute('data-region');
             initWorldRadar(region);
         });
     });
+
+    // Setup instant city search input
+    const radarSearchInput = document.getElementById('radar-search-input');
+    if (radarSearchInput) {
+        radarSearchInput.addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase().trim();
+            if (!q) return;
+            const matched = WORLD_TOUR_CITIES.find(c =>
+                c.name.toLowerCase().includes(q) ||
+                c.country.toLowerCase().includes(q) ||
+                c.venue.toLowerCase().includes(q)
+            );
+            if (matched) {
+                const cityNode = document.querySelector(`.radar-city-blip[data-city-id="${matched.id}"]`);
+                if (cityNode) {
+                    cityNode.dispatchEvent(new Event('click'));
+                }
+            }
+        });
+    }
+
+    // Initial render of World Radar Map on startup
+    initWorldRadar();
 
 });

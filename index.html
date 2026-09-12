@@ -276,18 +276,19 @@
   <nav id="dock-menu" aria-label="Navegacion Principal">
       <button class="dock-item" data-target="win-bio"><span class="dock-status"></span>01.BIO</button>
       <button class="dock-item" data-target="win-music"><span class="dock-status"></span>02.MUSIC</button>
-      <button class="dock-item" data-target="win-mixes"><span class="dock-status"></span>03.SETS</button>
-      <button class="dock-item" data-target="win-art"><span class="dock-status"></span>04.ART</button>
-      <button class="dock-item" data-target="win-plugins"><span class="dock-status"></span>05.DSP</button>
-      <button class="dock-item" data-target="win-pedagogy"><span class="dock-status"></span>06.PEDAGOGY</button>
-      <button class="dock-item" data-target="win-services"><span class="dock-status"></span>07.STUDIO</button>
-      <button class="dock-item" data-target="win-videos"><span class="dock-status"></span>08.VIDEO</button>
-      <button class="dock-item" data-target="win-oracle"><span class="dock-status"></span>09.ORACLE</button>
-      <button class="dock-item" data-target="win-terminal"><span class="dock-status"></span>10.TERM</button>
-      <button class="dock-item" data-target="win-labyrinth"><span class="dock-status"></span>11.VOID</button>
-      <button class="dock-item" data-target="win-contact"><span class="dock-status"></span>12.CONTACT</button>
-      <button class="dock-item" data-target="win-sigil"><span class="dock-status"></span>13.SIGIL</button>
-      <button class="dock-item" data-target="win-press"><span class="dock-status"></span>14.PRESS</button>
+      <button class="dock-item" data-target="win-radar"><span class="dock-status"></span>03.MAPA 🌐</button>
+      <button class="dock-item" data-target="win-mixes"><span class="dock-status"></span>04.SETS</button>
+      <button class="dock-item" data-target="win-art"><span class="dock-status"></span>05.ART</button>
+      <button class="dock-item" data-target="win-plugins"><span class="dock-status"></span>06.DSP</button>
+      <button class="dock-item" data-target="win-pedagogy"><span class="dock-status"></span>07.PEDAGOGY</button>
+      <button class="dock-item" data-target="win-services"><span class="dock-status"></span>08.STUDIO</button>
+      <button class="dock-item" data-target="win-videos"><span class="dock-status"></span>09.VIDEO</button>
+      <button class="dock-item" data-target="win-oracle"><span class="dock-status"></span>10.ORACLE</button>
+      <button class="dock-item" data-target="win-terminal"><span class="dock-status"></span>11.TERM</button>
+      <button class="dock-item" data-target="win-labyrinth"><span class="dock-status"></span>12.VOID</button>
+      <button class="dock-item" data-target="win-contact"><span class="dock-status"></span>13.CONTACT</button>
+      <button class="dock-item" data-target="win-sigil"><span class="dock-status"></span>14.SIGIL</button>
+      <button class="dock-item" data-target="win-press"><span class="dock-status"></span>15.PRESS</button>
   </nav>
 
   <!-- =========================================================
@@ -304,6 +305,12 @@
               <img src="/images/extasis.png" alt="Extasis Records" loading="lazy" decoding="async">
               <span class="center-node-label">EXTASIS_CORE // 2500,2500</span>
           </div>
+
+          <!-- PCB DIRECT QUICK LAUNCHER: WORLD TOUR RADAR -->
+          <button type="button" class="btn-open-world-radar absolute z-30 font-mono text-[9px] px-2.5 py-1 font-bold border border-[var(--accent)] bg-[rgba(5,2,15,0.92)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg)] transition-all cursor-pointer flex items-center gap-1.5 shadow-xl" style="top: 2560px; left: 2420px;" title="Abrir Radar de Giras Mundial (62 Ciudades)">
+              <span class="inline-block w-2 h-2 rounded-full bg-[var(--accent)] animate-ping"></span>
+              <span>[ 🌐 RADAR DE GIRAS // 62 CIUDADES ]</span>
+          </button>
 
           <!-- PROCEDURAL BBS ANSI GRAFFITI CONTAINER (SPAWNED IN RANDOM LOCATIONS BY LAO_OS ENGINE) -->
           <div id="procedural-ansi-container"></div>
@@ -535,10 +542,16 @@
                       <p class='mb-2'>Su obra abarca desde la producción de himnos seminales para club hasta la dirección musical de ópera experimental en <strong>Festival TONO (2023)</strong> y la <strong>60ª Bienal de Venecia (2024)</strong> en los Arsenales históricos, además de la autoría de software e instrumentos de síntesis para la comunidad global.</p>
                   </div>
 
-                  <!-- BIO VIEW CONTROLS: LIST VS WORLD TOUR RADAR MAP -->
+                  <!-- RADAR QUICK LAUNCH BANNER IN BIO -->
+                  <button type="button" class="btn-open-world-radar w-full mb-2 py-1.5 px-3 border border-[var(--accent)] bg-[rgba(255,0,128,0.12)] hover:bg-[var(--accent)] hover:text-[var(--bg)] text-[var(--accent)] font-bold text-[9.5px] tracking-widest flex items-center justify-between transition-all cursor-pointer">
+                      <span>🌐 RADAR DE GIRAS MUNDIAL // 62 CIUDADES</span>
+                      <span class="font-mono underline">[ ABRIR MAPA INTERACTIVO ↗ ]</span>
+                  </button>
+
+                  <!-- BIO VIEW CONTROLS -->
                   <div class="bio-view-tabs flex gap-1 mb-2 border-b border-[var(--circuit)] pb-1">
-                      <button class="bio-tab-btn tab-active text-[9px] font-bold px-2 py-0.5 border border-[var(--circuit)] text-[var(--accent)]" id="btn-tab-bio-list">[ 📋 CRONOLOGÍA DETALLADA ]</button>
-                      <button class="bio-tab-btn text-[9px] font-bold px-2 py-0.5 border border-[var(--circuit)] opacity-70 hover:opacity-100" id="btn-tab-bio-map">[ 🌐 MAPA MUNDIAL // RADAR DE GIRAS ]</button>
+                      <button class="bio-tab-btn tab-active text-[9px] font-bold px-2 py-0.5 border border-[var(--circuit)] text-[var(--accent)]" id="btn-tab-bio-list">[ 📋 CRONOLOGÍA DETALLADA (62 CIUDADES) ]</button>
+                      <button type="button" class="bio-tab-btn btn-open-world-radar text-[9px] font-bold px-2 py-0.5 border border-[var(--accent)] text-[var(--accent)] bg-[rgba(255,0,128,0.08)] hover:bg-[var(--accent)] hover:text-[var(--bg)] cursor-pointer" id="btn-tab-bio-map">[ 🌐 ABRIR RADAR MUNDIAL ↗ ]</button>
                   </div>
 
                   <!-- VIEW 1: EXPANDED CHRONOLOGICAL FESTIVALS & TOURS -->
@@ -599,96 +612,118 @@
                       </div>
                   </div>
 
-                  <!-- VIEW 2: CYBER WORLD TOUR RADAR MAP VIEW -->
-                  <div id="bio-view-map" class="bio-pane-view hidden">
-                      <div class="flex justify-between items-center mb-1 text-[8px] text-[var(--accent)] flex-wrap gap-1">
-                          <span>// CARTOGRAFÍA GLOBAL DE GIRAS // 60+ CIUDADES [SECTOR 0x99A]</span>
-                          <div class="flex gap-1 flex-wrap" id="radar-region-filters">
-                              <button class="radar-filter-btn active-radar-btn px-1 border border-[var(--accent)] text-[7px]" data-region="all">TODOS (60+)</button>
-                              <button class="radar-filter-btn px-1 border border-[var(--circuit)] text-[7px]" data-region="mexico">MÉXICO</button>
-                              <button class="radar-filter-btn px-1 border border-[var(--circuit)] text-[7px]" data-region="north_america">USA/CAN</button>
-                              <button class="radar-filter-btn px-1 border border-[var(--circuit)] text-[7px]" data-region="south_america">SUDAMÉRICA</button>
-                              <button class="radar-filter-btn px-1 border border-[var(--circuit)] text-[7px]" data-region="europe">EUROPA</button>
-                              <button class="radar-filter-btn px-1 border border-[var(--circuit)] text-[7px]" data-region="asia">ASIA</button>
-                          </div>
+                  <a href="mailto:laurorobles@gmail.com" class="border border-[var(--main)] px-3 py-1 text-center hover:bg-[var(--main)] hover:text-[var(--bg)] font-bold transition-all i18n block text-[10px] mt-2" data-es="SOLICITAR DOSSIER COMPLETO / EPK" data-en="REQUEST FULL DOSSIER / EPK">SOLICITAR DOSSIER COMPLETO / EPK</a>
+              </div>
+          </div>
+
+          <!-- 03. WORLD TOUR RADAR WINDOW (62 CITIES & INTERACTIVE CARTOGRAPHY) -->
+          <div class="drag-window" style="top: 1980px; left: 1020px; width: 900px; height: 580px;" id="win-radar">
+              <div class="win-header">
+                  <span class="win-title i18n" data-es="[03] 🌐 RADAR DE GIRAS MUNDIAL // 62 CIUDADES // 5 CONTINENTES" data-en="[03] 🌐 WORLD TOUR RADAR // 62 CITIES // 5 CONTINENTS">[03] 🌐 RADAR DE GIRAS MUNDIAL // 62 CIUDADES // 5 CONTINENTES</span>
+                  <div class="win-actions">
+                      <span class="win-btn fs-btn" title="Fullscreen">[ ]</span>
+                      <span class="win-btn close-btn" title="Cerrar">✕</span>
+                  </div>
+              </div>
+              <div class="win-body text-[10px] leading-relaxed flex flex-col h-[calc(100%-26px)] p-2 space-y-2 overflow-hidden">
+                  
+                  <!-- RADAR TOP BAR: REGION CONTROLS & INSTANT SEARCH -->
+                  <div class="flex justify-between items-center flex-wrap gap-1.5 pb-1 border-b border-[var(--circuit)] shrink-0">
+                      <div class="flex items-center gap-1 flex-wrap" id="radar-region-filters">
+                          <button type="button" class="radar-filter-btn active-radar-btn px-1.5 py-0.5 border border-[var(--accent)] text-[8px] font-bold cursor-pointer" data-region="all">TODOS (62)</button>
+                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="mexico">🇲🇽 MÉXICO (9)</button>
+                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="north_america">🇺🇸🇨🇦 USA/CAN (16)</button>
+                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="south_america">🌎 SUDAMÉRICA (7)</button>
+                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="europe">🇪🇺 EUROPA (21)</button>
+                          <button type="button" class="radar-filter-btn px-1.5 py-0.5 border border-[var(--circuit)] text-[8px] cursor-pointer" data-region="asia">🌏 ASIA/INDIA (9)</button>
                       </div>
-
-                      <!-- INTERACTIVE VECTOR RADAR MAP CONTAINER -->
-                      <div class="world-radar-container relative w-full h-[180px] bg-[rgba(5,2,15,0.95)] border border-[var(--circuit)] overflow-hidden">
-                          <!-- SCANLINE / RADAR SWEEP LINE -->
-                          <div class="radar-sweep"></div>
-                          
-                          <!-- SVG VECTOR MAP WITH FLIGHT ARCS & NODES -->
-                          <svg id="world-radar-svg" viewBox="0 0 1000 500" class="w-full h-full">
-                              <defs>
-                                  <!-- RADAR BLIP GLOW FILTER -->
-                                  <filter id="radar-glow" x="-50%" y="-50%" width="200%" height="200%">
-                                      <feGaussianBlur stdDeviation="3" result="blur" />
-                                      <feMerge>
-                                          <feMergeNode in="blur" />
-                                          <feMergeNode in="SourceGraphic" />
-                                      </feMerge>
-                                  </filter>
-                                  <linearGradient id="flight-arc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8" />
-                                      <stop offset="100%" stop-color="var(--main)" stop-opacity="0.9" />
-                                  </linearGradient>
-                              </defs>
-
-                              <!-- GRID LINES (LAT / LON) -->
-                              <g class="radar-grid opacity-20" stroke="var(--circuit)" stroke-width="0.5" stroke-dasharray="2,3">
-                                  <line x1="0" y1="125" x2="1000" y2="125" />
-                                  <line x1="0" y1="250" x2="1000" y2="250" />
-                                  <line x1="0" y1="375" x2="1000" y2="375" />
-                                  <line x1="200" y1="0" x2="200" y2="500" />
-                                  <line x1="400" y1="0" x2="400" y2="500" />
-                                  <line x1="600" y1="0" x2="600" y2="500" />
-                                  <line x1="800" y1="0" x2="800" y2="500" />
-                              </g>
-
-                              <!-- CONTINENTAL SILHOUETTES (CYBER VECTOR OUTLINE) -->
-                              <g class="radar-landmass" fill="none" stroke="var(--circuit)" stroke-width="1" opacity="0.35">
-                                  <!-- North America -->
-                                  <path d="M 120 70 L 220 60 L 270 90 L 290 140 L 250 180 L 230 220 L 210 270 L 220 310 L 190 280 L 160 260 L 130 190 L 100 130 Z" />
-                                  <!-- South America -->
-                                  <path d="M 270 310 L 320 340 L 350 390 L 320 470 L 290 480 L 270 410 L 260 340 Z" />
-                                  <!-- Europe -->
-                                  <path d="M 460 100 L 530 90 L 560 130 L 510 180 L 460 170 L 450 130 Z" />
-                                  <!-- Africa -->
-                                  <path d="M 460 200 L 540 200 L 570 280 L 540 370 L 490 380 L 460 270 Z" />
-                                  <!-- Asia -->
-                                  <path d="M 570 90 L 780 80 L 860 140 L 830 240 L 780 270 L 710 280 L 680 210 L 580 180 Z" />
-                                  <!-- Japan & Archipelago -->
-                                  <path d="M 870 170 L 890 210 L 875 235 Z" />
-                                  <!-- Australia -->
-                                  <path d="M 770 340 L 860 330 L 870 410 L 790 420 Z" />
-                              </g>
-
-                              <!-- GEODESIC FLIGHT VECTOR ARCS FROM CDMX -->
-                              <g id="radar-flight-arcs" stroke="url(#flight-arc-grad)" stroke-width="1.2" fill="none" opacity="0.65" stroke-dasharray="4,3">
-                                  <!-- Dynamic paths injected by JavaScript -->
-                              </g>
-
-                              <!-- CITY RADAR NODES / BEACONS -->
-                              <g id="radar-city-nodes">
-                                  <!-- Dynamic nodes injected by JavaScript -->
-                              </g>
-                          </svg>
-                      </div>
-
-                      <!-- RADAR TELEMETRY HUD READOUT -->
-                      <div class="radar-hud-readout border border-[var(--circuit)] bg-[rgba(0,0,0,0.6)] p-1.5 mt-1 text-[8.5px] font-mono leading-tight">
-                          <div class="flex justify-between text-[var(--accent)] font-bold mb-0.5 pb-0.5 border-b border-[var(--circuit)]">
-                              <span id="radar-hud-city">// SELECCIONE UN NODO DE GIRA EN EL MAPA</span>
-                              <span id="radar-hud-coords" class="text-[var(--main)]">[ LAT / LON ]</span>
-                          </div>
-                          <div id="radar-hud-details" class="opacity-80">
-                              Haga click o sitúe el cursor sobre los pines pulsantes del radar para inspeccionar la fecha, el festival o foro verificado y las conexiones internacionales desde Ciudad de México.
-                          </div>
+                      <div class="flex items-center gap-1">
+                          <input type="text" id="radar-search-input" placeholder="🔍 Buscar ciudad..." class="bg-[rgba(0,0,0,0.6)] border border-[var(--circuit)] text-[var(--accent)] text-[8.5px] px-2 py-0.5 rounded-none font-mono focus:border-[var(--accent)] outline-none w-44">
                       </div>
                   </div>
 
-                  <a href="mailto:laurorobles@gmail.com" class="border border-[var(--main)] px-3 py-1 text-center hover:bg-[var(--main)] hover:text-[var(--bg)] font-bold transition-all i18n block text-[10px] mt-2" data-es="SOLICITAR DOSSIER COMPLETO / EPK" data-en="REQUEST FULL DOSSIER / EPK">SOLICITAR DOSSIER COMPLETO / EPK</a>
+                  <!-- INTERACTIVE VECTOR RADAR MAP CONTAINER -->
+                  <div class="world-radar-container relative w-full flex-1 min-h-[250px] bg-[rgba(5,2,15,0.95)] border border-[var(--circuit)] overflow-hidden">
+                      <!-- SCANLINE / RADAR SWEEP LINE -->
+                      <div class="radar-sweep"></div>
+                      
+                      <!-- SVG VECTOR MAP WITH FLIGHT ARCS & NODES -->
+                      <svg id="world-radar-svg" viewBox="0 0 1000 500" class="w-full h-full">
+                          <defs>
+                              <!-- RADAR BLIP GLOW FILTER -->
+                              <filter id="radar-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                  <feGaussianBlur stdDeviation="3" result="blur" />
+                                  <feMerge>
+                                      <feMergeNode in="blur" />
+                                      <feMergeNode in="SourceGraphic" />
+                                  </feMerge>
+                              </filter>
+                              <linearGradient id="flight-arc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.9" />
+                                  <stop offset="100%" stop-color="var(--main)" stop-opacity="0.95" />
+                              </linearGradient>
+                          </defs>
+
+                          <!-- GRID LINES (LAT / LON) -->
+                          <g class="radar-grid opacity-25" stroke="var(--circuit)" stroke-width="0.5" stroke-dasharray="2,3">
+                              <line x1="0" y1="125" x2="1000" y2="125" />
+                              <line x1="0" y1="250" x2="1000" y2="250" />
+                              <line x1="0" y1="375" x2="1000" y2="375" />
+                              <line x1="200" y1="0" x2="200" y2="500" />
+                              <line x1="400" y1="0" x2="400" y2="500" />
+                              <line x1="600" y1="0" x2="600" y2="500" />
+                              <line x1="800" y1="0" x2="800" y2="500" />
+                          </g>
+
+                          <!-- CONTINENTAL SILHOUETTES (CYBER VECTOR OUTLINE) -->
+                          <g class="radar-landmass" fill="rgba(0, 255, 255, 0.02)" stroke="var(--circuit)" stroke-width="1.2" opacity="0.45">
+                              <!-- North America -->
+                              <path d="M 120 70 L 220 60 L 270 90 L 290 140 L 250 180 L 230 220 L 210 270 L 220 310 L 190 280 L 160 260 L 130 190 L 100 130 Z" />
+                              <!-- South America -->
+                              <path d="M 270 310 L 320 340 L 350 390 L 320 470 L 290 480 L 270 410 L 260 340 Z" />
+                              <!-- Europe -->
+                              <path d="M 460 100 L 530 90 L 560 130 L 510 180 L 460 170 L 450 130 Z" />
+                              <!-- Africa -->
+                              <path d="M 460 200 L 540 200 L 570 280 L 540 370 L 490 380 L 460 270 Z" />
+                              <!-- Asia -->
+                              <path d="M 570 90 L 780 80 L 860 140 L 830 240 L 780 270 L 710 280 L 680 210 L 580 180 Z" />
+                              <!-- Japan & Archipelago -->
+                              <path d="M 870 170 L 890 210 L 875 235 Z" />
+                              <!-- Australia -->
+                              <path d="M 770 340 L 860 330 L 870 410 L 790 420 Z" />
+                          </g>
+
+                          <!-- GEODESIC FLIGHT VECTOR ARCS FROM CDMX -->
+                          <g id="radar-flight-arcs" stroke="url(#flight-arc-grad)" stroke-width="1.2" fill="none" opacity="0.65" stroke-dasharray="4,3">
+                          </g>
+
+                          <!-- CITY RADAR NODES / BEACONS -->
+                          <g id="radar-city-nodes">
+                          </g>
+                      </svg>
+                  </div>
+
+                  <!-- RADAR TELEMETRY HUD READOUT -->
+                  <div class="radar-hud-readout border border-[var(--circuit)] bg-[rgba(0,0,0,0.7)] p-2 shrink-0 text-[9px] font-mono leading-tight">
+                      <div class="flex justify-between items-center text-[var(--accent)] font-bold mb-1 pb-0.5 border-b border-[var(--circuit)]">
+                          <span id="radar-hud-city">// SELECCIONE UN NODO EN EL MAPA O DE LA LISTA INFERIOR</span>
+                          <span id="radar-hud-coords" class="text-[var(--main)]">[ LAT / LON ]</span>
+                      </div>
+                      <div id="radar-hud-details" class="opacity-85 text-[8.5px]">
+                          Pase el cursor sobre cualquier nodo o haga click para ver los foros, clubes y festivales donde Lauro Robles se ha presentado en todo el mundo.
+                      </div>
+                  </div>
+
+                  <!-- INTERACTIVE 62-CITY CHIPS TRAY -->
+                  <div class="radar-cities-tray border border-[var(--circuit)] bg-[rgba(0,0,0,0.4)] p-1.5 shrink-0 max-h-[90px] overflow-y-auto">
+                      <div class="text-[7.5px] font-bold text-[var(--main)] mb-1 uppercase tracking-widest flex justify-between">
+                          <span>// METRÓPOLIS EN RUTA (CLICK PARA SELECCIONAR CIUDAD):</span>
+                          <span class="opacity-70 text-[7px]">62 CIUDADES / 5 CONTINENTES</span>
+                      </div>
+                      <div id="radar-city-chips" class="flex flex-wrap gap-1">
+                      </div>
+                  </div>
+
               </div>
           </div>
 
