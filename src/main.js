@@ -3608,11 +3608,12 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
     }
 
     const WORLD_TOUR_CITIES = [
+        // --- 🇲🇽 MÉXICO (NÚCLEO & NACIONAL) ---
         {
             id: 'cdmx',
             name: 'Ciudad de México',
             country: 'México',
-            region: 'america',
+            region: 'mexico',
             lat: 19.4326,
             lon: -99.1332,
             isHQ: true,
@@ -3620,6 +3621,507 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             venue: 'Ground Zero // Estudio Chapultepec, Boiler Room, Festival TONO, Sónar México, MUTEK MX',
             dossier: 'Centro neurálgico de operaciones de Lauro Robles. Cuartel general de NAAFI y Extasis Records.'
         },
+        {
+            id: 'tijuana',
+            name: 'Tijuana',
+            country: 'México',
+            region: 'mexico',
+            lat: 32.5149,
+            lon: -117.0382,
+            years: '2011–2024',
+            venue: 'Border Clubbing // Pasaje Rodríguez, Mija, Club Underground',
+            dossier: 'Pilar del clubbing transfronterizo y primeros intercambios NAAFI en la frontera norte.'
+        },
+        {
+            id: 'monterrey',
+            name: 'Monterrey',
+            country: 'México',
+            region: 'mexico',
+            lat: 25.6866,
+            lon: -100.3161,
+            years: '2010–2023',
+            venue: 'Epicentro Tribal // TopazDeluxe, Nodriza, Foros Independientes',
+            dossier: 'Conexión fundacional con los pioneros del tribal guarachero y aceleración de pistas regias.'
+        },
+        {
+            id: 'guadalajara',
+            name: 'Guadalajara',
+            country: 'México',
+            region: 'mexico',
+            lat: 20.6597,
+            lon: -103.3496,
+            years: '2009–2024',
+            venue: 'Bar Americas, Foro Independencia, Festival NRMAL GDL',
+            dossier: 'Residencias de club y noches legendarias en el templo de la electrónica tapatía Bar Americas.'
+        },
+        {
+            id: 'puebla',
+            name: 'Puebla',
+            country: 'México',
+            region: 'mexico',
+            lat: 19.0414,
+            lon: -98.2063,
+            years: '2012–2023',
+            venue: 'Cholula Underground, Diente de León, Foros de Arte',
+            dossier: 'Presentaciones en el circuito universitario y de clubbing alternativo de Puebla y Cholula.'
+        },
+        {
+            id: 'leon',
+            name: 'León',
+            country: 'México',
+            region: 'mexico',
+            lat: 21.1221,
+            lon: -101.6827,
+            years: '2013–2022',
+            venue: 'Bajío Club Nights, Warehouses del Bajío',
+            dossier: 'Exploración de pistas industriales y cultura de warehouse en el Bajío mexicano.'
+        },
+        {
+            id: 'oaxaca',
+            name: 'Oaxaca',
+            country: 'México',
+            region: 'mexico',
+            lat: 17.0732,
+            lon: -96.7266,
+            years: '2014–2024',
+            venue: 'Txalaparta, Espacios Culturales, Fiestas de Vanguardia',
+            dossier: 'Intersección entre tradiciones sonoras ancestrales, textiles, mezcal y bass futurista.'
+        },
+        {
+            id: 'puerto_escondido',
+            name: 'Puerto Escondido',
+            country: 'México',
+            region: 'mexico',
+            lat: 15.8624,
+            lon: -97.0694,
+            years: '2016–2024',
+            venue: 'Boiler Room Puerto Escondido (NAAFI Beach Showcase)',
+            dossier: 'Sesión histórica frente al Pacífico que proyectó el clubbing mexicano mundialmente.'
+        },
+        {
+            id: 'cd_juarez',
+            name: 'Ciudad Juárez',
+            country: 'México',
+            region: 'mexico',
+            lat: 31.6904,
+            lon: -106.4245,
+            years: '2012–2021',
+            venue: 'Border Bass Sessions, Clubbing Fronterizo',
+            dossier: 'Intercambio sónico bilateral en la frontera con El Paso, desafiando estigmas territoriales.'
+        },
+
+        // --- 🇺🇸 🇨🇦 NORTEAMÉRICA (USA & CANADÁ) ---
+        {
+            id: 'nyc',
+            name: 'Nueva York',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 40.7128,
+            lon: -74.0060,
+            years: '2014–2023',
+            venue: 'The Lot Radio (Brooklyn), MoMA PS1 Warm Up, Good Room, Bossa Nova Civic Club',
+            dossier: 'Transmisión exclusiva para The Lot Radio, residencias en Brooklyn y MoMA PS1.'
+        },
+        {
+            id: 'la',
+            name: 'Los Ángeles',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 34.0522,
+            lon: -118.2437,
+            years: '2013–2024',
+            venue: 'The Echo, Low End Theory, 1720, Dublab Radio Sessions',
+            dossier: 'Presentaciones en el templo del beat Low End Theory y colaboraciones con Dome Of Doom.'
+        },
+        {
+            id: 'sf',
+            name: 'San Francisco',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 37.7749,
+            lon: -122.4194,
+            years: '2014–2022',
+            venue: '1015 Folsom, F8, Public Works',
+            dossier: 'Showcases de club music vanguardista en el distrito de SoMa y Mission.'
+        },
+        {
+            id: 'chicago',
+            name: 'Chicago',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 41.8781,
+            lon: -87.6298,
+            years: '2015–2023',
+            venue: 'Smartbar Chicago, Empty Bottle',
+            dossier: 'Diálogo directo con la cuna del house y juke/footwork en Smartbar.'
+        },
+        {
+            id: 'austin',
+            name: 'Austin',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 30.2672,
+            lon: -97.7431,
+            years: '2015, 2023',
+            venue: 'Club Eternal (Nikki Nair & Lao), SXSW Showcases',
+            dossier: 'Noche de vanguardia en Club Eternal e incursiones oficiales en SXSW.'
+        },
+        {
+            id: 'houston',
+            name: 'Houston',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 29.7604,
+            lon: -95.3698,
+            years: '2016–2022',
+            venue: 'Walter’s Downtown, Warehouse Live',
+            dossier: 'Conexión tejana con el chopped and screwed y ritmos sincopados de club.'
+        },
+        {
+            id: 'dallas',
+            name: 'Dallas',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 32.7767,
+            lon: -96.7970,
+            years: '2016–2022',
+            venue: 'Deep Ellum Club Nights, It’ll Do Club',
+            dossier: 'Fechas de club en el distrito cultural de Deep Ellum.'
+        },
+        {
+            id: 'denver',
+            name: 'Denver',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 39.7392,
+            lon: -104.9903,
+            years: '2017–2023',
+            venue: 'Black Box Denver, Club Vinyl',
+            dossier: 'Sesiones de bajo profundo en el templo de sound-system culture The Black Box.'
+        },
+        {
+            id: 'portland',
+            name: 'Portland',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 45.5152,
+            lon: -122.6784,
+            years: '2016–2021',
+            venue: 'Holocene Portland, 45 East',
+            dossier: 'Presentaciones en el noroeste del Pacífico explorando síntesis y ritmos latinos.'
+        },
+        {
+            id: 'san_diego',
+            name: 'San Diego',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 32.7157,
+            lon: -117.1611,
+            years: '2013–2023',
+            venue: 'Spin Nightclub, Casbah, Kava Lounge',
+            dossier: 'Circuito costero californiano en enlace constante con la escena de Tijuana.'
+        },
+        {
+            id: 'fresno',
+            name: 'Fresno',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 36.7468,
+            lon: -119.7726,
+            years: '2016',
+            venue: 'Central Valley Warehouse Sessions',
+            dossier: 'Presentaciones en el Valle Central de California con comunidad chicana e independiente.'
+        },
+        {
+            id: 'el_paso',
+            name: 'El Paso',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 31.7619,
+            lon: -106.4850,
+            years: '2014–2023',
+            venue: 'Lowbrow Palace, Neon Desert Music Festival',
+            dossier: 'Conexión hermana con Ciudad Juárez y fechas estelares en Lowbrow Palace.'
+        },
+        {
+            id: 'atlanta',
+            name: 'Atlanta',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 33.7490,
+            lon: -84.3880,
+            years: '2017–2022',
+            venue: 'Aisle 5, The Sound Table',
+            dossier: 'Enlace con el bass music del sur de EE. UU. y el epicentro de la producción urbana.'
+        },
+        {
+            id: 'des_moines',
+            name: 'Des Moines',
+            country: 'EE. UU.',
+            region: 'north_america',
+            lat: 41.5868,
+            lon: -93.6250,
+            years: '2018',
+            venue: 'Wooly’s, Vaudeville Mews',
+            dossier: 'Incursión en el Midwest estadounidense abriendo brecha para el Latin Club.'
+        },
+        {
+            id: 'montreal',
+            name: 'Montreal',
+            country: 'Canadá',
+            region: 'north_america',
+            lat: 45.5017,
+            lon: -73.5673,
+            years: '2017',
+            venue: 'MUTEK Montréal (Société des Arts Technologiques - SAT)',
+            dossier: 'NAAFI Showcase norteamericano en la cúpula satelital de MUTEK Montréal.'
+        },
+        {
+            id: 'toronto',
+            name: 'Toronto',
+            country: 'Canadá',
+            region: 'north_america',
+            lat: 43.6532,
+            lon: -79.3832,
+            years: '2017, 2019',
+            venue: 'The Drake Underground, CODA Toronto',
+            dossier: 'Showcases de club contemporáneo en la metrópoli canadiense.'
+        },
+
+        // --- 🇪🇺 EUROPA (21 CIUDADES) ---
+        {
+            id: 'barcelona',
+            name: 'Barcelona',
+            country: 'España',
+            region: 'europe',
+            lat: 41.3851,
+            lon: 2.1734,
+            years: '2015, 2016, 2017',
+            venue: 'Sónar Barcelona (SónarDome 2015 & 2017), Razzmatazz (TRILL), Boiler Room',
+            dossier: 'Debut Catedral EP en solitario (2015), cierre b2b NAAFI (2017) y noches TRILL.'
+        },
+        {
+            id: 'madrid',
+            name: 'Madrid',
+            country: 'España',
+            region: 'europe',
+            lat: 40.4168,
+            lon: -3.7038,
+            years: '2015–2022',
+            venue: 'Sala Caracol, Siroco, Cha Chá The Club',
+            dossier: 'Noches míticas en la capital española desarticulando el clubbing tradicional.'
+        },
+        {
+            id: 'berlin',
+            name: 'Berlín',
+            country: 'Alemania',
+            region: 'europe',
+            lat: 52.5200,
+            lon: 13.4050,
+            years: '2016, 2017',
+            venue: 'Berghain (Säule VIII) & CTM Festival (Halle am Berghain)',
+            dossier: 'Debut en Säule VIII (Berghain) y presentación en Halle am Berghain para CTM Festival.'
+        },
+        {
+            id: 'paris',
+            name: 'París',
+            country: 'Francia',
+            region: 'europe',
+            lat: 48.8566,
+            lon: 2.3522,
+            years: '2016–2022',
+            venue: 'La Gaîté Lyrique, Rex Club, Badaboum',
+            dossier: 'Showcases de vanguardia en el centro de artes digitales de París y clubes de culto.'
+        },
+        {
+            id: 'lyon',
+            name: 'Lyon',
+            country: 'Francia',
+            region: 'europe',
+            lat: 45.7640,
+            lon: 4.8357,
+            years: '2016–2021',
+            venue: 'Le Sucre, Nuits Sonores Satellite Sessions',
+            dossier: 'Presentaciones en el rooftop de Le Sucre y foros de música electrónica lionesa.'
+        },
+        {
+            id: 'grenoble',
+            name: 'Grenoble',
+            country: 'Francia',
+            region: 'europe',
+            lat: 45.1885,
+            lon: 5.7245,
+            years: '2016',
+            venue: 'Le Belle Électrique, Grenoble Club Nights',
+            dossier: 'Fecha en los Alpes franceses con enfoque en bajo pesado y síntesis modular.'
+        },
+        {
+            id: 'bordeaux',
+            name: 'Bordeaux',
+            country: 'Francia',
+            region: 'europe',
+            lat: 44.8378,
+            lon: -0.5792,
+            years: '2016',
+            venue: 'Plage Club x LAO @ Iboat',
+            dossier: 'Club session en el suroeste francés a bordo del legendario Iboat.'
+        },
+        {
+            id: 'londres',
+            name: 'Londres',
+            country: 'Reino Unido',
+            region: 'europe',
+            lat: 51.5074,
+            lon: -0.1278,
+            years: '2016–2022',
+            venue: 'Corsica Studios, La Línea Festival, NTS Radio Live',
+            dossier: 'Corsica Studios en Elephant & Castle y retransmisiones directas en NTS Radio.'
+        },
+        {
+            id: 'venice',
+            name: 'Venecia',
+            country: 'Italia',
+            region: 'europe',
+            lat: 45.4408,
+            lon: 12.3155,
+            years: '2024',
+            venue: '60ª Bienal de Venecia (Arsenale / Teatro alle Tese)',
+            dossier: 'Dirección musical y performance de clausura para la ópera de vanguardia "La Culebra".'
+        },
+        {
+            id: 'turin',
+            name: 'Turín',
+            country: 'Italia',
+            region: 'europe',
+            lat: 45.0703,
+            lon: 7.6869,
+            years: '2017',
+            venue: 'Club To Club Satellite, Spazio 211',
+            dossier: 'Presentaciones en el epicentro industrial y experimental del Piamonte italiano.'
+        },
+        {
+            id: 'milan',
+            name: 'Milán',
+            country: 'Italia',
+            region: 'europe',
+            lat: 45.4642,
+            lon: 9.1900,
+            years: '2017–2023',
+            venue: 'Macao Milano, Tunnel Club',
+            dossier: 'Noche de resistencia en el centro autónomo de arte y sonido Macao.'
+        },
+        {
+            id: 'amsterdam',
+            name: 'Ámsterdam',
+            country: 'Países Bajos',
+            region: 'europe',
+            lat: 52.3676,
+            lon: 4.9041,
+            years: '2016–2022',
+            venue: 'De School (ADE), Melkweg, Red Light Radio',
+            dossier: 'Presentaciones en Amsterdam Dance Event (ADE) y transmisión en Red Light Radio.'
+        },
+        {
+            id: 'la_haya',
+            name: 'La Haya',
+            country: 'Países Bajos',
+            region: 'europe',
+            lat: 52.0705,
+            lon: 4.3007,
+            years: '2016',
+            venue: 'Rewire Festival Club Sessions, PIP Den Haag',
+            dossier: 'Encuentro con la vanguardia electro holandesa y cultura de sintetizadores.'
+        },
+        {
+            id: 'zurich',
+            name: 'Zúrich',
+            country: 'Suiza',
+            region: 'europe',
+            lat: 47.3769,
+            lon: 8.5417,
+            years: '2016–2022',
+            venue: 'Zukunft, Rote Fabrik',
+            dossier: 'Noches en el club de culto Zukunft y el centro cultural Rote Fabrik.'
+        },
+        {
+            id: 'geneva',
+            name: 'Ginebra',
+            country: 'Suiza',
+            region: 'europe',
+            lat: 46.2044,
+            lon: 6.1432,
+            years: '2016',
+            venue: 'Usine Genève (Le Zoo)',
+            dossier: 'Sesión de alto voltaje en el legendario complejo cultural L’Usine.'
+        },
+        {
+            id: 'bern',
+            name: 'Berna',
+            country: 'Suiza',
+            region: 'europe',
+            lat: 46.9480,
+            lon: 7.4474,
+            years: '2016',
+            venue: 'Dampfzentrale Bern, Reitschule',
+            dossier: 'Foros de arte escénico y música contemporánea en la capital suiza.'
+        },
+        {
+            id: 'st_gallen',
+            name: 'St. Gallen',
+            country: 'Suiza',
+            region: 'europe',
+            lat: 47.4245,
+            lon: 9.3767,
+            years: '2016',
+            venue: 'Grabenhalle St. Gallen',
+            dossier: 'Espacio histórico de cultura alternativa en Suiza oriental.'
+        },
+        {
+            id: 'porto',
+            name: 'Porto',
+            country: 'Portugal',
+            region: 'europe',
+            lat: 41.1579,
+            lon: -8.6291,
+            years: '2016–2021',
+            venue: 'Passos Manuel, Gare Porto',
+            dossier: 'Conexión lusa con el kuduro, batida y la vanguardia electrónica del norte de Portugal.'
+        },
+        {
+            id: 'lisboa',
+            name: 'Lisboa',
+            country: 'Portugal',
+            region: 'europe',
+            lat: 38.7223,
+            lon: -9.1393,
+            years: '2016–2023',
+            venue: 'Musicbox Lisboa, Lux Frágil Sessions',
+            dossier: 'Intercambio directo en Musicbox con el sonido afro-portugués de Príncipe Discos.'
+        },
+        {
+            id: 'vienna',
+            name: 'Viena',
+            country: 'Austria',
+            region: 'europe',
+            lat: 48.2082,
+            lon: 16.3738,
+            years: '2016–2022',
+            venue: 'Grelle Forelle, Fluc Wanne',
+            dossier: 'Bajos profundos a orillas del canal del Danubio en Grelle Forelle.'
+        },
+        {
+            id: 'krakow',
+            name: 'Cracovia',
+            country: 'Polonia',
+            region: 'europe',
+            lat: 50.0647,
+            lon: 19.9450,
+            years: '2016',
+            venue: 'Unsound Festival (Hotel Forum)',
+            dossier: 'Presentación en el icónico Hotel Forum para el festival experimental Unsound.'
+        },
+
+        // --- 🌏 ASIA & MEDIO ORIENTE (9 CIUDADES) ---
         {
             id: 'tokyo',
             name: 'Tokio',
@@ -3630,6 +4132,28 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             years: '2014, 2017, 2019',
             venue: 'Circus Tokyo (Shibuya), Red Bull Music Academy (Daikanyama UNIT)',
             dossier: 'RBMA Tokyo 2014; Circus Tokyo con Wrack (2017) y con Nick Hook (2019).'
+        },
+        {
+            id: 'osaka',
+            name: 'Osaka',
+            country: 'Japón',
+            region: 'asia',
+            lat: 34.6937,
+            lon: 135.5023,
+            years: '2017, 2019',
+            venue: 'Circus Osaka, Club Daphnia',
+            dossier: 'Fechas de club en Kansai con la comunidad bass y juke de Osaka.'
+        },
+        {
+            id: 'seoul',
+            name: 'Seúl',
+            country: 'Corea del Sur',
+            region: 'asia',
+            lat: 37.5665,
+            lon: 126.9780,
+            years: '2017',
+            venue: 'Cakeshop Seoul & Seoul Community Radio (SCR)',
+            dossier: 'Showcase en el corazón de Itaewon y transmisión en directo para SCR.'
         },
         {
             id: 'taipei',
@@ -3654,15 +4178,15 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             dossier: 'Incursión histórica en el centro tecnológico chino con Boiler Room China.'
         },
         {
-            id: 'beijing',
-            name: 'Beijing',
+            id: 'hong_kong',
+            name: 'Hong Kong',
             country: 'China',
             region: 'asia',
-            lat: 39.9042,
-            lon: 116.4074,
+            lat: 22.3193,
+            lon: 114.1694,
             years: '2019',
-            venue: 'ALL Beijing / Club Run',
-            dossier: 'Presentación en la capital china explorando bass extremo y club experimental.'
+            venue: '宀 Club (Mihn Club), Social Room',
+            dossier: 'Noche de vanguardia en la isla de Hong Kong para la escena de clubbing asiática.'
         },
         {
             id: 'shanghai',
@@ -3676,114 +4200,105 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             dossier: 'Colaboración sónica con el legendario sello chino Genome 6.66 Mbp.'
         },
         {
-            id: 'seoul',
-            name: 'Seúl',
-            country: 'Corea del Sur',
+            id: 'beijing',
+            name: 'Beijing',
+            country: 'China',
             region: 'asia',
-            lat: 37.5665,
-            lon: 126.9780,
-            years: '2017',
-            venue: 'Cakeshop Seoul & Seoul Community Radio (SCR)',
-            dossier: 'Showcase en el corazón de Itaewon y transmisión en directo para SCR.'
+            lat: 39.9042,
+            lon: 116.4074,
+            years: '2019',
+            venue: 'ALL Beijing / Club Run',
+            dossier: 'Presentación en la capital china explorando bass extremo y club experimental.'
         },
         {
-            id: 'berlin',
-            name: 'Berlín',
-            country: 'Alemania',
-            region: 'europe',
-            lat: 52.5200,
-            lon: 13.4050,
-            years: '2016, 2017',
-            venue: 'Berghain (Säule VIII) & CTM Festival (Halle am Berghain)',
-            dossier: 'Debut en Säule VIII (Berghain) y presentación en Halle am Berghain para CTM Festival.'
+            id: 'new_delhi',
+            name: 'Nueva Delhi',
+            country: 'India',
+            region: 'asia',
+            lat: 28.6139,
+            lon: 77.2090,
+            years: '2018',
+            venue: 'Auro Kitchen & Bar, Boxout.fm Sessions',
+            dossier: 'Gira por el subcontinente indio y sesión grabada para Boxout.fm en Nueva Delhi.'
+        },
+
+        // --- 🌎 SUDAMÉRICA (7 CIUDADES) ---
+        {
+            id: 'bogota',
+            name: 'Bogotá',
+            country: 'Colombia',
+            region: 'south_america',
+            lat: 4.7110,
+            lon: -74.0721,
+            years: '2015–2023',
+            venue: 'Festival Estéreo Picnic, Video Club, Baum Bogotá',
+            dossier: 'Presentaciones masivas en Estéreo Picnic y residencias en Video Club Bogotá.'
         },
         {
-            id: 'barcelona',
-            name: 'Barcelona',
-            country: 'España',
-            region: 'europe',
-            lat: 41.3851,
-            lon: 2.1734,
-            years: '2015, 2016, 2017',
-            venue: 'Sónar Barcelona (SónarDome 2015 & 2017), Razzmatazz (TRILL), Boiler Room Barcelona',
-            dossier: 'Debut Catedral EP en solitario (2015) y cierre oficial b2b con NAAFI (2017).'
+            id: 'medellin',
+            name: 'Medellín',
+            country: 'Colombia',
+            region: 'south_america',
+            lat: 6.2442,
+            lon: -75.5812,
+            years: '2016–2023',
+            venue: 'Calle 9+, Mansion Club, Fiestas de Perreo Mutante',
+            dossier: 'Diálogo directo con los productores de reggaetón y techno de la capital antioqueña.'
         },
         {
-            id: 'venice',
-            name: 'Venecia',
-            country: 'Italia',
-            region: 'europe',
-            lat: 45.4408,
-            lon: 12.3155,
-            years: '2024',
-            venue: '60ª Bienal de Venecia (Arsenale / Teatro alle Tese)',
-            dossier: 'Dirección musical y performance de clausura para la ópera de vanguardia "La Culebra".'
+            id: 'lima',
+            name: 'Lima',
+            country: 'Perú',
+            region: 'south_america',
+            lat: -12.0464,
+            lon: -77.0428,
+            years: '2014–2022',
+            venue: 'Matacandela, Fiestas Dengue Dengue Dengue!, Cumbia Psicodélica',
+            dossier: 'Hermandad con la escena peruana de cumbia digital y bass andino.'
         },
         {
-            id: 'krakow',
-            name: 'Cracovia',
-            country: 'Polonia',
-            region: 'europe',
-            lat: 50.0647,
-            lon: 19.9450,
-            years: '2016',
-            venue: 'Unsound Festival (Hotel Forum)',
-            dossier: 'Presentación en el icónico Hotel Forum para el festival experimental Unsound.'
+            id: 'oxapampa',
+            name: 'Oxapampa',
+            country: 'Perú',
+            region: 'south_america',
+            lat: -10.5756,
+            lon: -75.4018,
+            years: '2015',
+            venue: 'Festival Selvámonos (Selva Central del Perú)',
+            dossier: 'Showcase en el festival amazónico que conecta ecología, ritmos de selva y clubbing.'
         },
         {
-            id: 'bordeaux',
-            name: 'Bordeaux',
-            country: 'Francia',
-            region: 'europe',
-            lat: 44.8378,
-            lon: -0.5792,
-            years: '2016',
-            venue: 'Plage Club x LAO @ Iboat',
-            dossier: 'Club session en el suroeste francés a bordo del legendario Iboat.'
+            id: 'santiago',
+            name: 'Santiago',
+            country: 'Chile',
+            region: 'south_america',
+            lat: -33.4489,
+            lon: -70.6693,
+            years: '2014–2023',
+            venue: 'Club Subterráneo, NAAFI Cono Sur Sessions, Imaabs Collabs',
+            dossier: 'Alianza artística histórica con Imaabs y la vanguardia de club chilena.'
         },
         {
-            id: 'montreal',
-            name: 'Montreal',
-            country: 'Canadá',
-            region: 'america',
-            lat: 45.5017,
-            lon: -73.5673,
-            years: '2017',
-            venue: 'MUTEK Montréal (Société des Arts Technologiques - SAT)',
-            dossier: 'NAAFI Showcase norteamericano en la cúpula satelital de MUTEK Montréal.'
+            id: 'buenos_aires',
+            name: 'Buenos Aires',
+            country: 'Argentina',
+            region: 'south_america',
+            lat: -34.6037,
+            lon: -58.3816,
+            years: '2014–2023',
+            venue: 'Niceto Club, Hiedrah Club de Baile, Fiestas ZZK',
+            dossier: 'Colisión sónica con Hiedrah Club de Baile y Niceto Club en Palermo.'
         },
         {
-            id: 'nyc',
-            name: 'Nueva York',
-            country: 'EE. UU.',
-            region: 'america',
-            lat: 40.7128,
-            lon: -74.0060,
-            years: '2016, 2023',
-            venue: 'The Lot Radio (Brooklyn) & NAAFI NYC Sessions',
-            dossier: 'Transmisión exclusiva para The Lot Radio y residencias de club en Brooklyn.'
-        },
-        {
-            id: 'austin',
-            name: 'Austin',
-            country: 'EE. UU.',
-            region: 'america',
-            lat: 30.2672,
-            lon: -97.7431,
-            years: '2023',
-            venue: 'Club Eternal (Nikki Nair & Lao)',
-            dossier: 'Noche de vanguardia y debut texano en el club underground Club Eternal.'
-        },
-        {
-            id: 'puerto_escondido',
-            name: 'Puerto Escondido',
-            country: 'México',
-            region: 'america',
-            lat: 15.8624,
-            lon: -97.0694,
-            years: '2016',
-            venue: 'Boiler Room Puerto Escondido (NAAFI Beach Showcase)',
-            dossier: 'Sesión frente al océano Pacífico que proyectó el clubbing mexicano mundialmente.'
+            id: 'montevideo',
+            name: 'Montevideo',
+            country: 'Uruguay',
+            region: 'south_america',
+            lat: -34.9011,
+            lon: -56.1645,
+            years: '2017, 2022',
+            venue: 'Rambla Sessions, Clubbing Rioplatense',
+            dossier: 'Encuentro con el candombe uruguayo, polirritmias de tamboril y bass rioplatense.'
         }
     ];
 
@@ -3819,13 +4334,14 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             // Flight trajectory arc from CDMX (Ground Zero)
             if (!city.isHQ) {
                 const midX = (cdmxPos.x + pos.x) / 2;
-                const midY = Math.min(cdmxPos.y, pos.y) - 40;
+                const midY = Math.min(cdmxPos.y, pos.y) - 35;
                 const pathD = `M ${cdmxPos.x} ${cdmxPos.y} Q ${midX} ${midY} ${pos.x} ${pos.y}`;
 
                 const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 pathEl.setAttribute('d', pathD);
                 pathEl.setAttribute('class', 'radar-flight-arc');
                 pathEl.setAttribute('id', `arc-${city.id}`);
+                pathEl.setAttribute('opacity', filterRegion === 'all' ? '0.22' : '0.65');
                 svgArcs.appendChild(pathEl);
             }
 
@@ -3840,10 +4356,10 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             pulseCircle.setAttribute('class', 'radar-city-pulse');
             pulseCircle.setAttribute('cx', 0);
             pulseCircle.setAttribute('cy', 0);
-            pulseCircle.setAttribute('r', city.isHQ ? 6 : 3.5);
+            pulseCircle.setAttribute('r', city.isHQ ? 6 : 3);
             pulseCircle.setAttribute('fill', 'none');
             pulseCircle.setAttribute('stroke', city.isHQ ? 'var(--main)' : 'var(--accent)');
-            pulseCircle.setAttribute('stroke-width', city.isHQ ? 2 : 1.2);
+            pulseCircle.setAttribute('stroke-width', city.isHQ ? 2 : 1);
             g.appendChild(pulseCircle);
 
             // Center beacon
@@ -3851,19 +4367,22 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
             coreCircle.setAttribute('class', 'blip-core');
             coreCircle.setAttribute('cx', 0);
             coreCircle.setAttribute('cy', 0);
-            coreCircle.setAttribute('r', city.isHQ ? 4.5 : 2.5);
+            coreCircle.setAttribute('r', city.isHQ ? 4.5 : 2.2);
             coreCircle.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--accent)');
             g.appendChild(coreCircle);
 
             // City Label
             const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-            text.setAttribute('x', 7);
-            text.setAttribute('y', 3);
+            text.setAttribute('x', 6);
+            text.setAttribute('y', 2.5);
             text.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
-            text.setAttribute('font-size', city.isHQ ? '9px' : '7.5px');
+            text.setAttribute('font-size', city.isHQ ? '9px' : '6.5px');
             text.setAttribute('font-family', 'Iosevka, monospace');
             text.setAttribute('font-weight', city.isHQ ? 'bold' : 'normal');
-            text.setAttribute('opacity', city.isHQ ? '1' : '0.85');
+            // In 'all' view, only show major hubs or on hover to maintain clarity
+            const isHub = city.isHQ || ['tokyo', 'nyc', 'la', 'berlin', 'barcelona', 'paris', 'londres', 'bogota', 'buenos_aires'].includes(city.id);
+            text.setAttribute('opacity', (filterRegion !== 'all' || isHub) ? '0.85' : '0');
+            text.setAttribute('class', 'radar-city-label');
             text.textContent = city.name.toUpperCase();
             g.appendChild(text);
 
@@ -3871,9 +4390,32 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
                 if (hudCity) hudCity.textContent = `// ${city.name.toUpperCase()}, ${city.country.toUpperCase()} [${city.years}]`;
                 if (hudCoords) hudCoords.textContent = `[ LAT ${city.lat.toFixed(2)}°, LON ${city.lon.toFixed(2)}° ]`;
                 if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> ${city.venue}<br><span class="opacity-75">${city.dossier}</span>`;
+
+                // Highlight this city's arc
+                document.querySelectorAll('.radar-flight-arc').forEach(arc => {
+                    arc.setAttribute('opacity', '0.15');
+                    arc.setAttribute('stroke-width', '1');
+                });
+                const activeArc = document.getElementById(`arc-${city.id}`);
+                if (activeArc) {
+                    activeArc.setAttribute('opacity', '1');
+                    activeArc.setAttribute('stroke-width', '2.5');
+                }
+
+                // Make this city label visible
+                text.setAttribute('opacity', '1');
+                text.setAttribute('fill', 'var(--accent)');
+            };
+
+            const deselectCity = () => {
+                if (filterRegion === 'all' && !isHub) {
+                    text.setAttribute('opacity', '0');
+                }
+                text.setAttribute('fill', city.isHQ ? 'var(--main)' : 'var(--fg)');
             };
 
             g.addEventListener('mouseenter', selectCity);
+            g.addEventListener('mouseleave', deselectCity);
             g.addEventListener('click', selectCity);
 
             svgNodes.appendChild(g);
