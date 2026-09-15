@@ -1167,10 +1167,10 @@ document.addEventListener('DOMContentLoaded', () => {
             year: "2026",
             cover: "/images/covers/chapultepec.jpg",
             desc: "Sesión de club en vivo grabada en mayo 2026 en Drama Radio Bar (CDMX). Selección exclusiva de dubplates inéditos, edits 2026 y bass music territorial.",
-            details: ["Duración: 60 min", "Grabado en vivo en CDMX", "Plataforma: YouTube & Radio Broadcast"],
-            streamType: "youtube",
-            streamPayload: "5T8_ZpS2rUk",
-            links: { youtube: "https://www.youtube.com/watch?v=5T8_ZpS2rUk", sc: "https://soundcloud.com/lao" }
+            details: ["Duración: 60 min", "Grabado en vivo en CDMX", "Plataforma: SoundCloud & Radio Broadcast"],
+            streamType: "soundcloud",
+            streamPayload: "https://soundcloud.com/lao",
+            links: { sc: "https://soundcloud.com/lao" }
         },
         "mix-japan-2024": {
             id: "mix-japan-2024",
@@ -1221,8 +1221,8 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "La primera transmisión masiva de Boiler Room en Ciudad de México que consagró internacionalmente al colectivo NAAFI y el sonido de Lao.",
             details: ["Ciudad de México", "Showcase: NAAFI Takeover", "Visualización en streaming mundial"],
             streamType: "youtube",
-            streamPayload: "5T8_ZpS2rUk",
-            links: { youtube: "https://www.youtube.com/watch?v=5T8_ZpS2rUk", sc: "https://soundcloud.com/lao" }
+            streamPayload: "V0Q05GhLRdc",
+            links: { youtube: "https://www.youtube.com/watch?v=V0Q05GhLRdc", sc: "https://soundcloud.com/lao" }
         },
         "mix-xlr8r-626": {
             id: "mix-xlr8r-626",
@@ -1960,9 +1960,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Fecha: Agosto 2026 (Publicación reciente)"
             ],
             streamType: "youtube",
-            streamPayload: "g2qJ3r_4nJ4",
+            streamPayload: "Qe2Bcp0-OZc",
             links: {
-                youtube: "https://www.youtube.com/watch?v=g2qJ3r_4nJ4"
+                youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc"
             }
         },
         "tut-sound-design": {
@@ -1979,9 +1979,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Enfoque: Clubbing de alta potencia y control de sub-graves"
             ],
             streamType: "youtube",
-            streamPayload: "5T8_ZpS2rUk",
+            streamPayload: "Qe2Bcp0-OZc",
             links: {
-                youtube: "https://www.youtube.com/@laurorobles"
+                youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc"
             }
         },
         "tut-modular-routing": {
@@ -2041,9 +2041,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Temas: Síntesis analógica, percusión prehispánica y evolución de NAAFI"
             ],
             streamType: "youtube",
-            streamPayload: "g2qJ3r_4nJ4",
+            streamPayload: "Qe2Bcp0-OZc",
             links: {
-                youtube: "https://www.youtube.com/watch?v=g2qJ3r_4nJ4",
+                youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc",
                 web: "https://durolabel.com"
             }
         },
