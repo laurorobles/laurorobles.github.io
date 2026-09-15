@@ -233,11 +233,11 @@ body {
   background: var(--card-bg); border: 1.5px solid var(--main);
   box-shadow: 6px 6px 0 rgba(0,0,0,0.6); backdrop-filter: blur(8px);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  resize: both; overflow: hidden; display: none; flex-direction: column; z-index: 100;
+  resize: both; overflow: hidden; display: none; flex-direction: column; z-index: 8700;
 }
 [data-theme="day"] .drag-window { box-shadow: 4px 4px 0 rgba(0,0,0,0.12); }
 .drag-window.active-win {
-  border-color: var(--accent); box-shadow: 8px 8px 0 rgba(0,0,0,0.8), 0 0 16px var(--accent); z-index: 500;
+  border-color: var(--accent); box-shadow: 8px 8px 0 rgba(0,0,0,0.8), 0 0 16px var(--accent); z-index: 8800;
 }
 
 .win-fullscreen {
@@ -255,9 +255,9 @@ body {
 }
 
 .win-header {
-  padding: 8px 14px; background: var(--main); color: var(--bg);
+  padding: 4px 10px; background: var(--main); color: var(--bg);
   font-weight: bold; cursor: grab; display: flex; justify-content: space-between;
-  align-items: center; font-size: 0.94rem; flex-shrink: 0; letter-spacing: 0.6px;
+  align-items: center; font-size: 0.85rem; flex-shrink: 0; letter-spacing: 0.6px;
 }
 .win-header:active { cursor: grabbing; }
 .win-actions { display: flex; align-items: center; gap: 8px; }
@@ -729,8 +729,8 @@ body {
 }
 .video-card {
   border: 1px solid var(--circuit); background: rgba(0, 0, 0, 0.3);
-  padding: 4px; display: flex; flex-direction: column; cursor: pointer;
-  transition: all 0.15s ease; position: relative; overflow: hidden;
+  padding: 6px; display: flex; flex-direction: row; gap: 10px; cursor: pointer;
+  transition: all 0.15s ease; position: relative; overflow: hidden; align-items: start;
 }
 [data-theme="day"] .video-card { background: rgba(0, 0, 0, 0.03); }
 .video-card:hover {
@@ -741,8 +741,8 @@ body {
   border-color: var(--main); box-shadow: 0 0 12px var(--main);
 }
 .video-thumb-wrap {
-  position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
-  background: #000; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 4px;
+  position: relative; width: 150px; flex-shrink: 0; aspect-ratio: 16/9; overflow: hidden;
+  background: #000; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0;
 }
 .video-thumb-img {
   width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s ease;
@@ -1111,3 +1111,13 @@ body {
 }
 
 
+/* DOCK DROPDOWNS */
+.dock-group { position: relative; display: inline-block; }
+.dock-group-content {
+  display: none; position: absolute; bottom: 100%; left: 0;
+  background: var(--card-bg); border: 1px solid var(--circuit);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.6); padding: 4px;
+  min-width: 120px; flex-direction: column; gap: 2px;
+  margin-bottom: 6px; z-index: 8600;
+}
+.dock-group:hover .dock-group-content { display: flex; }

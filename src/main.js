@@ -223,8 +223,23 @@ document.addEventListener('DOMContentLoaded', () => {
         centerOrigin(false);
         printTerminal('[KERNEL] LAO_OS v8.9 initialized. Motherboard standing by.');
 
+        // Randomize all window positions on boot across the 5000x5000 board
+        // Keep them slightly away from edges (500px to 4500px)
+        document.querySelectorAll('.drag-window').forEach(win => {
+            const currentWidth = parseInt(win.style.width) || 400;
+            const currentHeight = parseInt(win.style.height) || 400;
+            // Increase window size slightly per user request
+            win.style.width = `${currentWidth * 1.25}px`;
+            win.style.height = `${currentHeight * 1.25}px`;
+            
+            const randomX = Math.floor(Math.random() * 4000) + 500;
+            const randomY = Math.floor(Math.random() * 4000) + 500;
+            win.style.left = `${randomX}px`;
+            win.style.top = `${randomY}px`;
+        });
+
         // Auto-open ONLY the terminal window upon booting (all other windows stay closed)
-        openWindow('win-terminal', false);
+        openWindow('win-terminal', true);
 
         // Auto-run help command in terminal
         setTimeout(() => {
@@ -254,8 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================= */
     const viewport = document.getElementById('viewport');
     const world = document.getElementById('world');
-    
+    let isDragging = false;
     let isPanning = false;
+    let highestZ = 8700;
+    let isNightMode = true;
     let startX, startY;
     let currentX = 0, currentY = 0;
 
@@ -342,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
        3. DYNAMIC CABLES (FROM EXACT 2500,2500)
        ========================================================= */
     const dynamicCablesSvg = document.getElementById('dynamic-cables');
-    let highestZ = 100;
 
     function updateCables() {
         if (!dynamicCablesSvg) return;
@@ -1175,12 +1191,12 @@ document.addEventListener('DOMContentLoaded', () => {
         "mix-japan-2024": {
             id: "mix-japan-2024",
             title: "Japan Club #0131 (Brillo)",
-            subtitle: "Gira Japonesa — Transmisión Oficial",
+            subtitle: "Japan Club CDMX — 2026",
             type: "LIVE BROADCAST",
-            year: "2024",
+            year: "2026",
             cover: "/images/covers/coastal_acid.jpg",
-            desc: "Set de club grabado en Tokio como parte de la gira asiática 2024. Mezcla hipnótica de acid latino y breakbeats.",
-            details: ["Tokio, Japón", "Serie: JAPAN CLUB #0131", "Plataforma: Japan TV / YouTube"],
+            desc: "Set de club grabado en Japan Club CDMX en 2026. Mezcla hipnótica de acid latino y breakbeats.",
+            details: ["Japan Club (CDMX)", "Serie: JAPAN CLUB #0131", "Plataforma: YouTube"],
             streamType: "youtube",
             streamPayload: "K81412qHl-A",
             links: { youtube: "https://www.youtube.com/watch?v=K81412qHl-A", sc: "https://soundcloud.com/lao" }
