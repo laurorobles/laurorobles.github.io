@@ -783,26 +783,28 @@ document.addEventListener('DOMContentLoaded', () => {
        Authentic ACiD / iCE style block art randomly scattered
        across the 5000x5000 motherboard coordinates on every load
        ========================================================= */
-    const ANSI_ART_MURALS = [
+        const ANSI_ART_MURALS = [
         {
-            title: "EXTASIS // 3D BLOCK",
-            art: `  ▄████████  ▄▄▄       █▄▄▄▄ ▄█    ▄   ██   █▀▄▀█ 
-  ███    ███ ▒████▄    █  ▄▀ ██     █  █ █  █ █ █ 
-  ███    █▀  ▒██  ▀█▄  █▀▀▌  ██ ██ ▄█▄ █▄▄█ █ ▄ █ 
-  ███        ░██▄▄▄▄██ █  █  ▐█ ▒█  █  █▀▀█ █   █ 
-  ███   ███   ▓█   ▓██ █  █   ▐ ░█  █  █  █ █   █ 
-  ███    ███  ▒▒   ▓▒█ █  █     ▒█  █     █ █   █ 
-  ██████████   ▒   ▒▒ █   █     ░████     █ █   █ `
+            title: "EXTASIS RECORDS",
+            art: `
+  ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗███████╗
+  ██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝██║██╔════╝
+  █████╗   ╚███╔╝    ██║   ███████║███████╗██║███████╗
+  ██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║██║╚════██║
+  ███████╗██╔╝ ██╗   ██║   ██║  ██║███████║██║███████║
+  ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝
+            `
         },
         {
             title: "LAO // DRONE SYSTEM",
-            art: ` ▓█████▄  ██▀███   ▒█████   ███▄    █ ▓█████ 
- ▒██▀ ██▌▓██ ▒ ██▒▒██▒  ██▒ ██ ▀█   █ ▓█   ▀ 
- ░██   █▌▓██ ░▄█ ▒▒██░  ██▒▓██  ▀█ ██▒▒███   
- ░▓█▄   ▌▒██▀▀█▄  ▒██   ██░▓██▒  ▐▌██▒▒▓█  ▄ 
- ░▒████▓ ░██▓ ▒██▒░ ████▓▒░▒██░   ▓██░░▒████▒
-  ▒▒▓  ▒ ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ░░ ▒░ ░
-  ░ ▒  ▒   ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░░   ░ ▒░ ░ ░  ░`
+            art: `
+  ██╗      █████╗  ██████╗ 
+  ██║     ██╔══██╗██╔═══██╗
+  ██║     ███████║██║   ██║
+  ██║     ██╔══██║██║   ██║
+  ███████╗██║  ██║╚██████╔╝
+  ╚══════╝╚═╝  ╚═╝ ╚═════╝ 
+            `
         },
         {
             title: "NAHUI OLLIN // QUINTO SOL",
@@ -841,10 +843,10 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "MI // CERO MAYA",
             art: `         .---.        
-       / /" "\ \\      
+       / /" "\ \      
       | | (0) | |     
       | |     | |     
-       \\ \\_ _/ /      
+       \ \_ _/ /      
         '-----'       
      MI / CERO MAYA   
    [ REPOSO PRIMORDIAL ]`
@@ -860,12 +862,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "CHICOMOZTOC // 7 CAVES",
-            art: `         / \\         
-        /   \\        
-       / [1] \\       
-     / [2] [3] \\     
-    / [4] [5] [6]\\   
-   /      [7]     \\  
+            art: `         / \         
+        /   \        
+       / [1] \       
+     / [2] [3] \     
+    / [4] [5] [6]\   
+   /      [7]     \  
   ═══════════════════
    CHICOMOZTOC 7-CAVES`
         },
@@ -895,9 +897,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "EXTASIS // ACiD SCENE",
             art: `      _   ___ _    __  
-     /_\\ / __(_)__/ /  
+     /_\ / __(_)__/ /  
     / _ / /__/ / _  /   
-   /_/ |_\\___/_|_,_/   
+   /_/ |_\___/_|_,_/   
     >> EXTASIS SYSTEM <<
    ACiD / iCE SCENE BBS`
         }
@@ -1092,7 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Clásicos Vol. 1 [EXTASIS031]",
             subtitle: "Extasis Records — Compilación Antológica",
             type: "COMPILACIÓN",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/clasicos_vol1.jpg",
             desc: "Compilación antológica de himnos esenciales producidos por Lao para la pista subterránea durante una década de residencias y giras internacionales.",
             details: [
@@ -1281,7 +1283,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "XLR8R Podcast 626: Lao",
             subtitle: "Podcast de Autor & Entrevista Documental",
             type: "PODCAST / DJ MIX",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/clasicos_vol1.jpg",
             desc: "Sesión en profundidad curada por Lao celebrando 10 años de NAAFI y su estudio en Chapultepec. Acompañada de extensa entrevista retrospectiva.",
             details: ["Plataforma: XLR8R", "Edición: Podcast 626", "Duración: 65 min"],
@@ -1420,14 +1422,14 @@ document.addEventListener('DOMContentLoaded', () => {
             links: { bc: "https://naafi.bandcamp.com", sc: "https://soundcloud.com/lao" }
         },
                 "art-anahuacalli-2020": {
-            id: "art-anahuacalli-2020",
-            title: "Museo Anahuacalli: Noche de Museos (2020)",
+            id: "art-anahuacalli-2022",
+            title: "Museo Anahuacalli: Noche de Museos (2022)",
             subtitle: "Cerámica Sónica & Electrónica Prehispánica",
             type: "LIVE PERFORMANCE",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/anahuacalli.jpg",
             desc: "Presentación especial en el Museo Anahuacalli para la Noche de Museos, explorando resonadores de barro, instrumentos mesoamericanos y síntesis algorítmica en vivo.",
-            details: ["Lugar: Museo Anahuacalli, CDMX", "Fecha: Enero 2020", "Formato: Live Act Electroacústico"],
+            details: ["Lugar: Museo Anahuacalli, CDMX", "Fecha: 21 de enero de 2022", "Formato: Live Act Electroacústico"],
             streamType: "soundcloud",
             streamPayload: "https://soundcloud.com/lao",
             links: { web: "https://www.local.mx/ciudad-de-mexico/que-hacer-en-la-cdmx-agenda-local-20-25-enero/" }
@@ -1480,7 +1482,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             streamType: "soundcloud",
             streamPayload: "https://soundcloud.com/lao",
-            links: { sc: "https://soundcloud.com/lao", bc: "https://extasisrecords.bandcamp.com" }
+            links: { sc: "https://soundcloud.com/lao", gumroad: "https://laurorobles.gumroad.com" }
         },
         "art-naafi-extasis": {
             id: "art-naafi-extasis",
@@ -1566,7 +1568,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles/ExtasisDonker",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
         "plugin-extasis-rhythm": {
@@ -1589,7 +1591,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles/ExtasisRhythm",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
         "plugin-orbita-lpg": {
@@ -1612,7 +1614,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles/Orbita-LPG-JUCE",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
         "plugin-extasis-marimba": {
@@ -1634,7 +1636,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles/ExtasisMarimba",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
         "plugin-extasis-logdrum": {
@@ -1655,7 +1657,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles/ExtasisLogDrum",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
         "plugin-extasis-vision": {
@@ -1676,7 +1678,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: null,
             links: {
                 github: "https://github.com/laurorobles",
-                bc: "https://extasisrecords.bandcamp.com"
+                gumroad: "https://laurorobles.gumroad.com"
             }
         },
 
@@ -1810,7 +1812,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Culebritica (Lao Club Tool)",
             subtitle: "Latin Club x Industrial Bass Clubbing",
             type: "SOUNDCLOUD CLUB TOOL",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/culebritica.png",
             desc: "Cruce implacable entre patrones rítmicos sincopados de güiro y sintetizadores de sierra industrial, calibrado para hacer vibrar sistemas de sonido de festival.",
             details: ["Plataforma: SoundCloud", "BPM: 132 BPM"],
@@ -2028,80 +2030,40 @@ document.addEventListener('DOMContentLoaded', () => {
         /* =========================================================
            PEDAGOGY WORKSHOPS & TUTORIALS
            ========================================================= */
-        "tut-duro-masterclass": {
-            id: "tut-duro-masterclass",
-            title: "DURO Studio Masterclass: Deconstrucción Rítmica & Síntesis",
-            subtitle: "Sesión Técnica en Chapultepec (Agosto 2026 // Reciente)",
-            type: "MASTERCLASS EN VIDEO",
-            year: "2026",
-            cover: "/images/lao_portrait.jpg",
-            desc: "Masterclass de producción musical y diseño sonoro grabada en el estudio de Chapultepec. Desglose del flujo de señal analógico y digital, modulación FM y escultura de frecuencias graves.",
-            details: [
-                "Medio: DURO Label / YouTube Oficial",
-                "Duración: 24 minutos",
-                "Temario: Síntesis analógica, percusión prehispánica y flujo de señal en Ableton",
-                "Fecha: Agosto 2026 (Publicación reciente)"
-            ],
-            streamType: "youtube",
-            streamPayload: "Qe2Bcp0-OZc",
-            links: {
-                youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc"
-            }
-        },
-        "tut-sound-design": {
-            id: "tut-sound-design",
-            title: "Diseño Sonoro & Escultura de Sub-Bajos en Ableton Live",
-            subtitle: "Workshop Técnico de Low-End y Saturación",
-            type: "TUTORIAL TÉCNICO",
-            year: "2025",
-            cover: "/images/covers/coastal_acid.jpg",
-            desc: "Técnicas avanzadas para esculpir bajas frecuencias con pegada y definición para soundsystems. Manejo de compresión paralela, distorsión armónica sutil y monocompatibilidad.",
-            details: [
-                "Plataforma: Ableton Live 11 / 12 Suite",
-                "Herramientas: Operator, Saturator, Utility, Glue Compressor",
-                "Enfoque: Clubbing de alta potencia y control de sub-graves"
-            ],
-            streamType: "youtube",
-            streamPayload: "Qe2Bcp0-OZc",
-            links: {
-                youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc"
-            }
-        },
-        "tut-modular-routing": {
-            id: "tut-modular-routing",
-            title: "Ruteo Modular de Señal, Sidechain & FX Racks",
-            subtitle: "Live Performance & Routing Experimental",
-            type: "WORKSHOP TÉCNICO",
+                "venice-2024-pt1": {
+            id: "venice-2024-pt1",
+            title: "Live Act — Biennale di Venezia 2024 (Pt. 1)",
+            subtitle: "Presentación en Pabellón / Asistente Cam",
+            type: "LIVE PERFORMANCE",
             year: "2024",
-            cover: "/images/covers/lo_que_queda.jpg",
-            desc: "Cómo interconectar cadenas complejas de procesamiento de audio no-lineal en tiempo real para improvisación y live sets en directo.",
+            cover: "https://img.youtube.com/vi/c6f3BDGNfHI/mqdefault.jpg",
+            desc: "Registro en video tomado por un asistente durante la presentación en vivo de Lauro Robles en Venecia 2024, entrelazando síntesis modular y secuencias percusivas.",
             details: [
-                "Tecnología: Max for Live, Audio Effect Racks, Macros",
-                "Integración: Hardware externo y ruteo analógico-digital",
-                "Canal: YouTube Oficial (@laurorobles)"
+                "Lugar: Biennale di Venezia 2024",
+                "Formato: Live Act Hardware"
             ],
             streamType: "youtube",
-            streamPayload: "K81412qHl-A",
+            streamPayload: "c6f3BDGNfHI",
             links: {
-                youtube: "https://www.youtube.com/@laurorobles"
+                youtube: "https://www.youtube.com/watch?v=c6f3BDGNfHI"
             }
         },
-        "tut-latin-rhythms": {
-            id: "tut-latin-rhythms",
-            title: "Deconstrucción Rítmica: Dembow, Tribal & Polirritmias",
-            subtitle: "Teoría del Ritmo y Groove Territorial",
-            type: "MASTERCLASS TEÓRICO-PRÁCTICA",
+        "venice-2024-pt2": {
+            id: "venice-2024-pt2",
+            title: "Live Act — Biennale di Venezia 2024 (Pt. 2)",
+            subtitle: "Presentación en Pabellón / Asistente Cam",
+            type: "LIVE PERFORMANCE",
             year: "2024",
-            cover: "/images/covers/clasicos_vol1.jpg",
-            desc: "Exploración de polirritmias asimétricas, micro-desplazamientos de rejilla y percusión prehispánica fusionada con estructuras modernas de club.",
+            cover: "https://img.youtube.com/vi/cVxSdlLuH1Q/mqdefault.jpg",
+            desc: "Segunda parte del registro en video de la presentación en Venecia 2024.",
             details: [
-                "Conceptos: Swing territorial, síncopas ceremoniales, micro-timing",
-                "Estilos: Dembow mutante, tribal, raptor house y bass latino"
+                "Lugar: Biennale di Venezia 2024",
+                "Formato: Live Act Hardware"
             ],
             streamType: "youtube",
-            streamPayload: "5b3oR_hJ1x4",
+            streamPayload: "cVxSdlLuH1Q",
             links: {
-                youtube: "https://www.youtube.com/@laurorobles"
+                youtube: "https://www.youtube.com/watch?v=cVxSdlLuH1Q"
             }
         },
 
@@ -2135,7 +2097,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Crack Magazine: Subverting the Mexican Underground",
             subtitle: "Long Read Profile & Career Retrospective",
             type: "ENTREVISTA / LONG READ",
-            year: "2020",
+            year: "2022",
             cover: "/images/lao_portrait.jpg",
             desc: "Extenso perfil periodístico de Crack Magazine sobre cómo Lauro Robles y el colectivo NAAFI subvirtieron el underground electrónico global, cuestionando la hegemonía europea con un sonido autóctono, implacable y futurista.",
             details: [
@@ -2152,7 +2114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "XLR8R Podcast 626: Sonic Cartography & Studio Methodology",
             subtitle: "Exclusive Mix & In-Depth Interview",
             type: "PODCAST & ENTREVISTA",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/chapultepec.jpg",
             desc: "Entrevista técnica exclusiva y podcast de 75 minutos para la emblemática plataforma californiana XLR8R, explorando el hardware de estudio, su labor con NAAFI y Extasis Records, y la cartografía sonora del club latino.",
             details: [
@@ -2202,7 +2164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Remezcla: 10 Years of NAAFI — How Lao Shaped Latin Bass",
             subtitle: "Decade Anniversary Long Read",
             type: "CRÓNICA CULTURAL",
-            year: "2020",
+            year: "2022",
             cover: "/images/covers/fake_doi.jpg",
             desc: "Retrospectiva de una década que analiza cómo la visión artística y la producción incansable de Lao crearon una plataforma global para productores latinoamericanos marginados por los circuitos tradicionales.",
             details: [
@@ -2366,7 +2328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Live Broadcast Session (Brooklyn, NYC)",
             type: "VIDEO SESIÓN EN DIRECTO",
             year: "2023",
-            cover: "https://img.youtube.com/vi/Qe2Bcp0-OZc/hqdefault.jpg",
+            cover: "https://img.youtube.com/vi/Qe2Bcp0-OZc/mqdefault.jpg",
             desc: "Transmisión en directo de 60 minutos desde el emblemático quiosco de The Lot Radio en Greenpoint, Brooklyn (NYC). Selección de alta energía navegando dembow deconstruido, raptor house, dubplate specials y producciones exclusivas.",
             details: [
                 "Emisora: The Lot Radio (Brooklyn, Nueva York)",
@@ -2427,7 +2389,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Live DJ Set from Greenpoint, Brooklyn (2023)",
             type: "VIDEO EN DIRECTO",
             year: "2023",
-            cover: "https://img.youtube.com/vi/Qe2Bcp0-OZc/hqdefault.jpg",
+            cover: "https://img.youtube.com/vi/Qe2Bcp0-OZc/mqdefault.jpg",
             desc: "Sesión en video para The Lot Radio en Brooklyn, Nueva York. Lauro Robles desata un arsenal de polirritmias latinas, percusiones industriales y bajos arrolladores.",
             details: [
                 "Plataforma: The Lot Radio (YouTube)",
@@ -2446,8 +2408,8 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Gaika & Lao: Improvised Set (Club de Playa NAAFI)",
             subtitle: "Live Collaboration Session",
             type: "VIDEO EN DIRECTO",
-            year: "2020",
-            cover: "https://img.youtube.com/vi/oHOjKJWWL3Q/hqdefault.jpg",
+            year: "2022",
+            cover: "https://img.youtube.com/vi/oHOjKJWWL3Q/mqdefault.jpg",
             desc: "Colisión sónica en vivo entre Gaika (UK) y Lauro Robles durante la residencia Club de Playa NAAFI, combinando dancehall deconstruido, noise e improvisación electrónica.",
             details: [
                 "Artistas: Gaika & Lao",
@@ -2466,7 +2428,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Main Stage Live Festival Recording",
             type: "FESTIVAL EN VIVO",
             year: "2022",
-            cover: "https://img.youtube.com/vi/cX6LZB6L6Aw/hqdefault.jpg",
+            cover: "https://img.youtube.com/vi/cX6LZB6L6Aw/mqdefault.jpg",
             desc: "Grabación en vivo desde el Festival Comunite explorando ritmos sincopados, dembow mutante y bass híbrido de club.",
             details: [
                 "Festival: Comunite 2022",
@@ -2485,7 +2447,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Curaduría Sonora por Lauro Robles",
             type: "CURADURÍA SONORA",
             year: "2021",
-            cover: "https://img.youtube.com/vi/h4WzFRpKdTk/hqdefault.jpg",
+            cover: "https://img.youtube.com/vi/h4WzFRpKdTk/mqdefault.jpg",
             desc: "Curaduría experimental y viaje auditivo desarrollado por Lauro Robles para el archivo cultural Satélite en la Ciudad de México.",
             details: [
                 "Proyecto: Satélite / Despacho de Proyectos",
