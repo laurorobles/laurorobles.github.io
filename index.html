@@ -324,6 +324,12 @@
           <!-- DYNAMIC SVG CABLES (Z-INDEX 10: BEHIND LOGO AND WINDOWS) -->
           <svg id="dynamic-cables"></svg>
 
+          <!-- EXACT CENTER LOGO NODE (Z-INDEX 30: IN FRONT OF CABLES) -->
+          <div id="center-logo-node" title="Extasis Core [2500,2500] — Click to pulse">
+              <img src="/images/extasis.png" alt="Extasis Records" loading="lazy" decoding="async">
+              <span class="center-node-label">EXTASIS_CORE // 2500,2500</span>
+          </div>
+
 
 
           <!-- PROCEDURAL BBS ANSI GRAFFITI CONTAINER (SPAWNED IN RANDOM LOCATIONS BY LAO_OS ENGINE) -->
@@ -1117,7 +1123,7 @@
                       </div>
 
                       <div class="clickable-item flex gap-2 border border-[var(--circuit)] p-1 items-center bg-[rgba(0,0,0,0.2)] hover:bg-[rgba(255,0,255,0.1)] transition-all cursor-pointer" data-item-id="mix-seoul-community-radio">
-                          <img src="/images/covers/amen_ep.jpg" class="w-10 h-10 object-cover border border-[var(--circuit)]">
+                          <img src="/images/covers/perfil.jpg" class="w-10 h-10 object-cover border border-[var(--circuit)]">
                           <div class="flex-1 min-w-0">
                               <strong class="text-[var(--main)] block text-[9px] truncate">(2017) Seoul Community Radio (SCR)</strong>
                               <span class="opacity-75 text-[8.5px] block truncate">Live Studio Power Hour — Itaewon, Seúl (Corea)</span>
@@ -1211,20 +1217,20 @@
                   </div>
                   <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
                       <!-- 1. Bienal de Venecia -->
-                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-venice-biennale">
+                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-bienal-venecia">
                           <div class="flex justify-between items-start">
                               <span class="inspector-badge text-[7.5px] mb-0.5">BIENAL DE ARTE 2024</span>
                               <span class="text-[8px] opacity-75">Venecia, Italia</span>
                           </div>
                           <strong class="text-[var(--accent)] block text-[10px] mb-0.5">60ª Bienal de Venecia (2024) — Dirección Musical "La Culebra"</strong>
-                          <p class="opacity-80 text-[8.5px] mb-1">Composición electroacústica original y dirección sonora para la ópera de Bárbara Sánchez-Kane en los Arsenales históricos de Venecia.</p>
+                          <p class="opacity-80 text-[8.5px] mb-1">Performance ceremonial de clausura por WangShui y Alberto Bustamante. Música por LAO y La Bruja de Texcoco, vestuario de Bárbara Sánchez-Kane.</p>
                           <div class="flex justify-end text-[8px] text-[var(--main)]">
                               <span class="underline font-bold">[ VER ARCHIVO & DETALLES ↗ ]</span>
                           </div>
                       </div>
 
                       <!-- 2. Festival TONO -->
-                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-festival-tono">
+                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-tono-atlacoya">
                           <div class="flex justify-between items-start">
                               <span class="inspector-badge text-[7.5px] mb-0.5">FESTIVAL TONO 2023</span>
                               <span class="text-[8px] opacity-75">CDMX</span>
@@ -1236,24 +1242,24 @@
                           </div>
                       </div>
 
-                      <!-- 3. Museo Anahuacalli & Cerámica Sónica -->
-                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-anahuacalli">
+                      <!-- 3. RBMA Tokyo -->
+                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-rbma-tokyo">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px] mb-0.5">INVESTIGACIÓN ACÚSTICA</span>
-                              <span class="text-[8px] opacity-75">CDMX</span>
+                              <span class="inspector-badge text-[7.5px] mb-0.5">RESIDENCIA & LIVE PERFORMANCE</span>
+                              <span class="text-[8px] opacity-75">Tokio, Japón</span>
                           </div>
-                          <strong class="text-[var(--main)] block text-[10px] mb-0.5">Instrumentación Prehispánica & Síntesis Espectral</strong>
-                          <p class="opacity-80 text-[8.5px]">Estudio de resonadores de barro, silbatos de la muerte y percusión ritual integrados con algoritmos de modelado físico contemporáneo.</p>
+                          <strong class="text-[var(--main)] block text-[10px] mb-0.5">Red Bull Music Academy Tokyo (2014)</strong>
+                          <p class="opacity-80 text-[8.5px]">Residencia artística internacional. Grabaciones y presentación oficial compartiendo cartel con pioneros del dubstep y bass music.</p>
                       </div>
 
-                      <!-- 4. Siren Cycle -->
-                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-siren-cycle">
+                      <!-- 4. Estado CCD -->
+                      <div class="clickable-item p-1.5 border border-[var(--circuit)]" data-item-id="art-estado-ccd">
                           <div class="flex justify-between items-start">
-                              <span class="inspector-badge text-[7.5px] mb-0.5">INSTALACIÓN & ARCHIVO</span>
-                              <span class="text-[8px] opacity-75">Internacional</span>
+                              <span class="inspector-badge text-[7.5px] mb-0.5">CO-CURADURÍA & INVESTIGACIÓN</span>
+                              <span class="text-[8px] opacity-75">Centro de Cultura Digital (CDMX)</span>
                           </div>
-                          <strong class="text-[var(--accent)] block text-[10px] mb-0.5">Siren Cycle (Archivo Sonoro)</strong>
-                          <p class="opacity-80 text-[8.5px] mb-1">Serie continua de composiciones explorando la sirena como señal de alerta civil, heráldica de sound system y marcador territorial.</p>
+                          <strong class="text-[var(--accent)] block text-[10px] mb-0.5">ESTADO: Música Electrónica, Baile y Dislocaciones (2012)</strong>
+                          <p class="opacity-80 text-[8.5px] mb-1">Proyecto curatorial e investigación cartografiando los nodos sonoros y la resistencia cultural mexicana junto a Alberto Bustamante.</p>
                           <div class="flex justify-end text-[8px] text-[var(--main)]">
                               <span class="underline font-bold">[ VER ARCHIVO & DOSSIER ↗ ]</span>
                           </div>

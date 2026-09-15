@@ -223,8 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         centerOrigin(false);
         printTerminal('[KERNEL] LAO_OS v8.9 initialized. Motherboard standing by.');
 
-        // Randomize all window positions on boot across the 5000x5000 board
-        // Keep them slightly away from edges (500px to 4500px)
+        // Randomize all window positions EXCEPT terminal
         document.querySelectorAll('.drag-window').forEach(win => {
             const currentWidth = parseInt(win.style.width) || 400;
             const currentHeight = parseInt(win.style.height) || 400;
@@ -232,14 +231,24 @@ document.addEventListener('DOMContentLoaded', () => {
             win.style.width = `${currentWidth * 1.25}px`;
             win.style.height = `${currentHeight * 1.25}px`;
             
-            const randomX = Math.floor(Math.random() * 4000) + 500;
-            const randomY = Math.floor(Math.random() * 4000) + 500;
-            win.style.left = `${randomX}px`;
-            win.style.top = `${randomY}px`;
+            if (win.id !== 'win-terminal') {
+                const randomX = Math.floor(Math.random() * 4000) + 500;
+                const randomY = Math.floor(Math.random() * 4000) + 500;
+                win.style.left = `${randomX}px`;
+                win.style.top = `${randomY}px`;
+            } else {
+                win.style.left = `2680px`;
+                win.style.top = `2350px`;
+            }
         });
 
-        // Auto-open ONLY the terminal window upon booting (all other windows stay closed)
-        openWindow('win-terminal', true);
+        // Auto-open ONLY the terminal window upon booting (no auto-pan)
+        openWindow('win-terminal', false);
+        
+        // Pan directly to the exact center (Extasis Logo)
+        setTimeout(() => {
+            panTo(2500, 2500);
+        }, 100);
 
         // Auto-run help command in terminal
         setTimeout(() => {
@@ -1324,7 +1333,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Live from Itaewon, Seúl (Corea del Sur) — 2017",
             type: "TRANSMISIÓN DE RADIO EN VIVO",
             year: "2017",
-            cover: "/images/covers/amen_ep.jpg",
+            cover: "/images/covers/perfil.jpg",
             desc: "Sesión en vivo transmitida directamente desde la cabina de Seoul Community Radio (SCR) en Itaewon, como previa a su show principal en Cakeshop Seoul durante la gira asiática 2017.",
             details: ["Emisora: Seoul Community Radio (SCR)", "Ubicación: Seúl, Corea del Sur", "Gira: Lao Asia Tour 2017"],
             streamType: "soundcloud",
@@ -2704,7 +2713,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (item.streamType === 'bandcamp') {
                     const isTrack = item.bandcampType === 'track';
                     const bcParam = isTrack ? `track=${item.streamPayload}` : `album=${item.streamPayload}`;
-                    playerIframe.src = `https://bandcamp.com/EmbeddedPlayer/${bcParam}/size=large/bgcol=070012/linkcol=00ffff/tracklist=true/artwork=small/transparent=true/`;
+                    playerIframe.src = `https://bandcamp.com/EmbeddedPlayer/${bcParam}/size=large/bgcol=070012/linkcol=00ffff/tracklist=false/artwork=small/transparent=true/`;
                 } else if (item.streamType === 'youtube') {
                     playerIframe.src = `https://www.youtube-nocookie.com/embed/${item.streamPayload}?autoplay=1&enablejsapi=1`;
                 } else {
@@ -2746,14 +2755,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function togglePlayPause() {
+        const iframe = document.getElementById('omni-player-iframe');
         if (isAudioPlaying) {
             isAudioPlaying = false;
             if (omniHtml5Audio && omniHtml5Audio.src) omniHtml5Audio.pause();
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                iframe.contentWindow.postMessage('{"method":"pause"}', '*');
+            }
             if (btnPlayerPlayPause) btnPlayerPlayPause.innerText = '▶ PLAY';
             printTerminal('[AUDIO] Playback paused.');
         } else {
             isAudioPlaying = true;
             if (omniHtml5Audio && omniHtml5Audio.src) omniHtml5Audio.play();
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                iframe.contentWindow.postMessage('{"method":"play"}', '*');
+            }
             if (btnPlayerPlayPause) btnPlayerPlayPause.innerText = '❚❚ PAUSE';
             printTerminal(`[AUDIO] Playback resumed: ${currentPlayingItemId}`);
         }
