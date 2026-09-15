@@ -140,7 +140,7 @@ body {
    BOTTOM DOCK MENU (COMPACT FIT, NO SCROLLBAR)
    ========================================================= */
 #dock-menu {
-  position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%);
+  position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; justify-content: center;
   flex-wrap: wrap; gap: 3px 5px; max-width: 98vw; width: max-content;
   padding: 4px 8px; z-index: 8500;
@@ -328,7 +328,7 @@ body {
    FLOATING OMNI-PLAYER
    ========================================================= */
 #omni-player {
-  position: fixed; bottom: 44px; right: 12px; z-index: 8600; width: 340px;
+  position: fixed; bottom: 12px; right: 12px; z-index: 8600; width: 340px;
   background: var(--card-bg); border: 1.5px solid var(--main); box-shadow: 6px 6px 0 rgba(0,0,0,0.7), 0 0 12px var(--circuit);
   backdrop-filter: blur(8px); display: flex; flex-direction: column;
 }
@@ -364,7 +364,7 @@ body {
 
 /* Quick Center HUD Button */
 #btn-return-origin {
-  position: fixed; bottom: 44px; left: 12px; z-index: 8600;
+  position: fixed; bottom: 12px; left: 12px; z-index: 8600;
   background: var(--card-bg); border: 1px solid var(--main); color: var(--main);
   font-weight: bold; padding: 4px 8px; font-size: 0.66rem; cursor: pointer; transition: all 0.15s;
   backdrop-filter: blur(4px);
@@ -1160,4 +1160,13 @@ body {
   .win-body {
     font-size: 14px !important;
   }
+}
+
+@keyframes matrix-flash {
+  0% { filter: invert(1) hue-rotate(180deg) brightness(2); transform: scale(1.02); }
+  50% { filter: invert(0) hue-rotate(90deg) brightness(1.5); }
+  100% { filter: none; transform: scale(1); }
+}
+.matrix-flash-active {
+  animation: matrix-flash 0.6s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
 }

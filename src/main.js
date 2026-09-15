@@ -974,8 +974,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Mastering: Modos Studios (Imaabs)",
                 "Pistas clave: Chapultepec, Sendero, Circuito Interior, Espejo de Obsidiana"
             ],
-            streamType: "bandcamp",
-            streamPayload: "238116672",
+            streamType: "direct_audio",
+            streamPayload: "https://archive.org/download/filtro.016/01%20-%20Glory%20Sat..mp3",
             links: {
                 bc: "https://laolaolao.bandcamp.com/album/chapultepec",
                 sc: "https://soundcloud.com/lao",
@@ -1191,7 +1191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "amen_ep": {
             id: "amen_ep",
-            title: "Amen EP [FILTRO.016]",
+            title: "Amen EP",
             subtitle: "Filtro Netlabel — Debut Histórico",
             type: "EP DEBUT HISTÓRICO",
             year: "2006",
@@ -1202,8 +1202,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Fecha de salida: 28 de abril de 2006",
                 "Tracks: Glory Sat., Heavendub, Inmaculate Deception"
             ],
-            streamType: "bandcamp",
-            streamPayload: "238116672",
+            streamType: "direct_audio",
+            streamPayload: "https://archive.org/download/filtro.016/01%20-%20Glory%20Sat..mp3",
             links: {
                 bc: "https://laolaolao.bandcamp.com",
                 sc: "https://soundcloud.com/lao"
@@ -1512,8 +1512,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Grupo Modelo: Corona & Cerveza Victoria",
                 "Grupo Herdez: Postproducción y mezcla broadcast a cuadro"
             ],
-            streamType: "bandcamp",
-            streamPayload: "238116672",
+            streamType: "direct_audio",
+            streamPayload: "https://archive.org/download/filtro.016/01%20-%20Glory%20Sat..mp3",
             links: { bc: "https://laolaolao.bandcamp.com" }
         },
 
@@ -3384,7 +3384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const points = letters.map((char, i) => {
             const code = char.charCodeAt(0) - 65;
             // Map code (0-25) to a 9-point radial grid + inner radii
-            const angle = ((code % 9) / 9) * Math.PI * 2 + (i * 0.2);
+            const angle = ((code % 9) / 9) * Math.PI * 2; // Strict Numogram snap
             const radius = 30 + ((code * 17) % (r - 40));
             return {
                 x: cx + Math.cos(angle) * radius,
@@ -3453,8 +3453,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnChargeSigil && sigilCanvas) {
         btnChargeSigil.addEventListener('click', () => {
             sigilCanvas.classList.add('sigil-charging');
+            const world = document.getElementById('world');
+            if (world) world.classList.add('matrix-flash-active');
             playNoiseBurst();
-            setTimeout(() => sigilCanvas.classList.remove('sigil-charging'), 600);
+            setTimeout(() => {
+                sigilCanvas.classList.remove('sigil-charging');
+                if (world) world.classList.remove('matrix-flash-active');
+            }, 600);
             printTerminal('[SIGIL] Glyph energized. Will charged into the subconscious matrix.');
         });
     }
