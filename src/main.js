@@ -227,17 +227,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.drag-window').forEach(win => {
             const currentWidth = parseInt(win.style.width) || 400;
             const currentHeight = parseInt(win.style.height) || 400;
-            // Increase window size slightly per user request
-            win.style.width = `${currentWidth * 1.25}px`;
-            win.style.height = `${currentHeight * 1.25}px`;
-            
             if (win.id !== 'win-terminal') {
+                // Increase window size slightly per user request
+                win.style.width = `${currentWidth * 1.25}px`;
+                win.style.height = `${currentHeight * 1.25}px`;
                 const randomX = Math.floor(Math.random() * 4000) + 500;
                 const randomY = Math.floor(Math.random() * 4000) + 500;
                 win.style.left = `${randomX}px`;
                 win.style.top = `${randomY}px`;
             } else {
-                win.style.left = `2680px`;
+                // Terminal stays compact so it fits on screen when placed right of center
+                win.style.width = `460px`;
+                win.style.height = `350px`;
+                win.style.left = `2600px`;
                 win.style.top = `2350px`;
             }
         });
@@ -1390,6 +1392,34 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: "2719129759",
             links: { bc: "https://naafi.bandcamp.com", sc: "https://soundcloud.com/lao" }
         },
+                "art-anahuacalli-2020": {
+            id: "art-anahuacalli-2020",
+            title: "Museo Anahuacalli: Noche de Museos (2020)",
+            subtitle: "Cerámica Sónica & Electrónica Prehispánica",
+            type: "LIVE PERFORMANCE",
+            year: "2020",
+            cover: "/images/covers/perfil.jpg",
+            desc: "Presentación especial en el Museo Anahuacalli para la Noche de Museos, explorando resonadores de barro, instrumentos mesoamericanos y síntesis algorítmica en vivo.",
+            details: ["Lugar: Museo Anahuacalli, CDMX", "Fecha: Enero 2020", "Formato: Live Act Electroacústico"],
+            streamType: "soundcloud",
+            streamPayload: "https://soundcloud.com/lao",
+            links: { web: "https://www.local.mx/ciudad-de-mexico/que-hacer-en-la-cdmx-agenda-local-20-25-enero/" }
+        },
+
+        "art-basel-miami-2016": {
+            id: "art-basel-miami-2016",
+            title: "Art Basel Miami (2016) — 12 Hours of NAAFI",
+            subtitle: "Red Bull Music Academy & Sangre",
+            type: "SHOWCASE & INSTALACIÓN",
+            year: "2016",
+            cover: "/images/covers/perfil.jpg",
+            desc: "Extenso showcase '12 Hours of NAAFI' en el marco de Art Basel Miami 2016. Presentado por Red Bull Music Academy en colaboración con el dúo de arte Sangre. Un hito en la internacionalización de la periferia club global.",
+            details: ["Evento: Art Basel Miami Beach", "Colaboradores: Sangre (Dúo de Arte) & RBMA", "Participación: Lao & Colectivo NAAFI"],
+            streamType: "soundcloud",
+            streamPayload: "https://soundcloud.com/lao",
+            links: { web: "https://daily.redbullmusicacademy.com/2016/12/gallery-12-hours-of-naafi" }
+        },
+
         "art-rbma-tokyo": {
             id: "art-rbma-tokyo",
             title: "Red Bull Music Academy Tokyo (2014)",
