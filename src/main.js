@@ -231,10 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Increase window size slightly per user request
                 win.style.width = `${currentWidth * 1.25}px`;
                 win.style.height = `${currentHeight * 1.25}px`;
-                const randomX = Math.floor(Math.random() * 4000) + 500;
-                const randomY = Math.floor(Math.random() * 4000) + 500;
-                win.style.left = `${randomX}px`;
-                win.style.top = `${randomY}px`;
+                // Keep the HTML's inline top/left positions instead of scattering them randomly
+                // so they are predictably placed near the center of the world canvas.
             } else {
                 // Terminal stays compact so it fits on screen when placed right of center
                 win.style.width = `460px`;
@@ -1363,8 +1361,9 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Arsenale di Venezia — Dirección y Composición Musical",
             type: "DIRECCIÓN MUSICAL & ARTE",
             year: "2024",
-            cover: "/images/covers/chapultepec.jpg",
+            cover: "/images/projects/culebra_1.png",
             desc: "Dirección y composición musical para el performance oficial de clausura 'La Culebra' en el Arsenale de la 60ª Bienal de Arte de Venecia. Proyecto interdisciplinario en colaboración con WangShui, Alberto Bustamante, Bárbara Sánchez-Kane, La Bruja de Texcoco, Little Owl, Debit, TONO y Kuboraum. Afterparty oficial curado en COMBO Venice.",
+            gallery: ["/images/projects/culebra_1.png", "/images/projects/culebra_2.png", "/images/projects/culebra_3.png"],
             details: [
                 "Institución: La Biennale di Venezia (60th International Art Exhibition)",
                 "Espacio: Arsenale di Venezia (Teatro alle Tese)",
@@ -1381,8 +1380,9 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Zyanya (Azcapotzalco, CDMX) — Diseño Sonoro Inmersivo",
             type: "ÓPERA EXPERIMENTAL & SOUND DESIGN",
             year: "2023",
-            cover: "/images/covers/sendero.jpg",
+            cover: "/images/projects/atlacoya_1.jpg",
             desc: "Creación conceptual y diseño sonoro inmersivo para la ópera experimental 'Atlacoya: El agua triste del Lago de Texcoco'. Reconstrucción acústica de memorias lacustres y arqueología sonora del Valle de México.",
+            gallery: ["/images/projects/atlacoya_1.jpg", "/images/projects/atlacoya_2.png"],
             details: [
                 "Festival: Festival TONO de Arte Contemporáneo y Performance",
                 "Lugar: Zyanya, Azcapotzalco, Ciudad de México",
@@ -2585,6 +2585,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (inspTypeBadge) inspTypeBadge.innerText = item.type;
         if (inspYear) inspYear.innerText = item.year;
         if (inspDesc) inspDesc.innerText = item.desc;
+        
+        const inspGallery = document.getElementById('insp-gallery');
+        if (inspGallery) {
+            inspGallery.innerHTML = '';
+            if (item.gallery && item.gallery.length > 0) {
+                inspGallery.classList.remove('hidden');
+                item.gallery.forEach(imgSrc => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.className = 'w-full h-auto object-cover border border-[var(--circuit)]';
+                    inspGallery.appendChild(img);
+                });
+            } else {
+                inspGallery.classList.add('hidden');
+            }
+        }
 
         if (inspTracklist) {
             inspTracklist.innerHTML = '';

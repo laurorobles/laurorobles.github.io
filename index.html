@@ -181,7 +181,6 @@
 <!-- BOTÓN PARA ABRIR TODAS LAS VENTANAS -->
 <button class="hud-action-btn font-bold text-[var(--accent)]" id="btn-toggle-all-windows" title="Abrir todas las ventanas del sistema">[ ⊞ OPEN ALL ]</button>
 <button class="hud-action-btn" id="lang-toggle" title="Toggle Language">[ EN / ES ]</button>
-
 </div>
 </header>
 <!-- QUICK ORIGIN RESET BUTTON -->
@@ -1113,7 +1112,7 @@
 <!-- 4. Estado CCD -->
 <!-- 5. NAAFI & Extasis -->
 <!-- 6. Comisiones comerciales -->
-<div class="clickable-item p-1.5 border border-[var(--circuit)] flex gap-2" data-item-id="art-bienal-venecia"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="/images/covers/chapultepec.jpg"/><div class="flex-1 min-w-0">
+<div class="clickable-item p-1.5 border border-[var(--circuit)] flex gap-2" data-item-id="art-bienal-venecia"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="/images/projects/culebra_1.png"/><div class="flex-1 min-w-0">
 <div class="flex justify-between items-start">
 <span class="inspector-badge text-[7.5px] mb-0.5">BIENAL DE ARTE 2024</span>
 <span class="text-[8px] opacity-75">Venecia, Italia</span>
@@ -1123,7 +1122,7 @@
 <div class="flex justify-end text-[8px] text-[var(--main)]">
 <span class="underline font-bold">[ VER ARCHIVO &amp; DETALLES ↗ ]</span>
 </div>
-</div></div><div class="clickable-item p-1.5 border border-[var(--circuit)] flex gap-2" data-item-id="art-tono-atlacoya"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="/images/covers/sendero.jpg"/><div class="flex-1 min-w-0">
+</div></div><div class="clickable-item p-1.5 border border-[var(--circuit)] flex gap-2" data-item-id="art-tono-atlacoya"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="/images/projects/atlacoya_1.jpg"/><div class="flex-1 min-w-0">
 <div class="flex justify-between items-start">
 <span class="inspector-badge text-[7.5px] mb-0.5">FESTIVAL TONO 2023</span>
 <span class="text-[8px] opacity-75">CDMX</span>
@@ -1518,7 +1517,39 @@
 </div>
 </div>
 <!-- VIDEO ARCHIVE CATALOG GRID -->
-<div class="video-grid flex-1 overflow-y-auto pr-1 space-y-2" id="video-items-list">
+<div class="video-grid flex-1 overflow-y-auto pr-1 space-y-2" id="video-items-list"><div class="video-card clickable-item" data-item-id="video-venice-2" data-yt-id="cVxSdlLuH1Q" data-yt-title="Lao | La Culebra en Bienal de Venecia 2024 (2)">
+<div class="video-thumb-wrap">
+<img alt="La Culebra Venice 2" class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/cVxSdlLuH1Q/hqdefault.jpg"/>
+<span class="video-duration">PERFORMANCE</span>
+</div>
+<div class="video-info">
+<div class="flex justify-between items-center mb-0.5">
+<span class="video-badge-tag">BIENAL DE VENECIA</span>
+<span class="text-[9.5px] opacity-70 font-mono">2024</span>
+</div>
+<strong class="video-title text-[var(--accent)] block text-[12.5px]">Lao | La Culebra (Bienal de Venecia 2024) - Pt. 2</strong>
+<p class="video-desc text-[11px] opacity-80">Registro en vivo del performance de clausura en el Arsenale.</p>
+<div class="mt-1 flex justify-end">
+<a class="text-[10.5px] text-[var(--main)] font-bold hover:underline" href="https://www.youtube.com/watch?v=cVxSdlLuH1Q" target="_blank">[ VER EN YOUTUBE ↗ ]</a>
+</div>
+</div>
+</div><div class="video-card clickable-item" data-item-id="video-venice-1" data-yt-id="c6f3BDGNfHI" data-yt-title="Lao | La Culebra en Bienal de Venecia 2024 (1)">
+<div class="video-thumb-wrap">
+<img alt="La Culebra Venice 1" class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/c6f3BDGNfHI/hqdefault.jpg"/>
+<span class="video-duration">PERFORMANCE</span>
+</div>
+<div class="video-info">
+<div class="flex justify-between items-center mb-0.5">
+<span class="video-badge-tag">BIENAL DE VENECIA</span>
+<span class="text-[9.5px] opacity-70 font-mono">2024</span>
+</div>
+<strong class="video-title text-[var(--accent)] block text-[12.5px]">Lao | La Culebra (Bienal de Venecia 2024) - Pt. 1</strong>
+<p class="video-desc text-[11px] opacity-80">Registro en vivo del performance de clausura en el Arsenale.</p>
+<div class="mt-1 flex justify-end">
+<a class="text-[10.5px] text-[var(--main)] font-bold hover:underline" href="https://www.youtube.com/watch?v=c6f3BDGNfHI" target="_blank">[ VER EN YOUTUBE ↗ ]</a>
+</div>
+</div>
+</div>
 <!-- 1. Boiler Room Shenzhen (2018) -->
 <div class="video-card clickable-item active" data-item-id="mix-boiler-room-shenzhen" data-yt-id="V0Q05GhLRdc" data-yt-title="Lao | Boiler Room Shenzhen (OIL Club)">
 <div class="video-thumb-wrap">
@@ -1783,7 +1814,7 @@
 <div class="win-body p-3 flex flex-col h-[calc(100%-24px)] bg-[#030006]">
 <div class="flex-1 overflow-y-auto font-mono text-[13px] leading-relaxed" id="terminal-output">
 <div class="terminal-line text-[var(--accent)] font-bold text-[14px] mb-2">LAO_OS Kernel v.8.9 [MESOAMERICAN_CYBER_EDITION]</div>
-<div class="terminal-line i18n text-[13px] mb-2 text-white opacity-90" data-es="Escribe 'help' para comandos de sistema o 'livecode' para el IDE." data-en="Type 'help' for system commands or 'livecode' for the IDE.">Escribe 'help' para comandos de sistema o 'livecode' para el IDE.</div>
+<div class="terminal-line i18n text-[13px] mb-2 text-white opacity-90" data-en="Type 'help' for system commands or 'livecode' for the IDE." data-es="Escribe 'help' para comandos de sistema o 'livecode' para el IDE.">Escribe 'help' para comandos de sistema o 'livecode' para el IDE.</div>
 </div>
 <div class="terminal-input-row mt-2 pt-2 border-t border-[var(--circuit)] flex items-center gap-2" id="terminal-input-container">
 <span class="text-[var(--accent)] font-bold text-[13px]">root@lao:~#</span>
@@ -2254,6 +2285,7 @@ osc.stop(ctx.currentTime + 0.3);
 <div class="inspector-body">
 <div>
 <img alt="Cover Art" class="inspector-cover-img" id="insp-image" src="/images/covers/chapultepec.jpg"/>
+<div id="insp-gallery" class="grid grid-cols-2 gap-1 mt-1 hidden"></div>
 <div class="mt-2 space-y-1">
 <button class="border border-[var(--main)] bg-[var(--main)] text-[var(--bg)] hover:bg-[var(--accent)] hover:border-[var(--accent)] w-full py-1 text-center font-bold text-[9px] tracking-wider block transition-all" id="insp-btn-play">
                           ▶ REPRODUCIR EN STREAM DECK
