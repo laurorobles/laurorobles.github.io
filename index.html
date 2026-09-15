@@ -111,8 +111,8 @@
   }
   </script>
 <link href="https://cdn.jsdelivr.net/npm/iosevka-webfont@7.0.4/iosevka.css" rel="stylesheet">
-<link href="./images/extasis.png" rel="icon" type="image/png">  <script type="module" crossorigin src="./assets/index-DA4HwI9f.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CDf9s7X5.css">
+<link href="./images/extasis.png" rel="icon" type="image/png">  <script type="module" crossorigin src="./assets/index-DS9yX54S.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BG7fayzf.css">
 </head>
 <body data-theme="extasis">
 <!-- SEMANTIC SEARCH ENGINE CRAWLER SUMMARY (ACCESSIBLE TO SCREEN READERS & SEARCH INDEXERS) -->
@@ -259,6 +259,7 @@
 <button class="dock-item w-full text-left" data-target="win-press"><span class="dock-status"></span>PRESS</button>
 <button class="dock-item w-full text-left" data-target="win-contact"><span class="dock-status"></span>CONTACT</button>
 <button class="dock-item w-full text-left" data-target="win-pedagogy"><span class="dock-status"></span>PEDAGOGY</button>
+<button class="dock-item w-full text-left" data-target="win-art"><span class="dock-status"></span>ART</button>
 </div>
 </div>
 <div class="dock-group">
@@ -273,7 +274,6 @@
 <div class="dock-group">
 <button class="dock-item font-bold text-[var(--accent)]">[ VISUAL ]</button>
 <div class="dock-group-content">
-<button class="dock-item w-full text-left" data-target="win-art"><span class="dock-status"></span>ART</button>
 <button class="dock-item w-full text-left" data-target="win-videos"><span class="dock-status"></span>VIDEO</button>
 <button class="dock-item w-full text-left" data-target="win-radar"><span class="dock-status"></span>MAPA 🌐</button>
 </div>
@@ -1281,7 +1281,7 @@
 <!-- PEDAGOGY MAIN NAV TABS -->
 <div class="music-tab-bar mb-2" id="pedagogy-main-tabs">
 <button class="music-tab-btn tab-active" data-ptab="youtube">[ 🎓 YOUTUBE TUTORIALS ]</button>
-<button class="music-tab-btn" data-ptab="github">[ 💻 ABLETON 101 // GITHUB ]</button>
+<button class="music-tab-btn" data-ptab="github">[ 💻 CURSO ABLETON 101 ]</button>
 <button class="music-tab-btn" data-ptab="gumroad">[ ⚡ GUMROAD SOUND PACKS ]</button>
 </div>
 <!-- TAB 1: YOUTUBE MASTERCLASSES & TUTORIALS -->
@@ -1298,14 +1298,14 @@
 </div>
 <div class="space-y-1.5">
 <!-- Tutorial Item 1 -->
-<div class="gumroad-card clickable-item active flex gap-2" data-item-id="tut-ableton-101" data-yt-id="Nm4GJ_dyhHg?list=PLdh5nL5qXYnj9p4OiFpLmzDYg1lIgwUVV" data-yt-title="Ableton 101 &mdash; Masterclass"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="./images/covers/perfil.jpg"><div class="flex-1 min-w-0">
+<div class="gumroad-card clickable-item flex gap-2 cursor-pointer hover:bg-[rgba(255,255,255,0.05)] transition-colors" data-item-id="tut-ableton-101" data-yt-title="Ableton 101 &mdash; Masterclass" onclick="window.open('https://laurorobles.github.io/ableton101curso/index.html', '_blank')"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="./images/covers/perfil.jpg"><div class="flex-1 min-w-0">
 <div class="flex justify-between items-start">
 <span class="inspector-badge text-[7.5px]">TUTORIAL YOUTUBE</span>
 <span class="text-[8px] opacity-75 font-bold text-[var(--accent)]">PLAYLIST COMPLETA</span>
 </div>
 <strong class="text-[var(--accent)] block text-[10.5px]">🎙️ Ableton 101 & Dise&ntilde;o Sonoro</strong>
 <p class="opacity-80 text-[9px]">Playlist de ense&ntilde;anza y t&eacute;cnicas avanzadas en Ableton Live. Deconstrucci&oacute;n r&iacute;tmica, dise&ntilde;o de sonido y s&iacute;ntesis.</p>
-<div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ REPRODUCIR PLAYLIST &nearrow; ]</div>
+<div class="flex justify-end text-[8.5px] text-[var(--main)] font-bold">[ VER CURSO INTERACTIVO &nearrow; ]</div>
 </div></div>
 <!-- Tutorial Item 2 -->
 <div class="gumroad-card clickable-item flex gap-2" data-item-id="tut-gumroad-packs" data-yt-id="-MF4vNo4938?list=PLdh5nL5qXYniTTaHqc6yZRscN21lM8oof" data-yt-title="Gumroad Sound Packs & Herramientas"><img class="w-12 h-12 object-cover border border-[var(--circuit)] flex-shrink-0" src="./images/covers/clasicos_vol1.jpg"><div class="flex-1 min-w-0">
@@ -1324,23 +1324,25 @@
 </div>
 <!-- TAB 2: ABLETON 101 GITHUB WORKSHOP -->
 <div class="pedagogy-pane space-y-2 flex-1 overflow-y-auto pr-1 hidden" id="ped-pane-github">
-<div class="border border-[var(--main)] bg-[rgba(0,0,0,0.3)] p-2">
+<div class="border border-[var(--main)] bg-[rgba(0,0,0,0.3)] p-2 mb-2">
 <div class="flex justify-between items-center mb-1 pb-0.5 border-b border-[var(--circuit)] text-[8.5px]">
-<span class="font-bold text-[var(--main)]">REPOSITORIO PEDAG&Oacute;GICO OPEN-SOURCE</span>
-<span class="inspector-badge text-[7px]">GITHUB / ABLETON101</span>
+<span class="font-bold text-[var(--main)]">CURSO INTERACTIVO ONLINE</span>
+<span class="inspector-badge text-[7px]">ABLETON 101</span>
 </div>
-<strong class="text-[var(--accent)] text-[11px] block mb-1">Ableton 101 &mdash; Gu&iacute;a Integral de Producci&oacute;n Musical</strong>
+<strong class="text-[var(--accent)] text-[11px] block mb-1">Ableton 101 &mdash; Plataforma de Aprendizaje</strong>
 <p class="opacity-80 text-[9px] leading-relaxed mb-2">
-                              Temario curricular y repositorio p&uacute;blico creado por Lauro Robles para formaci&oacute;n avanzada en producci&oacute;n musical, dise&ntilde;o sonoro experimental y flujo de trabajo no destructivo en Ableton Live.
-                          </p>
-<div class="flex items-center gap-2 text-[8px] text-[var(--circuit)] font-mono mb-2">
-<span>&gt; git clone https://github.com/laurorobles/Ableton101.git</span>
+        Bienvenido a la nueva plataforma interactiva del curso Ableton 101. Este sitio contiene todo el temario curricular, tutoriales, recursos, y la gu&iacute;a integral de producci&oacute;n musical.
+    </p>
+<div class="flex flex-col gap-2">
+<a class="border border-[var(--main)] bg-[var(--main)] text-[var(--bg)] py-2 px-3 block text-center hover:bg-[var(--accent)] hover:border-[var(--accent)] font-bold text-[10px] tracking-wider transition-all shadow-[0_0_10px_rgba(255,144,232,0.3)]" href="https://laurorobles.github.io/ableton101curso/index.html" target="_blank">
+            [ INICIAR CURSO ABLETON 101 ] &nearrow;
+        </a>
+<a class="border border-[var(--circuit)] text-[var(--circuit)] py-1 px-3 block text-center hover:bg-[var(--circuit)] hover:text-[var(--bg)] font-bold text-[8.5px] transition-all" href="https://github.com/laurorobles/Ableton101" target="_blank">
+            VER REPOSITORIO ORIGINAL EN GITHUB &nearrow;
+        </a>
 </div>
-<a class="border border-[var(--main)] text-[var(--main)] py-1 px-2 inline-block hover:bg-[var(--main)] hover:text-[var(--bg)] font-bold text-[8.5px] transition-all" href="https://github.com/laurorobles/Ableton101" target="_blank">
-                              EXPLORAR REPO EN GITHUB &nearrow;
-                          </a>
 </div>
-<div class="space-y-1.5">
+<div class="space-y-1.5 opacity-80">
 <div class="border border-[var(--circuit)] p-1.5 bg-[rgba(0,0,0,0.2)]">
 <div class="flex justify-between items-center text-[8px] font-bold text-[var(--accent)] mb-0.5">
 <span>M&Oacute;DULO 01 // DIGITAL AUDIO & GAIN STAGING</span>
@@ -1362,24 +1364,7 @@
 </div>
 <p class="text-[8.5px] opacity-80">Alineaci&oacute;n de fase absoluta entre bombo y bajo, saturaci&oacute;n arm&oacute;nica sutil en medios, y filtrado paso alto quir&uacute;rgico para maximizar energ&iacute;a en el club.</p>
 </div>
-<div class="border border-[var(--circuit)] p-1.5 bg-[rgba(0,0,0,0.2)]">
-<div class="flex justify-between items-center text-[8px] font-bold text-[var(--main)] mb-0.5">
-<span>M&Oacute;DULO 04 // AUDIO EFFECT RACKS & MACROS</span>
-<span class="opacity-60">PERFORMANCE RACKS</span>
 </div>
-<p class="text-[8.5px] opacity-80">Cadenas paralelas de saturaci&oacute;n, cadenas secas/h&uacute;medas para compresi&oacute;n New York, y asignaci&oacute;n de macros inteligentes para directos.</p>
-</div>
-<div class="border border-[var(--circuit)] p-1.5 bg-[rgba(0,0,0,0.2)]">
-<div class="flex justify-between items-center text-[8px] font-bold text-[var(--accent)] mb-0.5">
-<span>M&Oacute;DULO 05 // MEZCLA, STEMS & EXPORTACI&Oacute;N</span>
-<span class="opacity-60">MASTERING & CLUB READY</span>
-</div>
-<p class="text-[8.5px] opacity-80">Monocompatibilidad estricta, preparaci&oacute;n de stems pre-master y comprobaci&oacute;n en analizadores de espectro (Voxengo SPAN / Youlean Loudness).</p>
-</div>
-</div>
-<a class="border border-[var(--main)] text-[var(--main)] mt-2 py-1 block text-center hover:bg-[var(--main)] hover:text-[var(--bg)] font-bold transition-all text-[9px]" href="https://github.com/laurorobles/Ableton101" target="_blank">
-                          DESCARGAR MATERIALES & SYLLABUS EN GITHUB &nearrow;
-                      </a>
 </div>
 <!-- TAB 3: GUMROAD PRODUCTION SUITE -->
 <div class="pedagogy-pane space-y-2 flex-1 overflow-y-auto pr-1 hidden" id="ped-pane-gumroad">
