@@ -3301,6 +3301,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const sigilCanvas = document.getElementById('sigil-canvas');
     const btnChargeSigil = document.getElementById('btn-charge-sigil');
     const btnBurnSigil = document.getElementById('btn-burn-sigil');
+    const sigilNameEl = document.getElementById('sigil-name');
+    const sigilMeaningEl = document.getElementById('sigil-meaning');
+
+    const NAHUAL_SYLLABLES = ["XOL", "TEZ", "MICT", "COA", "TLOC", "ITZ", "PAK", "YOL", "NAH", "CIP", "EHE", "CALL", "ATL", "TEC"];
+    const CYBER_SUFFIXES = [".SYS", "-PRIME", "_0x", ".HEX", " V.9", ".DLL", "-CORE", "-VOID"];
+    const CCRU_LORE = [
+        "Un catalizador hipersticional de baja latencia.",
+        "Ancla la voluntad del usuario a través del tejido espaciotemporal.",
+        "Descodifica las arquitecturas de represión impuestas por la matriz.",
+        "Acelera la desterritorialización del deseo a nivel subconsciente.",
+        "Vórtice lemuriano diseñado para evadir algoritmos de control.",
+        "Funciona como un escudo psicodinámico contra egregores parasitarios.",
+        "Despierta resonancias tonales ocultas en el ruido blanco de la red."
+    ];
 
     function forgeSigil(text) {
         if (!sigilCanvas) return;
@@ -3314,74 +3328,64 @@ document.addEventListener('DOMContentLoaded', () => {
         // Distinct consonants (Austin Osman Spare method)
         const uniqueConsonants = Array.from(new Set(noVowels)).join(' ');
         if (sigilConsonantsEl) sigilConsonantsEl.innerText = uniqueConsonants || 'V O I D';
+        
+        const hashVal = Math.abs(raw.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0));
+        const hashEl = document.getElementById('sigil-code-hash');
+        if (hashEl) hashEl.innerText = `#TOPY-` + (hashVal.toString(16).toUpperCase());
+
+        // Generate Name
+        const s1 = NAHUAL_SYLLABLES[hashVal % NAHUAL_SYLLABLES.length];
+        const s2 = NAHUAL_SYLLABLES[(hashVal >> 2) % NAHUAL_SYLLABLES.length];
+        const suf = CYBER_SUFFIXES[(hashVal >> 4) % CYBER_SUFFIXES.length];
+        const generatedName = `${s1}${s2}${suf}`;
+        if (sigilNameEl) sigilNameEl.innerText = generatedName;
+
+        // Generate Meaning
+        const lore = CCRU_LORE[hashVal % CCRU_LORE.length];
+        if (sigilMeaningEl) {
+            sigilMeaningEl.innerHTML = `<strong>TIPO:</strong> Ciber-Nagual de Intención<br><strong>FUNCIÓN:</strong> ${lore}<br><strong>CÓDICE:</strong> Operación sigilizada basada en ${uniqueConsonants.replace(/\s+/g, '').length} nodos de consonantes.`;
+        }
 
         // Clear canvas with deep black
-        ctx.fillStyle = '#000000';
+        ctx.fillStyle = '#05000A'; // Darkest purple/black
         ctx.fillRect(0, 0, sigilCanvas.width, sigilCanvas.height);
 
         const cx = sigilCanvas.width / 2;
         const cy = sigilCanvas.height / 2;
-        const r = 85;
+        const r = 160;
 
-        // 1. Mesoamerican Sacred Ring & Xicalcoliuhqui Grecas
-        ctx.strokeStyle = 'rgba(230, 0, 122, 0.45)';
+        // 1. Numogram / Mesoamerican Sacred Ring Background
+        ctx.strokeStyle = 'rgba(0, 255, 255, 0.15)';
         ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        for(let i=0; i<9; i++) {
+            let a = (i/9) * Math.PI * 2;
+            let nx = cx + Math.cos(a) * r;
+            let ny = cy + Math.sin(a) * r;
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(nx, ny);
+            ctx.arc(nx, ny, 3, 0, Math.PI*2);
+        }
+        ctx.stroke();
+
+        ctx.strokeStyle = 'rgba(230, 0, 122, 0.2)';
         ctx.beginPath();
         ctx.arc(cx, cy, r, 0, Math.PI * 2);
         ctx.stroke();
-
-        ctx.strokeStyle = 'rgba(0, 255, 255, 0.35)';
+        
         ctx.beginPath();
-        ctx.arc(cx, cy, r - 12, 0, Math.PI * 2);
-        ctx.stroke();
-
-        // Stepped Grecas (Xicalcoliuhqui) on ring
-        const numGrecas = 12;
-        for (let g = 0; g < numGrecas; g++) {
-            const ang = (g / numGrecas) * Math.PI * 2;
-            const x1 = cx + Math.cos(ang) * (r - 12);
-            const y1 = cy + Math.sin(ang) * (r - 12);
-            const x2 = cx + Math.cos(ang + 0.12) * (r - 12);
-            const y2 = cy + Math.sin(ang + 0.12) * (r - 12);
-            const x3 = cx + Math.cos(ang + 0.12) * (r - 4);
-            const y3 = cy + Math.sin(ang + 0.12) * (r - 4);
-            ctx.beginPath();
-            ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.lineTo(x3, y3);
-            ctx.stroke();
-        }
-
-        // 2. Nahui Ollin Cosmic Tremor Cross (4 cardinal arrowheads)
-        ctx.strokeStyle = 'rgba(0, 255, 255, 0.4)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(cx - r - 4, cy); ctx.lineTo(cx + r + 4, cy);
-        ctx.moveTo(cx, cy - r - 4); ctx.lineTo(cx, cy + r + 4);
-        ctx.stroke();
-
-        // 3. Voluta de la Palabra (Mesoamerican Speech Scroll)
-        ctx.strokeStyle = '#00FFFF';
-        ctx.lineWidth = 2;
-        ctx.shadowColor = '#00FFFF';
-        ctx.shadowBlur = 8;
-        ctx.beginPath();
-        const baseAngle = ((raw.charCodeAt(0) || 65) % 360) * Math.PI / 180;
-        for (let t = 0; t < Math.PI * 2.6; t += 0.08) {
-            const curR = 8 + (t * 11);
-            const sx = cx + Math.cos(t + baseAngle) * curR;
-            const sy = cy + Math.sin(t + baseAngle) * curR;
-            if (t === 0) ctx.moveTo(sx, sy);
-            else ctx.lineTo(sx, sy);
-        }
+        ctx.arc(cx, cy, r - 30, 0, Math.PI * 2);
         ctx.stroke();
 
         const letters = uniqueConsonants.replace(/\s+/g, '').split('');
         if (letters.length === 0) return;
 
-        // 4. Austin Osman Spare Consonant Nodes
+        // Chaos Magic Node Mapping
         const points = letters.map((char, i) => {
             const code = char.charCodeAt(0) - 65;
-            const angle = (code / 26) * Math.PI * 2 + (i * 0.55);
-            const radius = 22 + ((code * 9) % 52);
+            // Map code (0-25) to a 9-point radial grid + inner radii
+            const angle = ((code % 9) / 9) * Math.PI * 2 + (i * 0.2);
+            const radius = 30 + ((code * 17) % (r - 40));
             return {
                 x: cx + Math.cos(angle) * radius,
                 y: cy + Math.sin(angle) * radius
@@ -3389,33 +3393,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Interconnected Sigil Geometry
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 3.5;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
         ctx.strokeStyle = '#E6007A';
         ctx.shadowColor = '#E6007A';
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur = 15;
 
+        // Draw the sigil line
         ctx.beginPath();
         ctx.moveTo(points[0].x, points[0].y);
         for (let i = 1; i < points.length; i++) {
-            const p = points[i];
-            ctx.lineTo(p.x, p.y);
-            ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
-            ctx.moveTo(p.x, p.y);
+            // Bezier curve to make it look magical and less jagged
+            const prev = points[i - 1];
+            const curr = points[i];
+            const cp1x = prev.x + (curr.x - prev.x) * 0.2;
+            const cp1y = prev.y + (curr.y - prev.y) * 0.8;
+            ctx.quadraticCurveTo(cp1x, cp1y, curr.x, curr.y);
         }
-        ctx.closePath();
         ctx.stroke();
 
-        // 5. Thee Psychick Cross / Terminal Anchor
-        ctx.strokeStyle = '#00FFFF';
-        ctx.shadowColor = '#00FFFF';
-        ctx.shadowBlur = 8;
+        // Start circle (Chaos magic standard)
+        ctx.beginPath();
+        ctx.arc(points[0].x, points[0].y, 8, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#05000A';
+        ctx.fill();
+
+        // End line (Chaos magic standard)
         const lastP = points[points.length - 1];
         ctx.beginPath();
-        ctx.moveTo(lastP.x - 10, lastP.y - 10);
-        ctx.lineTo(lastP.x + 10, lastP.y + 10);
-        ctx.moveTo(lastP.x - 10, lastP.y + 10);
-        ctx.lineTo(lastP.x + 10, lastP.y - 10);
+        ctx.moveTo(lastP.x - 12, lastP.y - 12);
+        ctx.lineTo(lastP.x + 12, lastP.y + 12);
+        ctx.moveTo(lastP.x - 12, lastP.y + 12);
+        ctx.lineTo(lastP.x + 12, lastP.y - 12);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#00FFFF';
+        ctx.shadowColor = '#00FFFF';
         ctx.stroke();
+
         ctx.shadowBlur = 0;
     }
 
@@ -3423,6 +3439,14 @@ document.addEventListener('DOMContentLoaded', () => {
         btnForgeSigil.addEventListener('click', () => {
             forgeSigil(sigilInput.value);
             printTerminal(`[SIGIL] New glyph forged: ${sigilInput.value}`);
+        });
+        
+        // Allow pressing Enter
+        sigilInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                forgeSigil(sigilInput.value);
+                printTerminal(`[SIGIL] New glyph forged: ${sigilInput.value}`);
+            }
         });
     }
 
@@ -3440,10 +3464,14 @@ document.addEventListener('DOMContentLoaded', () => {
             sigilCanvas.classList.add('sigil-banishing');
             setTimeout(() => {
                 const ctx = sigilCanvas.getContext('2d');
-                ctx.fillStyle = '#000000';
+                ctx.fillStyle = '#05000A';
                 ctx.fillRect(0, 0, sigilCanvas.width, sigilCanvas.height);
                 sigilCanvas.classList.remove('sigil-banishing');
                 if (sigilConsonantsEl) sigilConsonantsEl.innerText = 'BANISHED // DISOLVED';
+                if (sigilNameEl) sigilNameEl.innerText = '---';
+                if (sigilMeaningEl) sigilMeaningEl.innerText = 'El sigilo ha sido destruido y devuelto al flujo primordial.';
+                const hashEl = document.getElementById('sigil-code-hash');
+                if (hashEl) hashEl.innerText = '#N/A';
                 printTerminal('[SIGIL] Banishing ritual complete. Desire cast out into the void.');
             }, 500);
         });
