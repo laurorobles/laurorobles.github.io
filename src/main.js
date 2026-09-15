@@ -223,10 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         centerOrigin(false);
         printTerminal('[KERNEL] LAO_OS v8.9 initialized. Motherboard standing by.');
 
-        // Auto-open primary windows: Bio, Music, World Tour Radar, and compact corner Terminal
-        openWindow('win-bio', false);
-        openWindow('win-music', false);
-        openWindow('win-radar', false);
+        // Auto-open ONLY the terminal window upon booting (all other windows stay closed)
         openWindow('win-terminal', false);
 
         // Auto-run help command in terminal
@@ -391,9 +388,13 @@ document.addEventListener('DOMContentLoaded', () => {
             panTo(targetX, targetY);
         }
 
-        if (winId === 'win-radar' && window.leafletMap) {
+        if (winId === 'win-radar') {
             setTimeout(() => {
-                window.leafletMap.invalidateSize();
+                if (!leafletMap) {
+                    initWorldRadar();
+                } else {
+                    leafletMap.invalidateSize();
+                }
             }, 150);
         }
 
@@ -922,9 +923,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Pistas clave: Chapultepec, Sendero, Circuito Interior, Espejo de Obsidiana"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "238116672",
             links: {
-                bc: "https://lao00.bandcamp.com/album/chapultepec",
+                bc: "https://laolaolao.bandcamp.com/album/chapultepec",
                 sc: "https://soundcloud.com/lao",
                 spotify: "https://open.spotify.com/artist/5LqZfTcmN1eQ74j9N0n2X3",
                 apple: "https://music.apple.com/artist/lao/200498"
@@ -945,9 +946,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Hardware: Roland TB-03, Elektron Machinedrum, C++ ExtasisDonker"
             ],
             streamType: "bandcamp",
-            streamPayload: "2775618451",
+            streamPayload: "4168888294",
             links: {
-                bc: "https://lao00.bandcamp.com/album/coastal-acid",
+                bc: "https://laolaolao.bandcamp.com/album/coastal-acid",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -967,9 +968,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Mastering: Imaabs (Modos Studios)"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "38145319",
             links: {
-                bc: "https://lao00.bandcamp.com",
+                bc: "https://laolaolao.bandcamp.com/album/lo-que-queda-vuelve",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -987,10 +988,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Sonido: Polirritmia 135 BPM, Sub-bass y kicks ceremoniales"
             ],
             streamType: "bandcamp",
-            bandcampType: "track",
-            streamPayload: "2719129759",
+            streamPayload: "272561132",
             links: {
-                bc: "https://naafi.bandcamp.com/track/sendero-feat-tsvi",
+                bc: "https://laolaolao.bandcamp.com/album/sendero",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1008,9 +1008,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Formato: WAV 24-bit Master"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            bandcampType: "track",
+            streamPayload: "3899014912",
             links: {
-                bc: "https://naafi.bandcamp.com",
+                bc: "https://laolaolao.bandcamp.com/track/guacamaya",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1028,9 +1029,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Sello: Extasis Records"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "4157728486",
             links: {
-                bc: "https://extasisrecords.bandcamp.com",
+                bc: "https://laolaolao.bandcamp.com/album/siren-cycle-ep",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1048,9 +1049,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "12 cortes históricos remasterizados"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "2261814637",
             links: {
-                bc: "https://extasisrecords.bandcamp.com",
+                bc: "https://laolaolao.bandcamp.com/album/clasicos-vol-1-extasis031",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1068,9 +1069,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Estudio: Chapultepec, CDMX"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            bandcampType: "track",
+            streamPayload: "3343335777",
             links: {
-                bc: "https://naafi.bandcamp.com",
+                bc: "https://laolaolao.bandcamp.com/track/fake-doi",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1089,9 +1091,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Vocales & Letras: Speak!"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "3113442230",
             links: {
-                bc: "https://domeofdoom.bandcamp.com",
+                bc: "https://domeofdoom.bandcamp.com/album/singularity",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1109,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Aclamado por Resident Advisor, XLR8R y FACT Magazine"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "3832246852",
             links: {
                 bc: "https://naafi.bandcamp.com/album/perfil",
                 sc: "https://soundcloud.com/lao"
@@ -1129,7 +1131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Reconocimiento: Catalogado entre los discos clave de la década de 2010 por la prensa musical internacional."
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "3879686254",
             links: {
                 bc: "https://naafi.bandcamp.com/album/catedral",
                 sc: "https://soundcloud.com/lao"
@@ -1149,9 +1151,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Tracks: Glory Sat., Heavendub, Inmaculate Deception"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "238116672",
             links: {
-                bc: "https://netlabelarchive.org/2006/04/28/filtro-016/",
+                bc: "https://laolaolao.bandcamp.com",
                 sc: "https://soundcloud.com/lao"
             }
         },
@@ -1193,8 +1195,8 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Presentación histórica en el OIL Club de Shenzhen durante la gira por China. Una de las sesiones de club latino más intensas emitidas por Boiler Room.",
             details: ["Lugar: OIL Club, Shenzhen, China", "Evento RA: 1270626", "Plataforma: Boiler Room / YouTube"],
             streamType: "youtube",
-            streamPayload: "5T8_ZpS2rUk",
-            links: { youtube: "https://www.youtube.com/watch?v=5T8_ZpS2rUk", sc: "https://soundcloud.com/lao" }
+            streamPayload: "V0Q05GhLRdc",
+            links: { youtube: "https://www.youtube.com/watch?v=V0Q05GhLRdc", sc: "https://soundcloud.com/lao" }
         },
         "mix-boiler-room-barcelona": {
             id: "mix-boiler-room-barcelona",
@@ -1233,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             details: ["Plataforma: XLR8R", "Edición: Podcast 626", "Duración: 65 min"],
             streamType: "soundcloud",
             streamPayload: "https://soundcloud.com/lao",
-            links: { sc: "https://soundcloud.com/lao", bc: "https://lao00.bandcamp.com" }
+            links: { sc: "https://soundcloud.com/lao", bc: "https://laolaolao.bandcamp.com" }
         },
         "mix-yeyojungle": {
             id: "mix-yeyojungle",
@@ -1344,7 +1346,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             streamType: "soundcloud",
             streamPayload: "https://soundcloud.com/lao",
-            links: { sc: "https://soundcloud.com/lao", bc: "https://lao00.bandcamp.com" }
+            links: { sc: "https://soundcloud.com/lao", bc: "https://laolaolao.bandcamp.com" }
         },
         "art-tono-atlacoya": {
             id: "art-tono-atlacoya",
@@ -1377,7 +1379,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Broadcast: Red Bull Radio en directo a nivel global"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "3879686254",
             links: { bc: "https://naafi.bandcamp.com", sc: "https://soundcloud.com/lao" }
         },
         "art-estado-ccd": {
@@ -1411,7 +1413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Giras mundiales en Berghain, Sónar, CTM Berlín, MUTEK Montreal, Japón, China, Taiwán"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
+            streamPayload: "3832246852",
             links: { bc: "https://naafi.bandcamp.com", sc: "https://soundcloud.com/lao" }
         },
         "art-comisiones": {
@@ -1428,8 +1430,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Grupo Herdez: Postproducción y mezcla broadcast a cuadro"
             ],
             streamType: "bandcamp",
-            streamPayload: "3075678434",
-            links: { bc: "https://lao00.bandcamp.com" }
+            streamPayload: "238116672",
+            links: { bc: "https://laolaolao.bandcamp.com" }
         },
 
         // VIDEOS
@@ -2354,6 +2356,63 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: "Qe2Bcp0-OZc",
             links: {
                 youtube: "https://www.youtube.com/watch?v=Qe2Bcp0-OZc"
+            }
+        },
+        "video-gaika-lao": {
+            id: "video-gaika-lao",
+            title: "Gaika & Lao: Improvised Set (Club de Playa NAAFI)",
+            subtitle: "Live Collaboration Session",
+            type: "VIDEO EN DIRECTO",
+            year: "2020",
+            cover: "https://img.youtube.com/vi/oHOjKJWWL3Q/hqdefault.jpg",
+            desc: "Colisión sónica en vivo entre Gaika (UK) y Lauro Robles durante la residencia Club de Playa NAAFI, combinando dancehall deconstruido, noise e improvisación electrónica.",
+            details: [
+                "Artistas: Gaika & Lao",
+                "Plataforma: NAAFI / YouTube",
+                "Formato: Live Improvised Session"
+            ],
+            streamType: "youtube",
+            streamPayload: "oHOjKJWWL3Q",
+            links: {
+                youtube: "https://www.youtube.com/watch?v=oHOjKJWWL3Q"
+            }
+        },
+        "video-comunite": {
+            id: "video-comunite",
+            title: "Lao Live @ Festival Comunite (México)",
+            subtitle: "Main Stage Live Festival Recording",
+            type: "FESTIVAL EN VIVO",
+            year: "2022",
+            cover: "https://img.youtube.com/vi/cX6LZB6L6Aw/hqdefault.jpg",
+            desc: "Grabación en vivo desde el Festival Comunite explorando ritmos sincopados, dembow mutante y bass híbrido de club.",
+            details: [
+                "Festival: Comunite 2022",
+                "Ubicación: México",
+                "Plataforma: YouTube"
+            ],
+            streamType: "youtube",
+            streamPayload: "cX6LZB6L6Aw",
+            links: {
+                youtube: "https://www.youtube.com/watch?v=cX6LZB6L6Aw"
+            }
+        },
+        "video-satelite-030": {
+            id: "video-satelite-030",
+            title: "Satélite / Despacho de Proyectos: Mixtape #030",
+            subtitle: "Curaduría Sonora por Lauro Robles",
+            type: "CURADURÍA SONORA",
+            year: "2021",
+            cover: "https://img.youtube.com/vi/h4WzFRpKdTk/hqdefault.jpg",
+            desc: "Curaduría experimental y viaje auditivo desarrollado por Lauro Robles para el archivo cultural Satélite en la Ciudad de México.",
+            details: [
+                "Proyecto: Satélite / Despacho de Proyectos",
+                "Episodio: Mixtape #030",
+                "Plataforma: Satélite / YouTube"
+            ],
+            streamType: "youtube",
+            streamPayload: "h4WzFRpKdTk",
+            links: {
+                youtube: "https://www.youtube.com/watch?v=h4WzFRpKdTk"
             }
         }
     };
@@ -4346,6 +4405,7 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
     let leafletMarkers = [];
     let leafletPolylines = [];
     let activeSelectCity = null;
+    let geoJsonLayer = null;
 
     function initWorldRadar(filterRegion = 'all') {
         const mapEl = document.getElementById('leaflet-radar-map');
@@ -4362,17 +4422,35 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
                 center: [20, 0],
                 zoom: 2,
                 minZoom: 1.5,
-                maxZoom: 11,
+                maxZoom: 10,
                 zoomControl: true,
-                attributionControl: true
+                attributionControl: false
             });
 
-            // CartoDB Dark Matter tiles (Crisp, High-DPI, Dark cyberpunk aesthetics)
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://openstreetmap.org">OSM</a>',
-                subdomains: 'abcd',
-                maxZoom: 19
-            }).addTo(leafletMap);
+            // Open Source Natural Earth Vector GeoJSON Layer (100% Free, Zero API Keys, Zero Watermarks, Zero Text)
+            fetch('./data/world.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    return res.json();
+                })
+                .then(geoData => {
+                    geoJsonLayer = L.geoJSON(geoData, {
+                        style: function() {
+                            return {
+                                fillColor: '#121526',
+                                fillOpacity: 0.95,
+                                color: '#1e2844',
+                                weight: 0.8,
+                                opacity: 0.9,
+                                className: 'cyber-geojson-country'
+                            };
+                        }
+                    }).addTo(leafletMap);
+                    if (geoJsonLayer) geoJsonLayer.bringToBack();
+                })
+                .catch(err => {
+                    console.warn('[WORLD_RADAR] GeoJSON load error:', err);
+                });
 
             window.leafletMap = leafletMap;
         }

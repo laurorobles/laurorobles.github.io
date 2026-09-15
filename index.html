@@ -64,7 +64,7 @@
         ],
         "sameAs": [
           "https://soundcloud.com/lao",
-          "https://lao00.bandcamp.com",
+          "https://laolaolao.bandcamp.com",
           "https://open.spotify.com/artist/5LqZfTcmN1eQ74j9N0n2X3",
           "https://music.apple.com/artist/lao/200498",
           "https://es-mx.ra.co/dj/lao",
@@ -88,25 +88,25 @@
             "@type": "MusicAlbum",
             "name": "Chapultepec",
             "datePublished": "2024",
-            "url": "https://lao00.bandcamp.com/album/chapultepec"
+            "url": "https://laolaolao.bandcamp.com/album/chapultepec"
           },
           {
             "@type": "MusicAlbum",
             "name": "Coastal Acid",
             "datePublished": "2024",
-            "url": "https://lao00.bandcamp.com/album/coastal-acid"
+            "url": "https://laolaolao.bandcamp.com/album/coastal-acid"
           },
           {
             "@type": "MusicAlbum",
             "name": "Catedral EP",
             "datePublished": "2015",
-            "url": "https://lao00.bandcamp.com"
+            "url": "https://laolaolao.bandcamp.com"
           },
           {
             "@type": "MusicAlbum",
             "name": "Perfil",
             "datePublished": "2016",
-            "url": "https://lao00.bandcamp.com"
+            "url": "https://laolaolao.bandcamp.com"
           }
         ]
       }
@@ -221,26 +221,26 @@
           <!-- Now Playing Status -->
           <div class="flex items-center justify-between">
               <div class="flex-1 pr-2 overflow-hidden">
-                  <div class="text-[9.5px] font-bold text-[var(--main)] truncate" id="player-track-label">Chapultepec (LP) — Lao</div>
-                  <div class="text-[8px] opacity-75 truncate flex items-center gap-1">
-                      <span id="player-source-badge" class="inspector-badge text-[7px]">BANDCAMP</span>
+                  <div class="text-[12px] font-bold text-[var(--main)] truncate" id="player-track-label">Chapultepec (LP) — Lao</div>
+                  <div class="text-[10px] opacity-75 truncate flex items-center gap-1.5 mt-0.5">
+                      <span id="player-source-badge" class="inspector-badge text-[8.5px]">BANDCAMP</span>
                       <span id="player-format-tag">ÁLBUM OFICIAL</span>
                   </div>
               </div>
-              <button id="btn-inspect-now-playing" class="player-btn text-[8px] whitespace-nowrap text-[var(--accent)]">[ +INFO ]</button>
+              <button id="btn-inspect-now-playing" class="player-btn text-[10px] whitespace-nowrap text-[var(--accent)] font-bold">[ +INFO ]</button>
           </div>
 
           <!-- Unified Transport Controls -->
           <div class="player-controls-bar">
-              <button id="btn-player-prev" class="player-btn" title="Pista Anterior">|◀ PREV</button>
-              <button id="btn-player-playpause" class="player-btn btn-play-toggle" title="Play / Pausa">▶ PLAY</button>
-              <button id="btn-player-next" class="player-btn" title="Siguiente Pista">NEXT ▶|</button>
-              <span class="text-[8px] opacity-65 ml-auto font-mono" id="player-cue-counter">01 / 20</span>
+              <button id="btn-player-prev" class="player-btn text-[11px]" title="Pista Anterior">|◀ PREV</button>
+              <button id="btn-player-playpause" class="player-btn btn-play-toggle text-[11px]" title="Play / Pausa">▶ PLAY</button>
+              <button id="btn-player-next" class="player-btn text-[11px]" title="Siguiente Pista">NEXT ▶|</button>
+              <span class="text-[10px] opacity-75 ml-auto font-mono" id="player-cue-counter">01 / 20</span>
           </div>
 
           <!-- Embed Container (Swaps between Bandcamp, SoundCloud and YouTube) -->
           <div class="player-embed-wrap" id="player-embed-container">
-              <iframe id="omni-player-iframe" style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3075678434/size=large/bgcol=070012/linkcol=00ffff/tracklist=true/artwork=small/transparent=true/" seamless allow="autoplay; encrypted-media"></iframe>
+              <iframe id="omni-player-iframe" style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=238116672/size=large/bgcol=0b0c14/linkcol=00ffff/tracklist=true/artwork=small/transparent=true/" seamless allow="autoplay; encrypted-media"></iframe>
           </div>
 
           <!-- Direct Local Audio Element for native streaming fallback -->
@@ -248,20 +248,20 @@
 
           <!-- VISIBLE QUEUE (CUE) DRAWER -->
           <div class="player-queue-wrapper" id="player-queue-wrapper">
-              <div class="player-queue-header">
-                  <span>COLA DE REPRODUCCIÓN (CUE ALEATORIO)</span>
-                  <button id="btn-refresh-queue" class="text-[7.5px] text-[var(--accent)] hover:underline">⤮ RE-MEZCLAR</button>
+              <div class="player-queue-header text-[10.5px]">
+                  <span>COLA DE REPRODUCCIÓN (CUE)</span>
+                  <button id="btn-refresh-queue" class="text-[9px] text-[var(--accent)] hover:underline">⤮ RE-MEZCLAR</button>
               </div>
-              <div class="player-queue-list" id="player-queue-list">
+              <div class="player-queue-list text-[11px]" id="player-queue-list">
                   <!-- Dynamically populated queue items -->
               </div>
           </div>
 
           <!-- Direct platform links -->
-          <div class="flex justify-between items-center text-[8px] pt-1 border-t border-[var(--circuit)]">
-              <span class="opacity-60">MASTER CATALOG</span>
-              <div class="flex gap-1.5" id="player-external-links">
-                  <a id="btn-stream-link-bc" href="https://lao00.bandcamp.com" target="_blank" class="text-[var(--accent)] hover:underline font-bold">BANDCAMP ↗</a>
+          <div class="flex justify-between items-center text-[10px] pt-1.5 border-t border-[var(--circuit)]">
+              <span class="opacity-70 font-bold">CATÁLOGO OFICIAL</span>
+              <div class="flex gap-2" id="player-external-links">
+                  <a id="btn-stream-link-bc" href="https://laolaolao.bandcamp.com" target="_blank" class="text-[var(--accent)] hover:underline font-bold">BANDCAMP ↗</a>
                   <a id="btn-stream-link-sc" href="https://soundcloud.com/lao" target="_blank" class="text-[var(--main)] hover:underline font-bold">SOUNDCLOUD ↗</a>
                   <a href="https://open.spotify.com/artist/5LqZfTcmN1eQ74j9N0n2X3" target="_blank" class="hover:underline opacity-80">SPOTIFY ↗</a>
                   <a href="https://music.apple.com/artist/lao/200498" target="_blank" class="hover:underline opacity-80">APPLE ↗</a>
@@ -697,115 +697,115 @@
 
                       <div class="music-grid" id="music-icon-grid">
                           <!-- 1. Lo Que Queda, Vuelve (2025) -->
-                          <div class="music-card clickable-item" data-item-id="lo_que_queda" data-idx="0" data-bc-id="3075678434" data-title="Lo Que Queda, Vuelve [2025]" data-ext="https://lao00.bandcamp.com">
+                          <div class="music-card clickable-item" data-item-id="lo_que_queda" data-idx="0" data-bc-id="38145319" data-title="Lo Que Queda, Vuelve [2025]" data-ext="https://laolaolao.bandcamp.com/album/lo-que-queda-vuelve">
                               <img src="/images/covers/lo_que_queda.jpg" class="music-card-thumb" alt="Lo Que Queda" loading="lazy" decoding="async">
                               <div class="music-card-title">Lo Que Queda, Vuelve</div>
                               <div class="music-card-meta">2025 • Terminal Records</div>
                               <div class="music-card-desc">Lao x Other Islands (Ambient Club)</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://lao00.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/lo-que-queda-vuelve" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 2. Chapultepec (2024) -->
-                          <div class="music-card clickable-item" data-item-id="chapultepec" data-idx="1" data-bc-id="3075678434" data-title="Chapultepec (LP) [2024]" data-ext="https://lao00.bandcamp.com/album/chapultepec">
+                          <div class="music-card clickable-item" data-item-id="chapultepec" data-idx="1" data-bc-id="238116672" data-title="Chapultepec (LP) [2024]" data-ext="https://laolaolao.bandcamp.com/album/chapultepec">
                               <img src="/images/covers/chapultepec.jpg" class="music-card-thumb" alt="Chapultepec" loading="lazy" decoding="async">
                               <div class="music-card-title">Chapultepec (LP)</div>
                               <div class="music-card-meta">2024 • Extasis / NAAFI</div>
                               <div class="music-card-desc">Obra cumbre de club experimental</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now" title="Reproducir en Master Deck">▶ PLAY</button>
-                                  <a href="https://lao00.bandcamp.com/album/chapultepec" target="_blank" class="btn-card-act act-cue text-center" title="Abrir en Bandcamp">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/chapultepec" target="_blank" class="btn-card-act act-cue text-center" title="Abrir en Bandcamp">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 3. Coastal Acid (2024) -->
-                          <div class="music-card clickable-item" data-item-id="coastal_acid" data-idx="2" data-bc-id="2775618451" data-title="Coastal Acid (EP) [2024]" data-ext="https://lao00.bandcamp.com/album/coastal-acid">
+                          <div class="music-card clickable-item" data-item-id="coastal_acid" data-idx="2" data-bc-id="4168888294" data-title="Coastal Acid (EP) [2024]" data-ext="https://laolaolao.bandcamp.com/album/coastal-acid">
                               <img src="/images/covers/coastal_acid.jpg" class="music-card-thumb" alt="Coastal Acid" loading="lazy" decoding="async">
                               <div class="music-card-title">Coastal Acid (EP)</div>
                               <div class="music-card-meta">2024 • Extasis Records</div>
                               <div class="music-card-desc">Acid club & síncopas tropicales</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://lao00.bandcamp.com/album/coastal-acid" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/coastal-acid" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 4. Sendero (2023) -->
-                          <div class="music-card clickable-item" data-item-id="sendero" data-idx="3" data-bc-id="2719129759" data-title="Sendero (ft. TSVI) [2023]" data-ext="https://naafi.bandcamp.com/track/sendero-feat-tsvi">
+                          <div class="music-card clickable-item" data-item-id="sendero" data-idx="3" data-bc-id="272561132" data-title="Sendero [2023]" data-ext="https://laolaolao.bandcamp.com/album/sendero-2">
                               <img src="/images/covers/sendero.jpg" class="music-card-thumb" alt="Sendero" loading="lazy" decoding="async">
-                              <div class="music-card-title">Sendero (ft. TSVI)</div>
-                              <div class="music-card-meta">2023 • NAAFI</div>
+                              <div class="music-card-title">Sendero</div>
+                              <div class="music-card-meta">2023 • NAAFI / Extasis</div>
                               <div class="music-card-desc">Percusión visceral y UK bass</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://naafi.bandcamp.com/track/sendero-feat-tsvi" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/sendero-2" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 5. Guacamaya (2022) -->
-                          <div class="music-card clickable-item" data-item-id="guacamaya" data-idx="4" data-bc-id="3075678434" data-title="Guacamaya [2022]" data-ext="https://naafi.bandcamp.com">
+                          <div class="music-card clickable-item" data-item-id="guacamaya" data-idx="4" data-bc-id="3899014912" data-title="Guacamaya [2022]" data-ext="https://laolaolao.bandcamp.com/track/guacamaya">
                               <img src="/images/covers/guacamaya.jpg" class="music-card-thumb" alt="Guacamaya" loading="lazy" decoding="async">
                               <div class="music-card-title">Guacamaya</div>
                               <div class="music-card-meta">2022 • Lao & DJ Fucci</div>
                               <div class="music-card-desc">Polirritmia y tambores de pista</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://naafi.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/track/guacamaya" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
-                          <!-- 6. Protective Core (2021) -->
-                          <div class="music-card clickable-item" data-item-id="protective_core" data-idx="5" data-bc-id="3075678434" data-title="Protective Core [2021]" data-ext="https://extasisrecords.bandcamp.com">
-                              <img src="/images/covers/protective_core.jpg" class="music-card-thumb" alt="Protective Core" loading="lazy" decoding="async">
-                              <div class="music-card-title">Protective Core</div>
-                              <div class="music-card-meta">2021 • Extasis024</div>
-                              <div class="music-card-desc">Lao & Copout (Sound Design)</div>
+                          <!-- 6. Siren Cycle (2021) -->
+                          <div class="music-card clickable-item" data-item-id="protective_core" data-idx="5" data-bc-id="4157728486" data-title="Siren Cycle EP [2021]" data-ext="https://laolaolao.bandcamp.com/album/siren-cycle-ep">
+                              <img src="/images/covers/protective_core.jpg" class="music-card-thumb" alt="Siren Cycle" loading="lazy" decoding="async">
+                              <div class="music-card-title">Siren Cycle EP</div>
+                              <div class="music-card-meta">2021 • Extasis Records</div>
+                              <div class="music-card-desc">Sirenas cinéticas & club deconstruido</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://extasisrecords.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/siren-cycle-ep" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 7. Clásicos Vol. 1 (2020) -->
-                          <div class="music-card clickable-item" data-item-id="clasicos_vol1" data-idx="6" data-bc-id="3075678434" data-title="Clásicos Vol. 1 [2020]" data-ext="https://extasisrecords.bandcamp.com">
+                          <div class="music-card clickable-item" data-item-id="clasicos_vol1" data-idx="6" data-bc-id="2261814637" data-title="Clásicos Vol. 1 [2020]" data-ext="https://laolaolao.bandcamp.com/album/cl-sicos-vol-1-extasis031">
                               <img src="/images/covers/clasicos_vol1.jpg" class="music-card-thumb" alt="Clasicos" loading="lazy" decoding="async">
                               <div class="music-card-title">Clásicos Vol. 1</div>
                               <div class="music-card-meta">2020 • Extasis Records</div>
                               <div class="music-card-desc">Antología de himnos de club</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://extasisrecords.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/cl-sicos-vol-1-extasis031" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 8. Fake Dói (2019) -->
-                          <div class="music-card clickable-item" data-item-id="fake_doi" data-idx="7" data-bc-id="3075678434" data-title="Fake Dói [2019]" data-ext="https://naafi.bandcamp.com">
+                          <div class="music-card clickable-item" data-item-id="fake_doi" data-idx="7" data-bc-id="3343335777" data-title="Fake Dói [2019]" data-ext="https://laolaolao.bandcamp.com/track/fake-d-i">
                               <img src="/images/covers/fake_doi.jpg" class="music-card-thumb" alt="Fake Doi" loading="lazy" decoding="async">
                               <div class="music-card-title">Fake Dói</div>
-                              <div class="music-card-meta">2019 • NAAFI</div>
+                              <div class="music-card-meta">2019 • NAAFI / Extasis</div>
                               <div class="music-card-desc">Tribal guarachero & baile funk</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://naafi.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/track/fake-d-i" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 9. Singularity (2019) -->
-                          <div class="music-card clickable-item" data-item-id="singularity" data-idx="8" data-bc-id="3075678434" data-title="Singularity [2019]" data-ext="https://domeofdoom.bandcamp.com">
+                          <div class="music-card clickable-item" data-item-id="singularity" data-idx="8" data-bc-id="3113442230" data-title="Singularity [2019]" data-ext="https://domeofdoom.bandcamp.com/album/singularity">
                               <img src="/images/covers/singularity.jpg" class="music-card-thumb" alt="Singularity" loading="lazy" decoding="async">
                               <div class="music-card-title">Singularity (LP)</div>
                               <div class="music-card-meta">2019 • Dome Of Doom (LA)</div>
                               <div class="music-card-desc">Lao & Speak! (Futuristic Hip-Hop)</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://domeofdoom.bandcamp.com" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
+                                  <a href="https://domeofdoom.bandcamp.com/album/singularity" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
 
                           <!-- 10. Perfil (2017) -->
-                          <div class="music-card clickable-item" data-item-id="perfil" data-idx="9" data-bc-id="3093231362" data-title="Perfil (Album) [2017]" data-ext="https://naafi.bandcamp.com/album/perfil">
+                          <div class="music-card clickable-item" data-item-id="perfil" data-idx="9" data-bc-id="3832246852" data-title="Perfil (Album) [2017]" data-ext="https://naafi.bandcamp.com/album/perfil">
                               <img src="/images/covers/perfil.jpg" class="music-card-thumb" alt="Perfil" loading="lazy" decoding="async">
                               <div class="music-card-title">Perfil (Album)</div>
                               <div class="music-card-meta">2017 • NAAFI</div>
@@ -817,7 +817,7 @@
                           </div>
 
                           <!-- 11. Catedral (2014) -->
-                          <div class="music-card clickable-item" data-item-id="catedral" data-idx="10" data-bc-id="2163428807" data-title="Catedral (EP) [2014]" data-ext="https://naafi.bandcamp.com/album/catedral">
+                          <div class="music-card clickable-item" data-item-id="catedral" data-idx="10" data-bc-id="3879686254" data-title="Catedral (EP) [2014]" data-ext="https://naafi.bandcamp.com/album/catedral">
                               <img src="/images/covers/catedral.jpg" class="music-card-thumb" alt="Catedral" loading="lazy" decoding="async">
                               <div class="music-card-title">Catedral (EP)</div>
                               <div class="music-card-meta">2014 • NAAFI</div>
@@ -829,14 +829,14 @@
                           </div>
 
                           <!-- 12. Amen EP (2006) -->
-                          <div class="music-card clickable-item" data-item-id="amen_ep" data-idx="11" data-bc-id="3075678434" data-title="Amen EP [FILTRO.016] [2006]" data-ext="https://netlabelarchive.org/2006/04/28/filtro-016/">
-                              <img src="/images/covers/amen_ep.jpg" class="music-card-thumb" alt="Amen EP" loading="lazy" decoding="async">
-                              <div class="music-card-title">Amen EP [2006]</div>
-                              <div class="music-card-meta">2006 • Filtro Netlabel</div>
-                              <div class="music-card-desc">Debut histórico (Dub + IDM)</div>
+                          <div class="music-card clickable-item" data-item-id="amen_ep" data-idx="11" data-bc-id="1669783716" data-title="Untitled [EXTASIS027] [2018]" data-ext="https://laolaolao.bandcamp.com/album/untitled-extasis027">
+                              <img src="/images/covers/amen_ep.jpg" class="music-card-thumb" alt="Untitled EXTASIS027" loading="lazy" decoding="async">
+                              <div class="music-card-title">Untitled [EXTASIS027]</div>
+                              <div class="music-card-meta">2018 • WWWINGS x Lao</div>
+                              <div class="music-card-desc">Industrial club & hyper-pressure</div>
                               <div class="music-card-actions">
                                   <button class="btn-card-act btn-play-now">▶ PLAY</button>
-                                  <a href="https://netlabelarchive.org/2006/04/28/filtro-016/" target="_blank" class="btn-card-act act-cue text-center">NET ↗</a>
+                                  <a href="https://laolaolao.bandcamp.com/album/untitled-extasis027" target="_blank" class="btn-card-act act-cue text-center">BC ↗</a>
                               </div>
                           </div>
                       </div>
@@ -1633,115 +1633,38 @@
                   </div>
 
                   <!-- ACTIVE HERO VIDEO PLAYER (AUTO-PLAYABLE / RANDOMIZED) -->
-                  <div class="mb-2">
-                      <div class="flex justify-between items-center mb-0.5">
-                          <span class="text-[9px] font-bold text-[var(--accent)] truncate pr-2" id="video-hero-title">Boiler Room Mexico City — LAO (NAAFI Showcase)</span>
-                          <span class="inspector-badge text-[7.5px]" id="video-hero-badge">BOILER ROOM</span>
+                  <div class="mb-2.5">
+                      <div class="flex justify-between items-center mb-1">
+                          <span class="text-[12px] font-bold text-[var(--accent)] truncate pr-2" id="video-hero-title">Lao | Boiler Room Shenzhen (OIL Club)</span>
+                          <span class="inspector-badge text-[8.5px]" id="video-hero-badge">BOILER ROOM OFICIAL</span>
                       </div>
                       <div class="w-full aspect-video bg-black border border-[var(--circuit)] overflow-hidden">
-                          <iframe id="video-hero-iframe" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/5T8_ZpS2rUk" title="Boiler Room Mexico City" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                          <iframe id="video-hero-iframe" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/V0Q05GhLRdc" title="Boiler Room Shenzhen - Lao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                       </div>
                   </div>
 
                   <!-- VIDEO ARCHIVE CATALOG GRID -->
-                  <div class="video-grid flex-1 overflow-y-auto pr-1" id="video-items-list">
-                      <!-- 1. Boiler Room Mexico City (2015) -->
-                      <div class="video-card clickable-item active" data-item-id="mix-boiler-room-cdmx" data-yt-id="5T8_ZpS2rUk" data-yt-title="Boiler Room Mexico City — LAO Showcase (2015)">
+                  <div class="video-grid flex-1 overflow-y-auto pr-1 space-y-2" id="video-items-list">
+                      <!-- 1. Boiler Room Shenzhen (2018) -->
+                      <div class="video-card clickable-item active" data-item-id="mix-boiler-room-shenzhen" data-yt-id="V0Q05GhLRdc" data-yt-title="Lao | Boiler Room Shenzhen (OIL Club)">
                           <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/5T8_ZpS2rUk/hqdefault.jpg" class="video-thumb-img" alt="Boiler Room CDMX" loading="lazy">
-                              <span class="video-duration">47:12</span>
+                              <img src="https://img.youtube.com/vi/V0Q05GhLRdc/hqdefault.jpg" class="video-thumb-img" alt="Boiler Room Shenzhen Lao" loading="lazy">
+                              <span class="video-duration">48:20</span>
                           </div>
                           <div class="video-info">
                               <div class="flex justify-between items-center mb-0.5">
                                   <span class="video-badge-tag">BOILER ROOM</span>
-                                  <span class="text-[7.5px] opacity-60">2015</span>
+                                  <span class="text-[9.5px] opacity-70 font-mono">2018</span>
                               </div>
-                              <strong class="video-title text-[var(--main)]">Boiler Room Mexico City (NAAFI)</strong>
-                              <p class="video-desc">Presentación seminal del colectivo NAAFI que colocó el underground mexicano en el mapa global.</p>
+                              <strong class="video-title text-[var(--accent)] block text-[12.5px]">Lao | Boiler Room Shenzhen (OIL Club)</strong>
+                              <p class="video-desc text-[11px] opacity-80">Presentación histórica en el epicentro de la música electrónica de vanguardia en China meridional.</p>
+                              <div class="mt-1 flex justify-end">
+                                  <a href="https://www.youtube.com/watch?v=V0Q05GhLRdc" target="_blank" class="text-[10.5px] text-[var(--main)] font-bold hover:underline">[ VER EN YOUTUBE ↗ ]</a>
+                              </div>
                           </div>
                       </div>
 
-                      <!-- 2. Boiler Room Barcelona (2016) -->
-                      <div class="video-card clickable-item" data-item-id="mix-boiler-room-barcelona" data-yt-id="5T8_ZpS2rUk" data-yt-title="Boiler Room x System: Barcelona (2016)">
-                          <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/5T8_ZpS2rUk/hqdefault.jpg" class="video-thumb-img" alt="Boiler Room Barcelona" loading="lazy">
-                              <span class="video-duration">52:30</span>
-                          </div>
-                          <div class="video-info">
-                              <div class="flex justify-between items-center mb-0.5">
-                                  <span class="video-badge-tag">LIVE DJ SET</span>
-                                  <span class="text-[7.5px] opacity-60">2016</span>
-                              </div>
-                              <strong class="video-title text-[var(--main)]">Boiler Room x System: Barcelona</strong>
-                              <p class="video-desc">Sesión frenética de clubbing latino, UK bass y percusión deconstruida en España.</p>
-                          </div>
-                      </div>
-
-                      <!-- 3. Boiler Room Shenzhen (2018) -->
-                      <div class="video-card clickable-item" data-item-id="mix-boiler-room-shenzhen" data-yt-id="5T8_ZpS2rUk" data-yt-title="Boiler Room Shenzhen — OIL Club (2018)">
-                          <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/5T8_ZpS2rUk/hqdefault.jpg" class="video-thumb-img" alt="Boiler Room Shenzhen" loading="lazy">
-                              <span class="video-duration">60:15</span>
-                          </div>
-                          <div class="video-info">
-                              <div class="flex justify-between items-center mb-0.5">
-                                  <span class="video-badge-tag">ASIA TOUR</span>
-                                  <span class="text-[7.5px] opacity-60">2018</span>
-                              </div>
-                              <strong class="video-title text-[var(--accent)]">Boiler Room Shenzhen (OIL Club)</strong>
-                              <p class="video-desc">Gira asiática en el epicentro de la electrónica de vanguardia en China meridional.</p>
-                          </div>
-                      </div>
-
-                      <!-- 4. DURO Label Studio Session (2026) -->
-                      <div class="video-card clickable-item" data-item-id="press-duro-2022" data-yt-id="g2qJ3r_4nJ4" data-yt-title="DURO Label — En el Estudio con Lauro Robles (Agosto 2026)">
-                          <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/g2qJ3r_4nJ4/hqdefault.jpg" class="video-thumb-img" alt="DURO Studio" loading="lazy">
-                              <span class="video-duration">18:45</span>
-                          </div>
-                          <div class="video-info">
-                              <div class="flex justify-between items-center mb-0.5">
-                                  <span class="video-badge-tag">ENTREVISTA</span>
-                                  <span class="text-[7.5px] font-bold text-[var(--accent)]">2026 (RECIENTE)</span>
-                              </div>
-                              <strong class="video-title text-[var(--main)]">DURO Label: Sesión de Estudio (2026)</strong>
-                              <p class="video-desc">Inmersión en técnicas de producción, síntesis FM y diseño sonoro en Chapultepec.</p>
-                          </div>
-                      </div>
-
-                      <!-- 5. Tomasa del Real — Hangover (2016) -->
-                      <div class="video-card clickable-item" data-item-id="video-hangover" data-yt-id="5b3oR_hJ1x4" data-yt-title="Tomasa del Real — Hangover (Prod. Lao & Paul Marmota)">
-                          <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/5b3oR_hJ1x4/hqdefault.jpg" class="video-thumb-img" alt="Tomasa del Real Hangover" loading="lazy">
-                              <span class="video-duration">03:22</span>
-                          </div>
-                          <div class="video-info">
-                              <div class="flex justify-between items-center mb-0.5">
-                                  <span class="video-badge-tag">PRODUCCIÓN ORIGINAL</span>
-                                  <span class="text-[7.5px] opacity-60">2016</span>
-                              </div>
-                              <strong class="video-title text-[var(--accent)]">Tomasa del Real — Hangover</strong>
-                              <p class="video-desc">Producción musical original de Lao & Paul Marmota para la reina del neoperreo.</p>
-                          </div>
-                      </div>
-
-                      <!-- 6. 60ª Bienal de Venecia — La Culebra (2024) -->
-                      <div class="video-card clickable-item" data-item-id="art-bienal-venecia" data-yt-id="g2qJ3r_4nJ4" data-yt-title="60ª Bienal de Venecia — La Culebra (2024)">
-                          <div class="video-thumb-wrap">
-                              <img src="https://img.youtube.com/vi/g2qJ3r_4nJ4/hqdefault.jpg" class="video-thumb-img" alt="Bienal de Venecia" loading="lazy">
-                              <span class="video-duration">DOC</span>
-                          </div>
-                          <div class="video-info">
-                              <div class="flex justify-between items-center mb-0.5">
-                                  <span class="video-badge-tag">ARTE CONTEMPORÁNEO</span>
-                                  <span class="text-[7.5px] opacity-60">2024</span>
-                              </div>
-                              <strong class="video-title text-[var(--main)]">60ª Bienal de Venecia: La Culebra</strong>
-                              <p class="video-desc">Composición musical comisionada y performance de clausura oficial en el Arsenale.</p>
-                          </div>
-                      </div>
-
-                      <!-- 7. The Lot Radio NYC (2023) -->
+                      <!-- 2. The Lot Radio NYC (2023) -->
                       <div class="video-card clickable-item" data-item-id="video-the-lot-radio" data-yt-id="Qe2Bcp0-OZc" data-yt-title="Rendezvous with Lao Naafi @ The Lot Radio (Brooklyn, NYC - 2023)">
                           <div class="video-thumb-wrap">
                               <img src="https://img.youtube.com/vi/Qe2Bcp0-OZc/hqdefault.jpg" class="video-thumb-img" alt="The Lot Radio Brooklyn Lao" loading="lazy">
@@ -1750,9 +1673,72 @@
                           <div class="video-info">
                               <div class="flex justify-between items-center mb-0.5">
                                   <span class="video-badge-tag">THE LOT RADIO</span>
-                                  <span class="text-[7.5px] opacity-60">2023</span>
+                                  <span class="text-[9.5px] opacity-70 font-mono">2023</span>
                               </div>
-                              <strong class="video-title text-[var(--accent)]">The Lot Radio NYC: Rendezvous with Lao Naafi</strong>
+                              <strong class="video-title text-[var(--main)] block text-[12.5px]">The Lot Radio NYC: Rendezvous with Lao Naafi</strong>
+                              <p class="video-desc text-[11px] opacity-80">Sesión en directo desde Greenpoint, Brooklyn: deconstrucción polirrítmica, edits de club y frecuencias graves.</p>
+                              <div class="mt-1 flex justify-end">
+                                  <a href="https://www.youtube.com/watch?v=Qe2Bcp0-OZc" target="_blank" class="text-[10.5px] text-[var(--accent)] font-bold hover:underline">[ VER EN YOUTUBE ↗ ]</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- 3. Gaika & Lao Improvised Set (Club de Playa NAAFI) -->
+                      <div class="video-card clickable-item" data-item-id="video-gaika-lao" data-yt-id="oHOjKJWWL3Q" data-yt-title="Gaika & Lao Improvised Set — Club de Playa NAAFI">
+                          <div class="video-thumb-wrap">
+                              <img src="https://img.youtube.com/vi/oHOjKJWWL3Q/hqdefault.jpg" class="video-thumb-img" alt="Gaika Lao NAAFI" loading="lazy">
+                              <span class="video-duration">LIVE</span>
+                          </div>
+                          <div class="video-info">
+                              <div class="flex justify-between items-center mb-0.5">
+                                  <span class="video-badge-tag">LIVE COLLABORATION</span>
+                                  <span class="text-[9.5px] opacity-70 font-mono">LATMT</span>
+                              </div>
+                              <strong class="video-title text-[var(--accent)] block text-[12.5px]">Gaika & Lao: Improvised Set (NAAFI)</strong>
+                              <p class="video-desc text-[11px] opacity-80">Colisión sónica en vivo entre Gaika (UK) y Lauro Robles durante la residencia Club de Playa NAAFI.</p>
+                              <div class="mt-1 flex justify-end">
+                                  <a href="https://www.youtube.com/watch?v=oHOjKJWWL3Q" target="_blank" class="text-[10.5px] text-[var(--main)] font-bold hover:underline">[ VER EN YOUTUBE ↗ ]</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- 4. Comunite 2022 Mexico -->
+                      <div class="video-card clickable-item" data-item-id="video-comunite" data-yt-id="cX6LZB6L6Aw" data-yt-title="DJ Hotmale / Lao Live @ Comunite 2022 Mexico">
+                          <div class="video-thumb-wrap">
+                              <img src="https://img.youtube.com/vi/cX6LZB6L6Aw/hqdefault.jpg" class="video-thumb-img" alt="Lao Comunite 2022" loading="lazy">
+                              <span class="video-duration">FESTIVAL</span>
+                          </div>
+                          <div class="video-info">
+                              <div class="flex justify-between items-center mb-0.5">
+                                  <span class="video-badge-tag">FESTIVAL EN VIVO</span>
+                                  <span class="text-[9.5px] opacity-70 font-mono">2022</span>
+                              </div>
+                              <strong class="video-title text-[var(--main)] block text-[12.5px]">Lao Live @ Festival Comunite (México)</strong>
+                              <p class="video-desc text-[11px] opacity-80">Grabación en vivo desde el escenario principal del Festival Comunite explorando ritmos sincopados y bass híbrido.</p>
+                              <div class="mt-1 flex justify-end">
+                                  <a href="https://www.youtube.com/watch?v=cX6LZB6L6Aw" target="_blank" class="text-[10.5px] text-[var(--accent)] font-bold hover:underline">[ VER EN YOUTUBE ↗ ]</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- 5. Satélite Mixtape #030 -->
+                      <div class="video-card clickable-item" data-item-id="video-satelite-030" data-yt-id="h4WzFRpKdTk" data-yt-title="[MIXTAPE] #030 - LAO (Satélite / Despacho de Proyectos)">
+                          <div class="video-thumb-wrap">
+                              <img src="https://img.youtube.com/vi/h4WzFRpKdTk/hqdefault.jpg" class="video-thumb-img" alt="Satelite Mixtape Lao" loading="lazy">
+                              <span class="video-duration">MIX</span>
+                          </div>
+                          <div class="video-info">
+                              <div class="flex justify-between items-center mb-0.5">
+                                  <span class="video-badge-tag">CURADURÍA SONORA</span>
+                                  <span class="text-[9.5px] opacity-70 font-mono">CDMX</span>
+                              </div>
+                              <strong class="video-title text-[var(--accent)] block text-[12.5px]">Satélite / Despacho de Proyectos: Mixtape #030</strong>
+                              <p class="video-desc text-[11px] opacity-80">Curaduría experimental por Lauro Robles para el archivo cultural Satélite en la Ciudad de México.</p>
+                              <div class="mt-1 flex justify-end">
+                                  <a href="https://www.youtube.com/watch?v=h4WzFRpKdTk" target="_blank" class="text-[10.5px] text-[var(--main)] font-bold hover:underline">[ VER EN YOUTUBE ↗ ]</a>
+                              </div>
+                          </div>
+                      </div>
                               <p class="video-desc">Sesión exclusiva en vivo desde el quiosco de Greenpoint, Brooklyn: deconstrucción de club y edits inéditos.</p>
                           </div>
                       </div>
@@ -1930,7 +1916,7 @@
           </div>
 
           <!-- 10. INTERACTIVE TERMINAL -->
-          <div class="drag-window" style="top: 2490px; left: 1960px; width: 480px; height: 210px;" id="win-terminal">
+          <div class="drag-window" style="top: 2320px; left: 2220px; width: 560px; height: 350px;" id="win-terminal">
               <div class="win-header">
                   <span>[10] TERMINAL_NODE // 0x0</span>
                   <div class="win-actions">
@@ -2020,7 +2006,7 @@ osc.stop(ctx.currentTime + 0.3);
                   </div>
                   <div class="border-t border-[var(--circuit)] pt-1 text-[9px] grid grid-cols-2 gap-1">
                       <a href="https://soundcloud.com/lao" target="_blank" class="hover:text-[var(--accent)]">SoundCloud ↗</a>
-                      <a href="https://lao00.bandcamp.com" target="_blank" class="hover:text-[var(--accent)]">Bandcamp ↗</a>
+                      <a href="https://laolaolao.bandcamp.com" target="_blank" class="hover:text-[var(--accent)]">Bandcamp ↗</a>
                       <a href="https://instagram.com/lao_lao_lao" target="_blank" class="hover:text-[var(--accent)]">Instagram ↗</a>
                       <a href="https://github.com/laurorobles" target="_blank" class="hover:text-[var(--accent)]">GitHub ↗</a>
                   </div>
@@ -2101,14 +2087,17 @@ osc.stop(ctx.currentTime + 0.3);
                   <!-- SCROLLABLE PRESS CARDS LIST -->
                   <div class="space-y-2.5 overflow-y-auto pr-1.5 flex-1" id="press-cards-list">
 
-                      <!-- DURO LABEL STUDIO VIDEO INTERVIEW EMBED (Visible in All & Interviews) -->
-                      <div class="press-card mb-2" data-categories="all interviews">
+                      <!-- THE LOT RADIO LIVE SESSION VIDEO EMBED (Visible in All & Sessions) -->
+                      <div class="press-card mb-2" data-categories="all sessions map">
                           <div class="flex justify-between items-center mb-1">
-                              <span class="font-bold text-[var(--accent)] text-[11px]">DURO Label (2026) — Studio Interview & Session (CDMX // Reciente)</span>
-                              <span class="inspector-badge text-[8.5px]">VIDEO OFICIAL</span>
+                              <span class="font-bold text-[var(--accent)] text-[12.5px]">The Lot Radio (NYC) — Live Broadcast Session (Brooklyn // Verificado)</span>
+                              <span class="inspector-badge text-[9px]">VIDEO OFICIAL</span>
                           </div>
                           <div class="press-video-wrap">
-                              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/g2qJ3r_4nJ4" title="DURO Label Studio Interview - Lao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" decoding="async"></iframe>
+                              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/Qe2Bcp0-OZc" title="The Lot Radio - Lao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" decoding="async"></iframe>
+                          </div>
+                          <div class="mt-1 flex justify-end">
+                              <a href="https://www.youtube.com/watch?v=Qe2Bcp0-OZc" target="_blank" class="text-[11px] text-[var(--main)] font-bold hover:underline">[ VER DIRECTO EN YOUTUBE ↗ ]</a>
                           </div>
                       </div>
 

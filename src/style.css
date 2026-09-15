@@ -80,7 +80,7 @@
 body {
   margin: 0; background-color: var(--bg); color: var(--main);
   font-family: 'Iosevka', monospace; overflow: hidden; user-select: none;
-  font-size: 0.84rem; /* Scaled up for optimal reading comfort */
+  font-size: 0.94rem; /* Crisp, easily readable size on high-DPI screens */
   line-height: 1.6;
   transition: background-color 0.35s ease, color 0.35s ease;
 }
@@ -89,42 +89,42 @@ body {
    TOP HUD
    ========================================================= */
 #top-hud {
-  position: fixed; top: 0; left: 0; width: 100vw; height: 40px;
+  position: fixed; top: 0; left: 0; width: 100vw; height: 42px;
   background: var(--header-bg); backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 12px; z-index: 9000; font-size: 0.74rem;
+  padding: 0 14px; z-index: 9000; font-size: 0.84rem;
 }
 [data-theme="day"] #top-hud { border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 
 .header-left {
-  display: flex; align-items: center; gap: 7px; font-weight: bold; letter-spacing: 1px;
-  color: var(--main);
+  display: flex; align-items: center; gap: 8px; font-weight: bold; letter-spacing: 1px;
+  color: var(--main); font-size: 0.86rem;
 }
 .header-status-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
   box-shadow: 0 0 6px var(--accent); animation: blink 1.8s infinite;
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 .header-center-themes {
-  display: flex; align-items: center; gap: 4px;
+  display: flex; align-items: center; gap: 5px;
 }
 .theme-selector-btn {
   background: transparent; border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--text-base); font-size: 9.5px; padding: 2.5px 6px; cursor: pointer;
-  font-family: 'Iosevka', monospace; transition: all 0.15s;
+  color: var(--text-base); font-size: 11px; padding: 3px 8px; cursor: pointer;
+  font-family: 'Iosevka', monospace; transition: all 0.15s; font-weight: bold;
 }
 [data-theme="day"] .theme-selector-btn { border-color: rgba(0, 0, 0, 0.2); }
 .theme-selector-btn:hover, .theme-selector-btn.theme-active {
-  border-color: var(--accent); color: var(--accent); background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent); color: var(--accent); background: rgba(255, 255, 255, 0.08);
 }
 
 .hud-action-btn {
   background: transparent; border: 1px solid var(--main); color: var(--main);
-  font-family: 'Iosevka', monospace; font-size: 0.72rem; font-weight: bold;
-  padding: 3px 8px; cursor: pointer; transition: all 0.15s ease;
-  display: flex; align-items: center; gap: 4px;
+  font-family: 'Iosevka', monospace; font-size: 0.82rem; font-weight: bold;
+  padding: 4px 10px; cursor: pointer; transition: all 0.15s ease;
+  display: flex; align-items: center; gap: 5px;
 }
 .hud-action-btn:hover {
   background: var(--main); color: var(--bg); box-shadow: 0 0 8px var(--main);
@@ -140,20 +140,20 @@ body {
    BOTTOM DOCK MENU (COMPACT FIT, NO SCROLLBAR)
    ========================================================= */
 #dock-menu {
-  position: fixed; bottom: 6px; left: 50%; transform: translateX(-50%);
+  position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 2.5px 3.5px; max-width: 98vw; width: max-content;
-  padding: 3px 6px; z-index: 8500;
+  flex-wrap: wrap; gap: 3px 5px; max-width: 98vw; width: max-content;
+  padding: 4px 8px; z-index: 8500;
   background: var(--header-bg); backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
 [data-theme="day"] #dock-menu { border-color: rgba(0, 0, 0, 0.15); box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
 
 .dock-item {
-  background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-base); font-family: 'Iosevka', monospace; font-size: 11.5px;
-  font-weight: bold; padding: 4px 7px; cursor: pointer; white-space: nowrap;
-  transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-base); font-family: 'Iosevka', monospace; font-size: 13px;
+  font-weight: bold; padding: 5px 9px; cursor: pointer; white-space: nowrap;
+  transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 5px;
 }
 [data-theme="day"] .dock-item { border-color: rgba(0, 0, 0, 0.15); }
 .dock-item:hover {
@@ -255,18 +255,18 @@ body {
 }
 
 .win-header {
-  padding: 7px 12px; background: var(--main); color: var(--bg);
+  padding: 8px 14px; background: var(--main); color: var(--bg);
   font-weight: bold; cursor: grab; display: flex; justify-content: space-between;
-  align-items: center; font-size: 0.84rem; flex-shrink: 0; letter-spacing: 0.6px;
+  align-items: center; font-size: 0.94rem; flex-shrink: 0; letter-spacing: 0.6px;
 }
 .win-header:active { cursor: grabbing; }
 .win-actions { display: flex; align-items: center; gap: 8px; }
-.win-btn { cursor: pointer; transition: opacity 0.15s; font-size: 0.86rem; font-weight: bold; }
+.win-btn { cursor: pointer; transition: opacity 0.15s; font-size: 0.92rem; font-weight: bold; }
 .win-btn:hover { opacity: 0.65; }
 
 .win-body {
-  padding: 14px 16px; color: var(--text-base); flex: 1; overflow-y: auto; display: flex; flex-direction: column;
-  font-size: 12.5px; line-height: 1.6;
+  padding: 16px 18px; color: var(--text-base); flex: 1; overflow-y: auto; display: flex; flex-direction: column;
+  font-size: 14px; line-height: 1.6;
 }
 .win-body::-webkit-scrollbar { width: 4px; }
 .win-body::-webkit-scrollbar-thumb { background: var(--main); }
@@ -275,14 +275,14 @@ body {
    MUSIC ICON GRID (DESKTOP ICON METAPHOR)
    ========================================================= */
 .music-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px;
-  padding: 6px 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px;
+  padding: 8px 0;
 }
 .music-card {
   border: 1px solid var(--circuit); background: rgba(0, 0, 0, 0.2);
-  padding: 6px 5px; display: flex; flex-direction: column; align-items: center;
+  padding: 8px 6px; display: flex; flex-direction: column; align-items: center;
   text-align: center; cursor: pointer; transition: all 0.15s ease;
-  position: relative; overflow: hidden; min-height: 162px;
+  position: relative; overflow: hidden; min-height: 180px;
 }
 [data-theme="day"] .music-card { background: rgba(0, 0, 0, 0.03); }
 .music-card:hover {
@@ -293,24 +293,24 @@ body {
   border-color: var(--main); box-shadow: 0 0 10px var(--main);
 }
 .music-card-thumb {
-  width: 64px; height: 64px; object-fit: cover; border: 1px solid var(--circuit);
-  margin-bottom: 4px; flex-shrink: 0;
+  width: 72px; height: 72px; object-fit: cover; border: 1px solid var(--circuit);
+  margin-bottom: 5px; flex-shrink: 0;
 }
 .music-card-title {
-  font-weight: bold; font-size: 9px; line-height: 1.2; max-width: 100%;
+  font-weight: bold; font-size: 12px; line-height: 1.25; max-width: 100%;
   overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 .music-card-meta {
-  font-size: 8px; opacity: 0.6; margin-top: 2px;
+  font-size: 10.5px; opacity: 0.75; margin-top: 3px; font-weight: bold;
 }
 .music-card-desc {
-  font-size: 7.5px; opacity: 0.75; margin-top: 2px; line-height: 1.2;
+  font-size: 10px; opacity: 0.8; margin-top: 3px; line-height: 1.3;
 }
 .music-card-actions {
-  display: flex; gap: 3px; margin-top: auto; width: 100%; padding-top: 4px;
+  display: flex; gap: 4px; margin-top: auto; width: 100%; padding-top: 6px;
 }
 .btn-card-act {
-  flex: 1; padding: 2px 3px; font-size: 8px; font-weight: bold;
+  flex: 1; padding: 3px 4px; font-size: 10.5px; font-weight: bold;
   border: 1px solid var(--circuit); background: transparent; color: var(--main);
   transition: all 0.15s;
 }
@@ -597,17 +597,17 @@ body {
    TERMINAL & LIVECODE WEB AUDIO SAFE MODE
    ========================================================= */
 #terminal-output {
-  font-size: 11px; line-height: 1.5; flex: 1; min-height: 100px; max-height: 125px; overflow-y: auto;
+  font-size: 13.5px; line-height: 1.55; flex: 1; min-height: 140px; overflow-y: auto;
   font-family: 'Iosevka', monospace;
 }
-.terminal-line { margin-bottom: 3.5px; word-break: break-word; }
+.terminal-line { margin-bottom: 4px; word-break: break-word; }
 #terminal-input-container {
-  display: flex; align-items: center; gap: 6px; padding-top: 4px;
+  display: flex; align-items: center; gap: 8px; padding-top: 6px;
   border-top: 1px dashed var(--circuit);
 }
 #terminal-input {
   background: transparent; border: none; outline: none; color: var(--main);
-  font-family: 'Iosevka', monospace; font-size: 11.5px; width: 100%;
+  font-family: 'Iosevka', monospace; font-size: 14px; width: 100%;
 }
 #livecode-editor {
   display: none; /* Never run by default; invoked strictly via terminal */
@@ -1001,6 +1001,23 @@ body {
 .leaflet-container {
   background: #0b0c14 !important;
   font-family: 'Iosevka', monospace !important;
+  outline: none;
+}
+
+/* Open Source GeoJSON Landmass Vector Styling */
+.cyber-geojson-country {
+  fill: #121526;
+  fill-opacity: 0.96;
+  stroke: #1e2844;
+  stroke-width: 0.8px;
+  stroke-opacity: 0.85;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+  cursor: grab;
+}
+.cyber-geojson-country:hover {
+  fill: #1a233c;
+  stroke: var(--accent);
+  stroke-width: 1.2px;
 }
 
 .leaflet-bar a {
@@ -1015,14 +1032,7 @@ body {
 }
 
 .leaflet-control-attribution {
-  background: rgba(11, 12, 20, 0.85) !important;
-  color: rgba(255, 255, 255, 0.4) !important;
-  font-size: 8.5px !important;
-  border-top: 1px solid var(--circuit);
-}
-.leaflet-control-attribution a {
-  color: var(--accent) !important;
-  text-decoration: none;
+  display: none !important;
 }
 
 /* Custom Cyber Markers */
