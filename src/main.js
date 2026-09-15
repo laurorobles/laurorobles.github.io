@@ -224,15 +224,42 @@ document.addEventListener('DOMContentLoaded', () => {
         printTerminal('[KERNEL] LAO_OS v8.9 initialized. Motherboard standing by.');
 
         // Randomize all window positions EXCEPT terminal
+        let windowPositions = [{x: 2600, y: 2350, w: 460, h: 350}]; // Block terminal area
         document.querySelectorAll('.drag-window').forEach(win => {
             const currentWidth = parseInt(win.style.width) || 400;
             const currentHeight = parseInt(win.style.height) || 400;
+            
             if (win.id !== 'win-terminal') {
-                // Increase window size slightly per user request
                 win.style.width = `${currentWidth * 1.25}px`;
                 win.style.height = `${currentHeight * 1.25}px`;
-                // Keep the HTML's inline top/left positions instead of scattering them randomly
-                // so they are predictably placed near the center of the world canvas.
+                
+                let placed = false;
+                let attempts = 0;
+                let rx, ry;
+                while (!placed && attempts < 50) {
+                    rx = Math.floor(Math.random() * 3800) + 600; // 600 to 4400
+                    ry = Math.floor(Math.random() * 3800) + 600;
+                    
+                    let collision = false;
+                    for (const pos of windowPositions) {
+                        // Rough collision radius
+                        if (Math.abs(pos.x - rx) < 550 && Math.abs(pos.y - ry) < 500) {
+                            collision = true;
+                            break;
+                        }
+                    }
+                    if (!collision) placed = true;
+                    attempts++;
+                }
+                
+                if (!placed) {
+                    rx = Math.floor(Math.random() * 3800) + 600;
+                    ry = Math.floor(Math.random() * 3800) + 600;
+                }
+                
+                windowPositions.push({x: rx, y: ry, w: currentWidth * 1.25, h: currentHeight * 1.25});
+                win.style.left = `${rx}px`;
+                win.style.top = `${ry}px`;
             } else {
                 // Terminal stays compact so it fits on screen when placed right of center
                 win.style.width = `460px`;
@@ -1398,7 +1425,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Cerámica Sónica & Electrónica Prehispánica",
             type: "LIVE PERFORMANCE",
             year: "2020",
-            cover: "/images/covers/perfil.jpg",
+            cover: "/images/covers/anahuacalli.jpg",
             desc: "Presentación especial en el Museo Anahuacalli para la Noche de Museos, explorando resonadores de barro, instrumentos mesoamericanos y síntesis algorítmica en vivo.",
             details: ["Lugar: Museo Anahuacalli, CDMX", "Fecha: Enero 2020", "Formato: Live Act Electroacústico"],
             streamType: "soundcloud",
@@ -1412,7 +1439,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Red Bull Music Academy & Sangre",
             type: "SHOWCASE & INSTALACIÓN",
             year: "2016",
-            cover: "/images/covers/perfil.jpg",
+            cover: "/images/covers/basel.png",
             desc: "Extenso showcase '12 Hours of NAAFI' en el marco de Art Basel Miami 2016. Presentado por Red Bull Music Academy en colaboración con el dúo de arte Sangre. Un hito en la internacionalización de la periferia club global.",
             details: ["Evento: Art Basel Miami Beach", "Colaboradores: Sangre (Dúo de Arte) & RBMA", "Participación: Lao & Colectivo NAAFI"],
             streamType: "soundcloud",
@@ -1426,7 +1453,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "UNIT Daikanyama — Residencia Artística Internacional",
             type: "RESIDENCIA & LIVE PERFORMANCE",
             year: "2014",
-            cover: "/images/covers/catedral.jpg",
+            cover: "/images/covers/rbma_tokyo.jpg",
             desc: "Participante seleccionado (Term 1) en Tokio, Japón. Laboratorios de producción musical en estudios Red Bull, grabaciones en cinta y show histórico en UNIT (Daikanyama) compartiendo escenario con Mala & Coki (Digital Mystikz).",
             details: [
                 "Sede: Tokio, Japón (2014)",
@@ -1437,6 +1464,7 @@ document.addEventListener('DOMContentLoaded', () => {
             streamPayload: "3879686254",
             links: { bc: "https://naafi.bandcamp.com", sc: "https://soundcloud.com/lao" }
         },
+
         "art-estado-ccd": {
             id: "art-estado-ccd",
             title: "ESTADO: Música Electrónica, Baile y Dislocaciones (2012)",
@@ -3784,6 +3812,68 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
     });
 
     const WORLD_TOUR_CITIES = [
+        // --- 🚍 GIRAS / TOURS ---
+        {
+            id: 'naafi_sd',
+            name: 'San Diego (NAAFI Tour)',
+            country: 'USA',
+            region: 'giras',
+            lat: 32.7157,
+            lon: -117.1611,
+            years: 'SEP 2014',
+            venue: 'The Bancroft',
+            dossier: 'NAAFI USA Tour. Gira fundacional de club periférico junto a Paul Marmota y Mexican Jihad.',
+            image: '/images/covers/naafi_2014.webp'
+        },
+        {
+            id: 'naafi_la',
+            name: 'Los Angeles (NAAFI Tour)',
+            country: 'USA',
+            region: 'giras',
+            lat: 34.0522,
+            lon: -118.2437,
+            years: 'SEP 2014',
+            venue: 'La Cita / 356 Mission',
+            dossier: 'Fechas dobles en Mustache Mondays (La Cita) y 356 Mission.',
+            image: '/images/covers/naafi_2014.webp'
+        },
+        {
+            id: 'naafi_fresno',
+            name: 'Fresno (NAAFI Tour)',
+            country: 'USA',
+            region: 'giras',
+            lat: 36.7378,
+            lon: -119.7871,
+            years: 'SEP 2014',
+            venue: 'Smokescreen (Secret Location)',
+            dossier: 'Showcase clandestino.',
+            image: '/images/covers/naafi_2014.webp'
+        },
+        {
+            id: 'naafi_sf',
+            name: 'San Francisco (NAAFI Tour)',
+            country: 'USA',
+            region: 'giras',
+            lat: 37.7749,
+            lon: -122.4194,
+            years: 'SEP 2014',
+            venue: 'Elbo Room (Tormenta Tropical)',
+            dossier: 'Debut en la bahía incursionando en la escena de Tormenta Tropical.',
+            image: '/images/covers/naafi_2014.webp'
+        },
+        {
+            id: 'naafi_portland',
+            name: 'Portland (NAAFI Tour)',
+            country: 'USA',
+            region: 'giras',
+            lat: 45.5152,
+            lon: -122.6784,
+            years: 'SEP 2014',
+            venue: 'Holocene / 23 NW 3rd Ave',
+            dossier: 'Cierre de gira con doble show: Club Chemtrail y Black Book Fridays.',
+            image: '/images/covers/naafi_2014.webp'
+        },
+
         // --- 🇲🇽 MÉXICO (NÚCLEO & NACIONAL) ---
         {
             id: 'cdmx',
@@ -4551,7 +4641,8 @@ Ideas that make themselves real. The Numogram is the chronotechnical diagram of 
         const selectCity = (city, fly = false) => {
             if (hudCity) hudCity.textContent = `// ${city.name.toUpperCase()}, ${city.country.toUpperCase()} [${city.years}]`;
             if (hudCoords) hudCoords.textContent = `[ LAT ${city.lat.toFixed(2)}°, LON ${city.lon.toFixed(2)}° ]`;
-            if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> <span class="text-[var(--accent)] font-bold">${city.venue}</span><br><span class="opacity-90">${city.dossier}</span>`;
+            let extraImage = city.image ? `<img src="${city.image}" class="w-full mt-2 border border-[var(--circuit)] rounded-sm" style="max-height: 120px; object-fit: contain; background: black; padding: 4px;" />` : '';
+            if (hudDetails) hudDetails.innerHTML = `<strong>FORO / FESTIVAL:</strong> <span class="text-[var(--accent)] font-bold">${city.venue}</span><br><span class="opacity-90">${city.dossier}</span>${extraImage}`;
 
             // Highlight city chip
             document.querySelectorAll('.radar-city-chip').forEach(ch => {

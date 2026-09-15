@@ -203,8 +203,8 @@ body {
   margin-top: 6px; pointer-events: none;
 }
 
-/* DYNAMIC CABLES (Z-INDEX 10: BEHIND LOGO AND WINDOWS) */
-#dynamic-cables { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+/* DYNAMIC CABLES (Z-INDEX 1: BEHIND LOGO AND WINDOWS) */
+#dynamic-cables { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
 .dyn-cable { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 4, 4; opacity: 0.55; }
 .via { fill: var(--bg); stroke: var(--main); stroke-width: 2; }
 
@@ -231,7 +231,7 @@ body {
 .drag-window {
   position: absolute; width: 380px; min-width: 280px; min-height: 190px;
   background: var(--card-bg); border: 1.5px solid var(--main);
-  box-shadow: 6px 6px 0 rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.6);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   resize: both; overflow: hidden; display: none; flex-direction: column; z-index: 8700;
 }
@@ -741,7 +741,7 @@ body {
   border-color: var(--main); box-shadow: 0 0 12px var(--main);
 }
 .video-thumb-wrap {
-  position: relative; width: 150px; flex-shrink: 0; aspect-ratio: 16/9; overflow: hidden;
+  position: relative; width: 180px; flex-shrink: 0; aspect-ratio: 16/9; overflow: hidden;
   background: #000; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0;
 }
 .video-thumb-img {
@@ -1121,3 +1121,43 @@ body {
   margin-bottom: 0px; padding-bottom: 4px; z-index: 9100;
 }
 .dock-group:hover .dock-group-content { display: flex; }
+
+
+/* MOBILE UX OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .drag-window {
+    width: 96vw !important;
+    height: 75vh !important;
+    left: 2vw !important;
+    top: 5vh !important;
+    min-width: 0 !important;
+    resize: none !important;
+  }
+  
+  #omni-player {
+    width: 90%;
+    right: 5%;
+    bottom: 80px; /* Leave space for dock */
+  }
+  
+  #main-dock {
+    width: 98%;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 4px;
+  }
+  
+  .dock-item {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  
+  .win-header {
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  .win-body {
+    font-size: 14px !important;
+  }
+}
