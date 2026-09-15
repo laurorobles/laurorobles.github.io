@@ -1908,7 +1908,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Pedagogía & Sample Pack — Lauro Robles",
             type: "SAMPLE PACK / LOOPS",
             year: "2023",
-            cover: "/images/covers/chapultepec.jpg",
+            cover: "/images/covers/gumroad_thumb_1.jpg",
             desc: "Librería fundacional de loops rítmicos grabados y producidos por Lao en su estudio de Chapultepec. Incluye tribal deconstruido, dembow mutante, raptor house y percusiones territoriales a 130-135 BPM, procesadas con compresión analógica y ecualización de válvulas para máxima pegada.",
             details: [
                 "Formato: WAV 24-Bit / 44.1kHz sin pérdidas",
@@ -1927,7 +1927,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Polyrhythmic Loops & Ceremonial Drums",
             type: "SAMPLE PACK / POLIRRITMIA",
             year: "2024",
-            cover: "/images/covers/sendero.jpg",
+            cover: "/images/covers/gumroad_thumb_2.jpg",
             desc: "Segunda entrega avanzada enfocada en polirritmias asimétricas, síncopas ceremoniales y patrones de percusión grabados con instrumentos acústicos y procesados con crunch SP-1200 y moduladores de anillo.",
             details: [
                 "Formato: WAV 24-Bit / 48kHz",
@@ -1945,7 +1945,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Ableton Live 11 / 12 Suite Template Project",
             type: "ABLETON TEMPLATE",
             year: "2024",
-            cover: "/images/covers/protective_core.jpg",
+            cover: "/images/covers/gumroad_thumb_3.jpg",
             desc: "Plantilla maestra de producción de Jungle a 160 BPM en Ableton Live. Configurada con cadenas de slicing de audio no-destructivo para el Amen Break, ruteo multicanal para sub-bajos 808 afinados, envíos de delay de cinta y compresión paralela NY lista para lanzar pistas de alta fidelidad.",
             details: [
                 "Compatibilidad: Ableton Live 11.1+ y Live 12 Suite",
@@ -1963,7 +1963,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Organic Percussion & Industrial Transients",
             type: "SAMPLE PACK / ONE-SHOTS",
             year: "2023",
-            cover: "/images/covers/guacamaya.jpg",
+            cover: "/images/covers/gumroad_thumb_4.jpg",
             desc: "Colección curada de más de 120 samples one-shot grabados en campo: maderas percutidas, metales cortantes, kicks pesados y shakers tradicionales del sureste mexicano procesados para corte en mezclas saturadas.",
             details: [
                 "120+ One-shot samples (Kicks, Snares, Claps, Percs, Texturas)",
@@ -1980,7 +1980,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "30 Presets + Custom Wavetables for Xfer Serum",
             type: "SYNTH PRESET PACK",
             year: "2024",
-            cover: "/images/covers/coastal_acid.jpg",
+            cover: "/images/covers/gumroad_thumb_5.jpg",
             desc: "30 presets para Xfer Serum diseñados específicamente para sonar en sistemas de sonido de clubbing. Bajos FM agresivos, modulaciones LFO complejas, sub-graves de onda senoidal reforzada y parches de distorsión controlada.",
             details: [
                 "30 parches de bajo y leads para Xfer Serum (v1.368+)",
