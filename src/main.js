@@ -1219,7 +1219,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Transmisión en vivo desde Ciudad de México",
             type: "LIVE CLUB SET",
             year: "2026",
-            cover: "/images/covers/chapultepec.jpg",
+            cover: "/images/covers/coastal_acid.jpg",
             desc: "Sesión de club en vivo grabada en mayo 2026 en Drama Radio Bar (CDMX). Selección exclusiva de dubplates inéditos, edits 2026 y bass music territorial.",
             details: ["Duración: 60 min", "Grabado en vivo en CDMX", "Plataforma: SoundCloud & Radio Broadcast"],
             streamType: "soundcloud",
@@ -1232,7 +1232,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Japan Club CDMX — 2026",
             type: "LIVE BROADCAST",
             year: "2026",
-            cover: "/images/covers/coastal_acid.jpg",
+            cover: "/images/covers/mix_japan.jpg",
             desc: "Set de club grabado en Japan Club CDMX en 2026. Mezcla hipnótica de acid latino y breakbeats.",
             details: ["Japan Club (CDMX)", "Serie: JAPAN CLUB #0131", "Plataforma: YouTube"],
             streamType: "youtube",
@@ -1245,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "Boiler Room China — Asian Tour",
             type: "BOILER ROOM SET",
             year: "2018",
-            cover: "/images/covers/perfil.jpg",
+            cover: "/images/covers/mix_shenzhen.jpg",
             desc: "Presentación histórica en el OIL Club de Shenzhen durante la gira por China. Una de las sesiones de club latino más intensas emitidas por Boiler Room.",
             details: ["Lugar: OIL Club, Shenzhen, China", "Evento RA: 1270626", "Plataforma: Boiler Room / YouTube"],
             streamType: "youtube",
@@ -1271,7 +1271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "NAAFI Showcase — Transmisión Legendaria",
             type: "BOILER ROOM SET",
             year: "2015",
-            cover: "/images/covers/catedral.jpg",
+            cover: "/images/covers/mix_cdmx.jpg",
             desc: "La primera transmisión masiva de Boiler Room en Ciudad de México que consagró internacionalmente al colectivo NAAFI y el sonido de Lao.",
             details: ["Ciudad de México", "Showcase: NAAFI Takeover", "Visualización en streaming mundial"],
             streamType: "youtube",
@@ -1297,7 +1297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "SoundCloud Special Release — 2026",
             type: "BOOTLEG / CLUB EDIT",
             year: "2026",
-            cover: "/images/covers/sendero.jpg",
+            cover: "/images/covers/yeyojungle.png",
             desc: "Bootleg de jungle y perreo visceral publicado en 2026 en el SoundCloud oficial de LAO.",
             details: ["Plataforma: SoundCloud Oficial", "BPM: 160 BPM", "Descarga habilitada para DJs"],
             streamType: "soundcloud",
@@ -1310,7 +1310,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "i-D UK / Global — Bass & Club latino",
             type: "EXCLUSIVA DE PRENSA",
             year: "2016",
-            cover: "/images/covers/perfil.jpg",
+            cover: "/images/covers/mix_id.jpg",
             desc: "Mezcla exclusiva para la prestigiosa revista británica i-D Magazine, documentando la vanguardia electrónica latinoamericana.",
             details: ["Londres, Reino Unido", "Plataforma: i-D / SoundCloud"],
             streamType: "soundcloud",
@@ -2070,6 +2070,26 @@ document.addEventListener('DOMContentLoaded', () => {
         /* =========================================================
            PRESS ARCHIVE & INTERVIEWS
            ========================================================= */
+                "press-forbes": {
+            id: "press-forbes",
+            title: "N.A.A.F.I: La fiesta periférica infinita",
+            subtitle: "Forbes México",
+            type: "ARTÍCULO DE PRENSA",
+            year: "2016",
+            cover: "/images/covers/perfil.jpg",
+            desc: "Reportaje especial en Forbes México sobre el crecimiento y modelo autogestivo del colectivo NAAFI. Analizan cómo transformaron la periferia musical de la Ciudad de México en un movimiento global de club.",
+            details: [
+                "Publicación: Forbes México",
+                "Fecha: 2016",
+                "Temas: Modelo de negocio, música independiente, globalización cultural"
+            ],
+            streamType: null,
+            streamPayload: null,
+            links: {
+                web: "https://forbes.com.mx/n-a-a-f-i-la-fiesta-periferia-infinita/"
+            }
+        },
+
         "press-duro-2022": {
             id: "press-duro-2022",
             title: "DURO Label: En el Estudio con Lauro Robles",
