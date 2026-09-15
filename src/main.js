@@ -2745,7 +2745,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const bcParam = isTrack ? `track=${item.streamPayload}` : `album=${item.streamPayload}`;
                     playerIframe.src = `https://bandcamp.com/EmbeddedPlayer/${bcParam}/size=large/bgcol=070012/linkcol=00ffff/tracklist=false/artwork=small/transparent=true/`;
                 } else if (item.streamType === 'youtube') {
-                    playerIframe.src = `https://www.youtube-nocookie.com/embed/${item.streamPayload}?autoplay=1&enablejsapi=1`;
+                    playerIframe.src = `https://www.youtube-nocookie.com/embed/${item.streamPayload}${item.streamPayload.includes("?") ? "&" : "?"}autoplay=1&enablejsapi=1`;
                 } else {
                     const encodedUrl = encodeURIComponent(item.streamPayload || 'https://soundcloud.com/lao');
                     playerIframe.src = `https://w.soundcloud.com/player/?url=${encodedUrl}&color=%2300ffff&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`;
@@ -2925,7 +2925,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const badgeTag = card.querySelector('.video-badge-tag');
 
         if (videoHeroIframe) {
-            videoHeroIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=${autoPlay ? 1 : 0}`;
+            videoHeroIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}${ytId.includes("?") ? "&" : "?"}autoplay=${autoPlay ? 1 : 0}`;
         }
         if (videoHeroTitle) videoHeroTitle.innerText = ytTitle || 'Boiler Room';
         if (videoHeroBadge && badgeTag) videoHeroBadge.innerText = badgeTag.innerText;
@@ -2984,7 +2984,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ytId = card.getAttribute('data-yt-id');
             const title = card.getAttribute('data-yt-title');
             if (pedYtIframe && ytId) {
-                pedYtIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1`;
+                pedYtIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}${ytId.includes("?") ? "&" : "?"}autoplay=1`;
             }
             if (pedYtTitle && title) {
                 pedYtTitle.innerText = title;
