@@ -2908,6 +2908,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    
+    // Start player minimized
+    if (playerContent) {
+        playerContent.style.display = 'none';
+        if (btnMinimizePlayer) btnMinimizePlayer.innerText = '+';
+    }
+
     // Initialize playback queue on load (filtered strictly to music tracks)
     initPlaybackQueue();
 
