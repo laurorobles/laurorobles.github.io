@@ -1700,7 +1700,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Uso clave en sets de cierre y giras internacionales"
             ],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/hasta-que-te-conoci-lao-bootleg",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-escuadron-ritmo": {
@@ -1713,12 +1713,12 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Herramienta rítmica de club de alta energía. Patrones polirrítmicos acelerados cruzando tambores tribales, kicks percusivos y modulación de bajos analógicos.",
             details: ["Plataforma: SoundCloud", "Velocidad: 134 BPM", "Mezcla & Producción: Lauro Robles"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/escuadron-del-ritmo-lao-club-tool",
+            streamPayload: "https://soundcloud.com/lao/escuadron-del-ritmo",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-tejido-tropico": {
             id: "sc-tejido-tropico",
-            title: "Tejido Trópico (Lao Edit)",
+            title: "Tejido Trópico",
             subtitle: "Deconstructed Tribal & Coastal Clubbing",
             type: "SOUNDCLOUD SINGLE",
             year: "2025",
@@ -1726,7 +1726,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Exploración de tambores sincopados y ambientes selváticos con procesamiento no-lineal. Conexión entre la tradición costera y el sound-system experimental.",
             details: ["Plataforma: SoundCloud", "BPM: 130 BPM", "Percusión prehispánica procesada"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/tejido-tropico-lao-edit",
+            streamPayload: "https://soundcloud.com/lao/tejido-tropico",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-wave-mambo": {
@@ -1739,7 +1739,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Reinvención del mambo clásico acelerado con líneas ácidas de bajo, percusiones secas y cajas de ritmo procesadas en hardware SP-1200.",
             details: ["Plataforma: SoundCloud Oficial", "Estudio: Chapultepec, CDMX"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/wave-mambo-lao-fix",
+            streamPayload: "https://soundcloud.com/lao/100-wave-mambo-v1",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-ventura": {
@@ -1752,7 +1752,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Versión dub de atmósfera crepuscular y graves profundos. Procesamiento a través de Space Echo analógico y cajas de resortes.",
             details: ["Plataforma: SoundCloud", "BPM: 128 BPM", "Hardware: Roland RE-201 Space Echo"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/ventura-lao-dub",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-yeyojungle": {
@@ -1765,7 +1765,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Bootleg incendiario que acelera cortes de reggaetón clásico hasta 160 BPM sobre capas cortadas del legendario Amen Break y sub-bajos 808 masivos.",
             details: ["BPM: 160 BPM", "Amen break slicing & Reese bass", "Plataforma: SoundCloud (@lao)"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/yeyojungle-2026-bootleg",
+            streamPayload: "https://soundcloud.com/lao/yeyojungle-lao-bootleg",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-bipp-lao": {
@@ -1778,7 +1778,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Homenaje personal a la visionaria productora SOPHIE. Una deconstrucción de BIPP armada con síncopas de guaracha tribal, micro-samples metálicos y graves viscerales.",
             details: ["Homenaje oficial en sets internacionales", "Plataforma: SoundCloud Pirata"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/sophie-bipp-lao-pirata-edit",
+            streamPayload: "https://soundcloud.com/lao/sophie-bipp-lao-bootleg",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-haddaway": {
@@ -1791,7 +1791,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Reinvención corrosiva del himno eurodance de Haddaway, destrozado en fragmentos de kick distorsionado, transitorios secos y bass drops implacables.",
             details: ["Plataforma: SoundCloud", "BPM: 135 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/haddaway-what-is-love-lao-edit",
+            streamPayload: "https://soundcloud.com/lao/haddaway-what-is-love-lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-belinda": {
@@ -1804,7 +1804,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Remix seminal que cimentó las bases del sonido NAAFI en sus primeros años. Sampleo pop mutado en un arma letal de clubbing latino y baile acelerado.",
             details: ["Sello: NAAFI Pirata", "Un clásico histórico del clubbing mexicano"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/belinda-jackpot-lao-remix",
+            streamPayload: "https://soundcloud.com/lao/belinda-ft-kenia-os-jackpot",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-culebritica": {
@@ -1817,7 +1817,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Cruce implacable entre patrones rítmicos sincopados de güiro y sintetizadores de sierra industrial, calibrado para hacer vibrar sistemas de sonido de festival.",
             details: ["Plataforma: SoundCloud", "BPM: 132 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/culebritica-lao-tool",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-clandestino": {
@@ -1830,7 +1830,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Versión clandestina acelerada a ritmo de jungle con amen breaks saturados, vocales picadas en stutter y líneas de 808 afinadas.",
             details: ["Plataforma: SoundCloud", "BPM: 162 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/clandestino-jungle-fix",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-vordhosbn": {
@@ -1843,7 +1843,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "La colisión más improbable y celebrada: la micro-edición de breakbeat de Richard D. James re-orquestada con las síncopas de güiro y campana del sonidero mexicano.",
             details: ["Plataforma: SoundCloud", "Presentado en RBMA y Boiler Room"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/vordhosbn-aphex-twin-lao-fix",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-flute-gasp": {
@@ -1856,7 +1856,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Edición de culto para el tema de NA (Nguzunguzu / Fade to Mind), agregando presión en sub-frecuencias y cadencias de baile territorial.",
             details: ["Plataforma: SoundCloud", "BPM: 130 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/flute-gasp-lao-edit",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-pirata-vol1": {
@@ -1869,7 +1869,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Selección de los tracks y edits más emblemáticos producidos por Lao para la legendaria serie NAAFI Pirata, prensada originalmente en vinilos y casetes limitados.",
             details: ["Serie de culto: NAAFI Pirata", "Sello: NAAFI White Label"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/naafi-pirata-highlights",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-fiebre-latina": {
@@ -1882,7 +1882,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Dembow oscuro e industrial con percusiones distorsionadas y atmósfera claustrofóbica creada para pistas de warehouse.",
             details: ["Plataforma: SoundCloud", "BPM: 110 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/fiebre-latina-lao-edit",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
         "sc-trono-hierro": {
@@ -1895,7 +1895,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Herramienta de percusión visceral con metales procesados, resonadores de placas y sub-bajos continuos.",
             details: ["Plataforma: SoundCloud", "BPM: 133 BPM"],
             streamType: "soundcloud",
-            streamPayload: "https://soundcloud.com/lao/trono-de-hierro-lao-tool",
+            streamPayload: "https://soundcloud.com/lao",
             links: { sc: "https://soundcloud.com/lao" }
         },
 
