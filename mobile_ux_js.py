@@ -29,7 +29,7 @@ mobile_js = """
 
     // Sync player state for mobile responsive resizing
     function syncPlayerState() {
-        const playerWin = document.getElementById('win-player');
+        const playerWin = document.getElementById('omni-player');
         if (playerWin && playerWin.style.display !== 'none') {
             document.body.classList.add('player-active');
         } else {
@@ -40,8 +40,8 @@ mobile_js = """
     // Initial sync
     syncPlayerState();
 
-    // Hook into MutationObserver to watch win-player display changes
-    const playerWinObj = document.getElementById('win-player');
+    // Hook into MutationObserver to watch omni-player display changes
+    const playerWinObj = document.getElementById('omni-player');
     if (playerWinObj) {
         const playerObserver = new MutationObserver(() => {
             syncPlayerState();
@@ -51,13 +51,10 @@ mobile_js = """
 """
 
 if 'MOBILE UX LOGIC' not in js:
-    # insert before window.addEventListener('resize'
-    # or just at the end of the DOMContentLoaded block
-    # Let's insert it before the close button event listeners
     pattern = r'(document\.querySelectorAll\(\'\.win-btn\.close-btn\'\))'
     js = re.sub(pattern, mobile_js + r'\n    \1', js)
 
 with open('src/main.js', 'w', encoding='utf-8') as f:
     f.write(js)
 
-print("JS updated.")
+print("JS mobile UX restored and updated for omni-player!")
