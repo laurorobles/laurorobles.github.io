@@ -230,6 +230,7 @@ body {
    ========================================================= */
 .drag-window {
   position: absolute; width: 380px; min-width: 280px; min-height: 190px;
+  max-width: 95vw; max-height: 85vh;
   background: var(--card-bg); border: 1.5px solid var(--main);
   box-shadow: 6px 6px 0 rgba(0,0,0,0.6);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -741,7 +742,7 @@ body {
   border-color: var(--main); box-shadow: 0 0 12px var(--main);
 }
 .video-thumb-wrap {
-  position: relative; width: 180px; flex-shrink: 0; aspect-ratio: 16/9; overflow: hidden;
+  position: relative; width: 240px; flex-shrink: 0; aspect-ratio: 16/9; overflow: hidden;
   background: #000; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0;
 }
 .video-thumb-img {
