@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="grad_soph" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </radialGradient>
+    <pattern id="grid_soph" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="600" fill="url(#grad_soph)" />
+  <rect width="600" height="600" fill="url(#grid_soph)" />
+  
+  <circle cx="300" cy="270" r="140" fill="none" stroke="#ec4899" stroke-width="1.5" opacity="0.2" />
+  <circle cx="300" cy="270" r="100" fill="none" stroke="#ec4899" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+  <circle cx="300" cy="270" r="4" fill="#ec4899" opacity="0.8" />
+
+  <text x="40" y="55" font-family="'JetBrains Mono', monospace" font-size="12" fill="#ec4899" font-weight="bold" letter-spacing="2">// SOUNDCLOUD ARCHIVE</text>
+  <text x="560" y="55" font-family="'JetBrains Mono', monospace" font-size="12" fill="rgba(255,255,255,0.4)" text-anchor="end">2026</text>
+
+  <text x="300" y="440" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">BIPP</text>
+  <text x="300" y="475" font-family="'JetBrains Mono', monospace" font-size="13" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1">SOPHIE (LAO BOOTLEG)</text>
+  
+  <line x1="40" y1="520" x2="560" y2="520" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+  <text x="40" y="550" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.3)">LAURO ROBLES / LAO</text>
+  <text x="560" y="550" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.3)" text-anchor="end">SOUNDCLOUD</text>
+</svg>
