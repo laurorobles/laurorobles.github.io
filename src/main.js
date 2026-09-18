@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Auto-open ONLY the terminal window upon booting (no auto-pan)
-        openWindow('win-terminal', false);
+        
         
         // Pan directly to the exact center (Extasis Logo)
         setTimeout(() => {
